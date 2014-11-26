@@ -11,6 +11,7 @@ int lastFileRead;
 
 int puerto;
 String ip;
+//String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/F4","/csv/F8"};
 String[] direccionOsc = {"/csv/AF3","/csv/F7","/csv/F3","/csv/FC5","/csv/T7","/csv/P7","/csv/O1","/csv/O2","/csv/P8","/csv/T8","/csv/FC6","/csv/F4","/csv/F8","/csv/AF4"};
 
 void setup() {
@@ -23,7 +24,7 @@ void setup() {
   direccionRemota = new NetAddress(ip, puerto);
   
   try {
-    mBr = new BufferedReader(new FileReader(dataPath("Eliazabeth-04-18.11.2014.14.23.45.csv")));
+    mBr = new BufferedReader(new FileReader(dataPath("gibran-02-18.11.2014.10.44.42mod.csv")));
     mBr.readLine();
   }
   catch(Exception e) {}
@@ -38,7 +39,7 @@ void draw() {
       String line = mBr.readLine();
       if (line == null) {
         mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("Eliazabeth-04-18.11.2014.14.23.45.csv")));
+        mBr = new BufferedReader(new FileReader(dataPath("gibran-02-18.11.2014.10.44.42mod.csv")));
         mBr.readLine();
       }
  
