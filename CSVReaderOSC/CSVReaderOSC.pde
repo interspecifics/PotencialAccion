@@ -8,10 +8,19 @@ NetAddress direccionRemota;
 
 BufferedReader mBr;
 int lastFileRead;
+
+int puerto;
+String ip;
  
 void setup() {
   size(500, 300);
   background(200);
+ 
+  ip = "127.0.0.1"; //localhost
+  puerto = 11112;
+  oscP5 = new OscP5(this, puerto);
+  direccionRemota = new NetAddress(ip, puerto);
+  
   try {
     mBr = new BufferedReader(new FileReader(dataPath("Eliazabeth-04-18.11.2014.14.23.45.csv")));
     mBr.readLine();
@@ -44,5 +53,29 @@ void draw() {
     catch(Exception e) {}
  
     lastFileRead = millis();
+  
+  // lista de mesajes por electrodos
+  OscMessage mensaje1 = new OscMessage("/csv/AF3"); 
+  OscMessage mensaje2 = new OscMessage("/csv/F7"); 
+  OscMessage mensaje3 = new OscMessage("/csv/F3"); 
+  OscMessage mensaje4 = new OscMessage("/csv/FC5"); 
+  OscMessage mensaje5 = new OscMessage("/csv/T7"); 
+  OscMessage mensaje6 = new OscMessage("/csv/P7"); 
+  OscMessage mensaje7 = new OscMessage("/csv/O1"); 
+  OscMessage mensaje8 = new OscMessage("/csv/O2"); 
+  OscMessage mensaje9 = new OscMessage("/csv/P8"); 
+  OscMessage mensaje10 = new OscMessage("/csv/T8"); 
+  OscMessage mensaje11 = new OscMessage("/csv/FC6"); 
+  OscMessage mensaje12 = new OscMessage("/csv/F4"); 
+  OscMessage mensaje13 = new OscMessage("/csv/F8"); 
+  OscMessage mensaje14 = new OscMessage("/csv/AF4"); 
+
+  mensaje1.add(valArray); //-->se le agrega un dato (posición del mouse)
+  mensaje1.add(mouseY); //-->se le agrega otro dato
+  mensaje2.add(map (mouseX, 0, width, 0, 1.0));
+  mensaje2.add(map (mouseY, 0, height, 0, 1.0));
+
+  oscP5.send(mensaje1, direccionRemota); //-->Se envia el mensaje
+  oscP5.send(mensaje2, direccionRemota);
   }
 }
