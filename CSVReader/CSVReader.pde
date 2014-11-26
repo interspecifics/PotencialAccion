@@ -7,7 +7,7 @@ void setup() {
   size(500, 300);
   background(200);
   try {
-    mBr = new BufferedReader(new FileReader(dataPath("gibran-04-18.11.2014.10.49.33mod.csv")));
+    mBr = new BufferedReader(new FileReader(dataPath("gibran-02-18.11.2014.10.44.42mod.csv")));
     mBr.readLine();
   }
   catch(Exception e) {}
@@ -22,7 +22,7 @@ void draw() {
       String line = mBr.readLine();
       if (line == null) {
         mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("gibran-04-18.11.2014.10.49.33mod.csv")));
+        mBr = new BufferedReader(new FileReader(dataPath("gibran-02-18.11.2014.10.44.42mod.csv")));
         mBr.readLine();
       }
  

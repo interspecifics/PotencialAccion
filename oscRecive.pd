@@ -1,0 +1,59 @@
+#N canvas 574 22 525 422 10;
+#X declare -lib mrpeach;
+#X obj 20 30 vsl 30 40 0 50000 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 328 1;
+#X floatatom 21 82 5 0 0 0 - - -;
+#X obj 70 31 vsl 30 40 0 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X obj 121 31 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 121 77 5 0 0 0 - - -;
+#X obj 172 31 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 172 77 5 0 0 0 - - -;
+#X floatatom 70 77 5 0 0 0 - - -;
+#X obj 393 51 unpackOSC;
+#X obj 363 73 print unpacked;
+#X obj 365 -5 import mrpeach;
+#X text 357 12 recibiendo datos;
+#X obj 222 30 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 221 79 5 0 0 0 - - -;
+#X obj 274 28 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 274 74 5 0 0 0 - - -;
+#X obj 320 28 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 320 74 5 0 0 0 - - -;
+#X obj 21 104 s datos1;
+#X obj 79 103 s datos2;
+#X obj 138 103 s datos3;
+#X obj 193 103 s datos4;
+#X obj 250 104 s datos5;
+#X obj 306 106 s datos6;
+#X obj 358 29 udpreceive 11112;
+#X obj 5 -9 routeOSC /csv/AF3 /osc0/min /osc1/filtrado /osc1/min /osc2/filtrado
+/osc2/min;
+#X connect 0 0 1 0;
+#X connect 1 0 18 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 20 0;
+#X connect 5 0 6 0;
+#X connect 6 0 21 0;
+#X connect 7 0 19 0;
+#X connect 8 0 25 0;
+#X connect 12 0 13 0;
+#X connect 13 0 22 0;
+#X connect 14 0 15 0;
+#X connect 15 0 23 0;
+#X connect 16 0 17 0;
+#X connect 24 0 8 0;
+#X connect 24 0 9 0;
+#X connect 25 0 0 0;
+#X connect 25 1 2 0;
+#X connect 25 2 3 0;
+#X connect 25 3 5 0;
+#X connect 25 4 12 0;
+#X connect 25 5 14 0;
+#X connect 25 6 16 0;
