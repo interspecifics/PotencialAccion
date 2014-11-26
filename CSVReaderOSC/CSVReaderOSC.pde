@@ -11,6 +11,7 @@ int lastFileRead;
 
 int puerto;
 String ip;
+
  
 void setup() {
   size(500, 300);
@@ -47,14 +48,10 @@ void draw() {
       for (int i=0; i<valArray.length; i++) {
         float f = Float.valueOf(valArray[i]);
         print(i+":"+f+ "   ");
-      }
-      println();
-    }
-    catch(Exception e) {}
- 
-    lastFileRead = millis();
-  
-  // lista de mesajes por electrodos
+        
+       //separar datos por columna para transmitir individualmente
+
+        // lista de mesajes por electrodos
   OscMessage mensaje1 = new OscMessage("/csv/AF3"); 
   OscMessage mensaje2 = new OscMessage("/csv/F7"); 
   OscMessage mensaje3 = new OscMessage("/csv/F3"); 
@@ -69,13 +66,23 @@ void draw() {
   OscMessage mensaje12 = new OscMessage("/csv/F4"); 
   OscMessage mensaje13 = new OscMessage("/csv/F8"); 
   OscMessage mensaje14 = new OscMessage("/csv/AF4"); 
+  
 
-  mensaje1.add(valArray); //-->se le agrega un dato (posición del mouse)
-  mensaje1.add(mouseY); //-->se le agrega otro dato
-  mensaje2.add(map (mouseX, 0, width, 0, 1.0));
-  mensaje2.add(map (mouseY, 0, height, 0, 1.0));
+  mensaje1.add(valArray); 
+    //mensaje2.add(valArray); 
+     // mensaje3.add(valArray); 
 
-  oscP5.send(mensaje1, direccionRemota); //-->Se envia el mensaje
+
+  
+
+  oscP5.send(mensaje1, direccionRemota); 
   oscP5.send(mensaje2, direccionRemota);
+        
+      }
+      println();
+    }
+    catch(Exception e) {}
+ 
+    lastFileRead = millis();
   }
 }
