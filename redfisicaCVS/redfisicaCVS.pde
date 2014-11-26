@@ -1,31 +1,33 @@
 
 /*-----------------------------------
-Library: ComputationalGeometry
-By: Mark Collins & Toru Hasegawa
-//Modificado el 14/11/2014 
-less
-------------------------------------*/
+ Library: ComputationalGeometry
+ By: Mark Collins & Toru Hasegawa
+ //Modificado el 14/11/2014 
+ less
+ ------------------------------------*/
 
-// multiple channel clusters
-// color per channel
-// average count per dataset per channel 
-
+import oscP5.*; 
+import netP5.*; 
 import ComputationalGeometry.*;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-BufferedReader mBr;
-int lastFileRead;
+
+OscP5 oscP5;
 IsoSkeleton skeleton;
-Table table;
+
+int puerto;
+float AF3;
+float F7;
+float F4;
+float F8;
 
 void setup() {
   size(650, 650, P3D);
-
-
+  puerto = 11111;
+  oscP5 = new OscP5(this, puerto);
+  
   // Create iso-skeleton 
   for (int i = 0; i <= 13; i++)
-  
-  skeleton = new IsoSkeleton(this);
+
+    skeleton = new IsoSkeleton(this);
 
   // Create points to make the network
   PVector[] pts = new PVector[200];
@@ -37,55 +39,40 @@ void setup() {
     for (int j=i+1; j<pts.length; j++) {
       if (pts[i].dist( pts[j] ) < 50) {
         skeleton.addEdge(pts[i], pts[j]);
-     
       }
     }
   }
-  
-  try {
-    mBr = new BufferedReader(new FileReader(dataPath("gibran-03-18.11.2014.10.48.08.csv")));
-    mBr.readLine();
-  }
-  catch(Exception e) {}
- 
-  lastFileRead = millis();
 }
 
+
 void draw() {
-      background(220);
-
-
-
-
-  if (millis()-lastFileRead > 5) {
-    try {
-      String line = mBr.readLine();
-      if (line == null) {
-        mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("gibran-03-18.11.2014.10.48.08.csv")));
-        mBr.readLine();
-      }
- 
-      // valArray es un array de Strings con los valores
-      String[] valArray = line.trim().split("\\s*,\\s*");
-      // aqui se saca los valores de float de los Strings
-      for (int i=0; i<valArray.length; i++) {
-        float f = Float.valueOf(valArray[i]);
-        print(i+":"+f+ "   ");
-      }
-      println();
-    }
-    catch(Exception e) {}
- 
-    lastFileRead = millis();
-  }
+  background(220);
   lights();  
   float zm = 150;
   float sp = 0.02 * frameCount*(24);
   camera(zm * cos(sp), zm * sin(sp), zm, 0, 0, 0, 0, 0, -1);
-  
-  stroke(0,0,0, 25);
+
+  stroke(0, 0, 0, 25);
   for (int i = 0; i <= 5; i++) {
-  skeleton.plot(10.f * float(mouseX) / (2.0f*width), float(mouseY/8) / (2.0*height));  // Thickness as parameter
- }
+    skeleton.plot(10.f * float(mouseX) / (2.0f*width), float(mouseY/8) / (2.0*height));  // Thickness as parameter
+  }
 }
+
+void oscEvent(OscMessage theOscMessage) {
+  if (theOscMessage.checkAddrPattern("/AF3")==true) { // si la dirección es "x"
+    if (theOscMessage.checkTypetag("f")) {          // si el dato que trae el mensaje es un float
+      AF3 = theOscMessage.get(0).floatValue();        // extraemos el primer dato (0) y se lo asignamos a x 
+      println("Reciviendo--> val AF3: "+ AF3);
+      return;
+    }
+  }
+  
+  if (theOscMessage.checkAddrPattern("/F7")==true) { // si la dirección es "y"
+    if (theOscMessage.checkTypetag("f")) {              // si el dato que trae el mensaje es un float
+      F7 = theOscMessage.get(0).floatValue();      // extraemos el primer dato (0) y se lo asignamos a y 
+      println("Reciviendo--> val F7: "+ F7);
+      return;
+    }
+  }
+}
+
