@@ -1,7 +1,7 @@
-#N canvas 58 22 1083 614 10;
-#X obj 485 296 makenote 80 500;
+#N canvas 110 36 1083 614 10;
+#X obj 499 306 makenote 80 500;
 #X msg 38 80 60;
-#X obj 498 328 noteout 4;
+#X obj 511 335 noteout 4;
 #X obj 38 -115 r b;
 #X obj 38 -80 > 4200;
 #X obj 38 -11 spigot;
