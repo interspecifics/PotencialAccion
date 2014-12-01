@@ -24,7 +24,7 @@ float F8;
 
 void setup() {
   size(750, 750, P3D);
-  puerto = 11111;
+  puerto = 11112;
   oscP5 = new OscP5(this, puerto);
   
   // Create iso-skeleton 
@@ -33,7 +33,7 @@ void setup() {
     skeleton = new IsoSkeleton(this);
 
   // Create points to make the network
-  PVector[] pts = new PVector[150];
+  PVector[] pts = new PVector[100];
   for (int i=0; i<pts.length; i++) {
     pts[i] = new PVector(random(-90, 90), random(-90, 90), random(-90, 90) );
   }  
@@ -80,5 +80,24 @@ void oscEvent(OscMessage theOscMessage) {
       return;
     }
   }
+  
+   
+  if (theOscMessage.checkAddrPattern("/F4")==true) { // si la dirección es "y"
+    if (theOscMessage.checkTypetag("f")) {              // si el dato que trae el mensaje es un float
+      F4 = theOscMessage.get(0).floatValue();      // extraemos el primer dato (0) y se lo asignamos a y 
+      println("Recibiendo--> val F4: "+ F4);
+      return;
+    }
+  }
+  
+   if (theOscMessage.checkAddrPattern("/F8")==true) { // si la dirección es "y"
+    if (theOscMessage.checkTypetag("f")) {              // si el dato que trae el mensaje es un float
+      F8 = theOscMessage.get(0).floatValue();      // extraemos el primer dato (0) y se lo asignamos a y 
+      println("Recibiendo--> val F8: "+ F8);
+      return;
+    }
+  }
 }
+
+
 
