@@ -19,7 +19,7 @@ void setup() {
   background(200);
  
   ip = "127.0.0.1"; //localhost
-  puerto = 11112;
+  puerto = 11111;
   oscP5 = new OscP5(this, puerto);
   direccionRemota = new NetAddress(ip, puerto);
   
