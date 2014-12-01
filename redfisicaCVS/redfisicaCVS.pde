@@ -21,12 +21,19 @@ float F7;
 float F4;
 float F8;
 
+color[] beta1 = {#0E890E, #0E8940, #118B7A, #358B11};
+color[] beta2 = {#249EAA, #247EAA, #1E5BA7, #1E3DA7};
+color[] gamma = {#871EA7, #7A00A0, #5E007C, #44007C};
+
+
 
 void setup() {
+  noCursor();
   size(750, 750, P3D);
   puerto = 11112;
   // recibe datos desde el archivo osc-envia.pd
   oscP5 = new OscP5(this, puerto);
+ 
   
   // Create iso-skeleton 
   for (int i = 0; i <= 13; i++)
@@ -34,7 +41,7 @@ void setup() {
     skeleton = new IsoSkeleton(this);
 
   // Create points to make the network
-  PVector[] pts = new PVector[100];
+  PVector[] pts = new PVector[90];
   for (int i=0; i<pts.length; i++) {
     pts[i] = new PVector(random(-90, 90), random(-90, 90), random(-90, 90) );
   }  
@@ -50,14 +57,14 @@ void setup() {
 
 
 void draw() {
-  background(255,255,255);
+  background(198,198,198);
   lights();  
   float zm = 150;
-  float sp = 0.02 * frameCount*(24);
+  float sp = 0.1 * frameCount;
   camera(zm * cos(sp), zm * sin(sp), zm, 0, 0, 0, 0, 0, -1);
-
+  color Pantone = gamma[(int) random(gamma.length)];
   stroke(0);
-    fill(45, random(4, 232), 9);
+    fill(Pantone);
 
   for (int i = 0; i <= 5; i++) {
     skeleton.plot(10.f * float(mouseX) / (2.0f*width), float(mouseY/8) / (2.0*height));  // Thickness as parameter
