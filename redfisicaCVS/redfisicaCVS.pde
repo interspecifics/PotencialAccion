@@ -25,6 +25,7 @@ float F8;
 void setup() {
   size(750, 750, P3D);
   puerto = 11112;
+  // recibe datos desde el archivo osc-envia.pd
   oscP5 = new OscP5(this, puerto);
   
   // Create iso-skeleton 
