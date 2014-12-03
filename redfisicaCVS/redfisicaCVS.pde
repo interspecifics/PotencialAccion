@@ -62,12 +62,12 @@ void draw() {
   float zm = 150;
   float sp = 0.1 * frameCount;
   camera(zm * cos(sp), zm * sin(sp), zm, 0, 0, 0, 0, 0, -1);
-  color Pantone = gamma[(int) random(gamma.length)];
+  color Pantone = beta1[(int) random(beta1.length)];
   stroke(0);
     fill(Pantone);
 
   for (int i = 0; i <= 5; i++) {
-    skeleton.plot(10.f * float(mouseX) / (2.0f*width), float(mouseY/8) / (2.0*height));  // Thickness as parameter
+    skeleton.plot(13.f * AF3/50.f / F8/50.f, F4/600.f / F7/300.f);  // Thickness as parameter
   }
 }
 
