@@ -11,7 +11,7 @@ int lastFileRead;
 
 int puerto;
 String ip;
-String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/F8", "/csv/FC6", "/cvs/T7", "/csv/T8", "/csv/O1"};
+String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/T7", "/csv/O1", "/csv/T8", "/csv/FC6", "/csv/F8"};
 //String[] direccionOsc = {"/csv/AF3","/csv/F7","/csv/F3","/csv/FC5","/csv/T7","/csv/P7","/csv/O1","/csv/O2","/csv/P8","/csv/T8","/csv/FC6","/csv/F4","/csv/F8","/csv/AF4"};
 //Envia al archivo OSCrecibe.pd
 void setup() {
@@ -19,12 +19,12 @@ void setup() {
   background(200);
  
   ip = "127.0.0.1"; //localhost
-  puerto = 11112;
+  puerto = 11113;
   oscP5 = new OscP5(this, puerto);
   direccionRemota = new NetAddress(ip, puerto);
   
   try {
-    mBr = new BufferedReader(new FileReader(dataPath("7denis-04-19.11.2014.18.30.12filtr.csv")));
+    mBr = new BufferedReader(new FileReader(dataPath("5Eliazabeth-02-18.11.2014.14.19.13filtr.csv")));
     mBr.readLine();
   }
   catch(Exception e) {}
@@ -39,7 +39,7 @@ void draw() {
       String line = mBr.readLine();
       if (line == null) {
         mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("7denis-04-19.11.2014.18.30.12filtr.csv")));
+        mBr = new BufferedReader(new FileReader(dataPath("5Eliazabeth-02-18.11.2014.14.19.13filtr.csv")));
         mBr.readLine();
       }
  
