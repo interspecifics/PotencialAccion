@@ -19,10 +19,13 @@ void setup() {
 void draw() {
   background(0);
 //carga el espectrograma
-  image(img, 10, 0, 700, 400);
+  image(img, 10, 10, 700, 390);
  
  stroke(225); fill(225);  
-  rect(10, 398, 700, 4); 
+  rect(10, 398, 700, 4);
+ 
+  stroke(0); fill(0);  
+  rect(40, 398, 4, 4);  
  
 //dibuja el canal gris
   stroke(125); noFill();  
@@ -47,8 +50,8 @@ void draw() {
   fill(0, 0, 255); noStroke();
   bHist.draw(830, height - 280, 400, 240);
   
-  println(img.height);
-  println(img.width); 
+  println("X = "+ img.height);
+  println("Y = " +img.width); 
 }
 
 
