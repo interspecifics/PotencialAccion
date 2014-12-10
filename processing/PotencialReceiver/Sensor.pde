@@ -12,7 +12,7 @@ public class Sensor {
   private final static int OSC_OUT_PERIOD = 100;
   private final static int OSC_OUT_PORT = 8666;
   private final static String OSC_OUT_HOST = "localhost";
-  private final static String OSC_OUT_PATTERN = "/pulsum-osc/";
+  private final static String OSC_OUT_PATTERN = "/potencial-accion/";
 
   private short rawValues[] = new short[RAWSIZE+1];
   private short averageValues[] = new short[DISPLAYSIZE*2+1];
