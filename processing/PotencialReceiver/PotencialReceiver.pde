@@ -24,11 +24,11 @@ void setup() {
 void oscEvent(OscMessage theOscMessage) {
   if (theOscMessage.addrPattern().startsWith("/emokit/")) {
     String addPat[] = theOscMessage.addrPattern().split("/");
-    String sName = addPat[1];
-    short sVal = (short)theOscMessage.get(0).intValue();
-    int sQual = theOscMessage.get(1).intValue();
-    if (sQual > 0) {
-      mSensors.get(sName).addValue(sVal);
+    String sensorName = addPat[1];
+    short sensorVal = (short)theOscMessage.get(0).intValue();
+    int sensorQual = theOscMessage.get(1).intValue();
+    if (sensorQual > 0) {
+      mSensors.get(sensorName).addValue(sensorVal);
     }
   }
 }
