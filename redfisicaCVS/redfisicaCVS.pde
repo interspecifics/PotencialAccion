@@ -64,10 +64,10 @@ void draw() {
   camera(zm * cos(sp), zm * sin(sp), zm, 0, 0, 0, 0, 0, -1);
   color Pantone = beta1[(int) random(beta1.length)];
   stroke(0);
-    fill(F7/225, AF3/225, 225);
+    fill(F7/225, AF3/25, 225);
 
   for (int i = 0; i <= 5; i++) {
-    skeleton.plot(13.f * AF3/50.f / F8/50.f, F4/600.f / F7/300.f);  // Thickness as parameter
+    skeleton.plot(30.f * AF3 / F8/30.f, F4/30.f / F7/127.f);  // Thickness as parameter
   }
 }
 
