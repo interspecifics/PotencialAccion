@@ -1,4 +1,4 @@
-import java.util.Hashtable;
+import java.util.HashMap;
 import oscP5.*;
 import netP5.*;
 
@@ -7,7 +7,7 @@ final static String SENSOR_LIST = "AF3 F7 F3 FC5 T7 P7 O1 O2 P8 T8 FC6 F4 F8 AF4
 
 OscP5 mOscP5;
 
-Hashtable<String, Sensor> mSensors = new Hashtable<String, Sensor>();
+HashMap<String, Sensor> mSensors = new HashMap<String, Sensor>();
 long lastOscMillis;
 
 void setup() {
@@ -20,11 +20,16 @@ void setup() {
   mOscP5 = new OscP5(this, OSC_IN_PORT);
 }
 
-// read input (TODO: OSC !!!)
+// read input
 void oscEvent(OscMessage theOscMessage) {
   if (theOscMessage.addrPattern().startsWith("/emokit/")) {
     String addPat[] = theOscMessage.addrPattern().split("/");
-    println(addPat);
+    String sName = addPat[1];
+    short sVal = (short)theOscMessage.get(0).intValue();
+    int sQual = theOscMessage.get(1).intValue();
+    if (sQual > 0) {
+      mSensors.get(sName).addValue(sVal);
+    }
   }
 }
 

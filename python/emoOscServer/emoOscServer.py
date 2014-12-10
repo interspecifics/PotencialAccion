@@ -19,11 +19,11 @@ if __name__ == "__main__":
         while True:
             packet = headset.dequeue()
             for k,v in packet.sensors.iteritems():
-                if k in SENSOR_LIST:
-                    for kk,vv in v.iteritems():
-                        mOscMessage.clear("/emokit/"+k+"/"+kk)
-                        mOscMessage.append(vv)
-                        mOscClient.send(mOscMessage)
+                if ((k in SENSOR_LIST) and ('value' in v) and ('quality' in v)):
+                    mOscMessage.clear("/emokit/"+k+"/")
+                    mOscMessage.append(v['value'])
+                    mOscMessage.append(v['quality'])
+                    mOscClient.send(mOscMessage)
 
             gevent.sleep(0)
     except KeyboardInterrupt:
