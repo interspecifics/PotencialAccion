@@ -56,7 +56,7 @@ public class Sensor {
       currentRunningAverage[i] = 0;
     }
 
-    minValue = (short)0x7fff;
+    minValue = 0;
     maxValue = 0;
     averageSum = 0;
     averageIndex = 0;
@@ -118,7 +118,7 @@ public class Sensor {
     averageEnd = (short)((averageEnd+1)%(averageValues.length));
 
     // find min/max of current averages
-    short thisMinValue = (short)0x7fff;
+    short thisMinValue = 0;
     short thisMaxValue = 0;
     for (int i=0; i<(averageValues.length); ++i) {
       if (averageValues[i] > thisMaxValue) {
@@ -142,7 +142,7 @@ public class Sensor {
       minValue = thisMinValue;
     }
     else {
-      minValue += (short)(0.01*thisMinValue);
+      minValue = (short)(0.99*minValue + 0.01*thisMinValue);
       minValue = (thisMinValue<minValue)?thisMinValue:minValue;
     }
   }
