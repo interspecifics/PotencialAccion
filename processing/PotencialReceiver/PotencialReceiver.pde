@@ -24,7 +24,7 @@ void setup() {
 void oscEvent(OscMessage theOscMessage) {
   if (theOscMessage.addrPattern().startsWith("/emokit/")) {
     String addPat[] = theOscMessage.addrPattern().split("/");
-    String sensorName = addPat[1];
+    String sensorName = addPat[2];
     short sensorVal = (short)theOscMessage.get(0).intValue();
     int sensorQual = theOscMessage.get(1).intValue();
     mSensors.get(sensorName).addValue(sensorVal);
@@ -40,11 +40,15 @@ void draw() {
     for (String k : mSensors.keySet()) {
       mSensors.get(k).sendOsc();
     }
+    lastOscMillis = millis();
   }
 
   // draw
   for (String k : mSensors.keySet()) {
     mSensors.get(k).draw();
   }
+
+  fill(0);
+  text(frameRate,width-50,20);
 }
 
