@@ -2,8 +2,9 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import oscP5.*; 
 import netP5.*;
-import de.bezier.guido.*;
+import controlP5.*;
 
+ControlP5 cp5;
 
 OscP5 oscP5; 
 NetAddress direccionRemota;
@@ -12,6 +13,9 @@ BufferedReader mBr = null;
 int lastFileRead;
 String filename;
 
+int myColor = color(255);
+int c1,c2;
+float n,n1;
 
 int puerto;
 String ip;
@@ -21,25 +25,31 @@ String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/T7", "/csv/O1", 
 
 
 void setup() {
-  size(500, 300);
-  background(200);
-  
- selectInput("Select a file to process:", "fileSelected");
+  size(400, 300);
+  background(0);
+   cp5 = new ControlP5(this);
+
+cp5.addButton("Select a file to process:")
+     .setValue(0)
+     .setPosition(100,100)
+     .setSize(200,19)
+     ;
  
- 
+selectInput("Select a file to process:", "fileSelected");
+
   ip = "127.0.0.1"; //localhost
   puerto = 11113;
   oscP5 = new OscP5(this, puerto);
   direccionRemota = new NetAddress(ip, puerto);
-  
-
  
   lastFileRead = millis();
-  
+
+
   
 }
  
 void draw() {
+ 
   if (mBr == null) return;
 
   // leer a cada 5ms
@@ -48,7 +58,7 @@ void draw() {
       String line = mBr.readLine();
       if (line == null) {
         mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("fileSelected")));
+        mBr = new BufferedReader(new FileReader(filename));
         mBr.readLine();
       }
  
