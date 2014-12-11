@@ -1,4 +1,7 @@
 void fileSelected(File selection) {
+  
+  filename = selection.getAbsolutePath();
+
   if (selection == null) {
     println("Window was closed or the user hit cancel.");
   } else {
@@ -7,6 +10,6 @@ void fileSelected(File selection) {
     mBr.readLine();
   }
   catch(Exception e) {}
-    println("User selected " + selection.getAbsolutePath());
+    println("User selected " + filename);
   }
 }

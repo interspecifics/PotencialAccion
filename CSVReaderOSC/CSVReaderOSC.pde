@@ -31,8 +31,6 @@ void setup() {
   puerto = 11113;
   oscP5 = new OscP5(this, puerto);
   direccionRemota = new NetAddress(ip, puerto);
-  
-
  
   lastFileRead = millis();
   
@@ -48,7 +46,7 @@ void draw() {
       String line = mBr.readLine();
       if (line == null) {
         mBr.close();
-        mBr = new BufferedReader(new FileReader(dataPath("fileSelected")));
+        mBr = new BufferedReader(new FileReader(filename));
         mBr.readLine();
       }
  
