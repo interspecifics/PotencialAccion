@@ -2,9 +2,9 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import oscP5.*; 
 import netP5.*;
-import de.bezier.guido.*;
+import controlP5.*;
 
-SimpleButton button;
+ControlP5 cp5;
 
 OscP5 oscP5; 
 NetAddress direccionRemota;
@@ -12,7 +12,10 @@ NetAddress direccionRemota;
 BufferedReader mBr = null;
 int lastFileRead;
 String filename;
-PFont myFont;
+
+int myColor = color(255);
+int c1,c2;
+float n,n1;
 
 int puerto;
 String ip;
@@ -22,23 +25,18 @@ String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/T7", "/csv/O1", 
 
 
 void setup() {
-  size(300, 180);
+  size(400, 300);
   background(0);
-  myFont = createFont("ArialMT", 13, false);
-  textFont(myFont);
-  textAlign(LEFT, CENTER);
-  fill(255);
-  text("Select a file to process:", 70, 40);
-  fill(140);
-  text("csv/tsv format only", 70, 130);
+   cp5 = new ControlP5(this);
 
-
-Interactive.make( this );
+cp5.addButton("Select a file to process:")
+     .setValue(0)
+     .setPosition(100,100)
+     .setSize(200,19)
+     ;
  
 selectInput("Select a file to process:", "fileSelected");
 
- 
- 
   ip = "127.0.0.1"; //localhost
   puerto = 11113;
   oscP5 = new OscP5(this, puerto);
@@ -46,14 +44,7 @@ selectInput("Select a file to process:", "fileSelected");
  
   lastFileRead = millis();
 
-int w = (width-2)/2;
-    for ( int ix = 2, k = width-w; ix <= k; ix += 2*w )
-    {
-        for ( int iy = 2, n = height-w; iy <= n; iy += 2*w )
-        {
-            new SimpleButton( ix, iy, w, w );
-        }
-    }  
+
   
 }
  

@@ -14,33 +14,20 @@ void fileSelected(File selection) {
   }
 }
 
-public class SimpleButton
-{
-    float x, y, width, height;
-    boolean on;
-    
-    SimpleButton ( float xx, float yy, float w, float h )
-    {
-        x = 70; y = 60; width = w; height = h/3;
-        
-        Interactive.add( this ); // register it with the manager
-    }
-    
-    // called by manager
-    
-    void mousePressed () 
-    {
-        on = !on;
-        selectInput("Select a file to process:", "fileSelected");
+public void controlEvent(ControlEvent theEvent) {
+  println(theEvent.getController().getName());
+  n = 0;
 
-    }
-
-    void draw () 
-    {
-        if ( on ) fill( 60 );
-        else fill( 255 );
-        
-        rect(x, y, width, height);
-    }
 }
+
+// function colorA will receive changes from 
+// controller with name colorA
+public void colorA(int theValue) {
+  println("a button event from Select a file to process:: "+theValue);
+  c1 = c2;
+  c2 = color(0,160,100);
+ selectInput("Select a file to process:", "fileSelected");
+
+}
+
 
