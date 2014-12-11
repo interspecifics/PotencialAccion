@@ -14,6 +14,9 @@ public class Sensor {
   private final static String OSC_OUT_HOST = "localhost";
   private final static String OSC_OUT_PATTERN = "/potencial-accion/";
 
+  private final static short GUI_OFFSET = 5;
+  private final static short QUALITY_WIDTH = 30;
+
   private short rawValues[] = new short[RAWSIZE+1];
   private short averageValues[] = new short[DISPLAYSIZE*2+1];
   private short currentRunningAverage[] = new short[AVGSIZE];
@@ -24,6 +27,7 @@ public class Sensor {
   private short averageEnd, rawEnd;
   private short maxValue, minValue;
   private short currentQuality;
+  private boolean bRecordSensor;
   private String name;
   private PVector location, dimension;
 
@@ -58,6 +62,7 @@ public class Sensor {
     averageIndex = 0;
 
     currentQuality = 0;
+    bRecordSensor = false;
   }
 
 
@@ -73,6 +78,10 @@ public class Sensor {
 
   public void setQuality(float q) {
     currentQuality = (short)(0.9f*currentQuality + 0.1f*q);
+  }
+
+  public boolean isRecording() {
+    return bRecordSensor;
   }
 
   public short getRawValue() {
@@ -185,6 +194,14 @@ public class Sensor {
     pushMatrix();
     translate(dimension.x/10f, 0);
     drawGraph(rawValues, (short)(rawValues.length), rawEnd, dimension.x*9f/10f, dimension.y);
+    popMatrix();
+
+    // sensor quality indicator
+    pushMatrix();
+    translate(dimension.x+GUI_OFFSET, 0);
+    stroke(0);
+    fill(0,100,0);
+    rect(0, 0, QUALITY_WIDTH, dimension.y);
     popMatrix();
 
     popMatrix();  // translate
