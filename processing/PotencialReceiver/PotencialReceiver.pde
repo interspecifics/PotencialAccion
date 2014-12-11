@@ -27,9 +27,8 @@ void oscEvent(OscMessage theOscMessage) {
     String sensorName = addPat[1];
     short sensorVal = (short)theOscMessage.get(0).intValue();
     int sensorQual = theOscMessage.get(1).intValue();
-    if (sensorQual > 0) {
-      mSensors.get(sensorName).addValue(sensorVal);
-    }
+    mSensors.get(sensorName).addValue(sensorVal);
+    mSensors.get(sensorName).setQuality(sensorQual);
   }
 }
 

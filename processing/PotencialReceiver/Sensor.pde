@@ -23,6 +23,7 @@ public class Sensor {
   // begin/end indices for different things
   private short averageEnd, rawEnd;
   private short maxValue, minValue;
+  private short currentQuality;
   private String name;
   private PVector location, dimension;
 
@@ -55,6 +56,8 @@ public class Sensor {
     maxValue = 0;
     averageSum = 0;
     averageIndex = 0;
+
+    currentQuality = 0;
   }
 
 
@@ -66,6 +69,10 @@ public class Sensor {
   }
   public String getName() {
     return name;
+  }
+
+  public void setQuality(float q){
+    currentQuality = (short)(0.9f*currentQuality + 0.1f*q);
   }
 
   public short getRawValue() {
