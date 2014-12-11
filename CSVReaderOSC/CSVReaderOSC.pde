@@ -20,9 +20,13 @@ String ip;
 String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/T7", "/csv/O1", "/csv/T8", "/csv/FC6", "/csv/F8"};
 //String[] direccionOsc = {"/csv/AF3","/csv/F7","/csv/F3","/csv/FC5","/csv/T7","/csv/P7","/csv/O1","/csv/O2","/csv/P8","/csv/T8","/csv/FC6","/csv/F4","/csv/F8","/csv/AF4"};
 //Envia al archivo OSCrecibe.pd
+
 void setup() {
   size(500, 300);
   background(200);
+ 
+  Interactive.make( this );
+
  
   ip = "127.0.0.1"; //localhost
   puerto = 11113;
