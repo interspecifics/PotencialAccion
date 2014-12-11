@@ -4,6 +4,7 @@ import oscP5.*;
 import netP5.*;
 import de.bezier.guido.*;
 
+SimpleButton button;
 
 OscP5 oscP5; 
 NetAddress direccionRemota;
@@ -11,7 +12,7 @@ NetAddress direccionRemota;
 BufferedReader mBr = null;
 int lastFileRead;
 String filename;
-
+PFont myFont;
 
 int puerto;
 String ip;
@@ -21,10 +22,21 @@ String[] direccionOsc = {"/csv/AF3","/csv/F7", "/csv/FC5","/csv/T7", "/csv/O1", 
 
 
 void setup() {
-  size(500, 300);
-  background(200);
-  
- selectInput("Select a file to process:", "fileSelected");
+  size(300, 180);
+  background(0);
+  myFont = createFont("ArialMT", 13, false);
+  textFont(myFont);
+  textAlign(LEFT, CENTER);
+  fill(255);
+  text("Select a file to process:", 70, 40);
+  fill(140);
+  text("csv/tsv format only", 70, 130);
+
+
+Interactive.make( this );
+ 
+selectInput("Select a file to process:", "fileSelected");
+
  
  
   ip = "127.0.0.1"; //localhost
@@ -33,11 +45,20 @@ void setup() {
   direccionRemota = new NetAddress(ip, puerto);
  
   lastFileRead = millis();
-  
+
+int w = (width-2)/2;
+    for ( int ix = 2, k = width-w; ix <= k; ix += 2*w )
+    {
+        for ( int iy = 2, n = height-w; iy <= n; iy += 2*w )
+        {
+            new SimpleButton( ix, iy, w, w );
+        }
+    }  
   
 }
  
 void draw() {
+ 
   if (mBr == null) return;
 
   // leer a cada 5ms
