@@ -11,10 +11,10 @@ HashMap<String, Sensor> mSensors = new HashMap<String, Sensor>();
 long lastOscMillis;
 
 void setup() {
-  size(600, 700, P2D);
+  size(700, 720, P2D);
   String sNames[] = SENSOR_LIST.split(" ");
   for (int i=0; i<sNames.length; ++i) {
-    mSensors.put(sNames[i], new Sensor(new PVector(20, 10+i*110), new PVector(560, 100), sNames[i]));
+    mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-100)-20, height/14-5), sNames[i]));
   }
   lastOscMillis = millis();
   mOscP5 = new OscP5(this, OSC_IN_PORT);

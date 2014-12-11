@@ -71,7 +71,7 @@ public class Sensor {
     return name;
   }
 
-  public void setQuality(float q){
+  public void setQuality(float q) {
     currentQuality = (short)(0.9f*currentQuality + 0.1f*q);
   }
 
@@ -172,32 +172,19 @@ public class Sensor {
 
     // background rectangle
     fill(100);
-    rect(0, 0, dimension.x*11/12, dimension.y);
+    rect(0, 0, dimension.x, dimension.y);
 
-    // sensor title
+    // sensor title, current, min and max
     fill(255);
-    textSize(16);
-    text(name, 10, 16);
+    textSize(11);
+    textLeading(11);
+    String ss = name+"\n"+getRawValue()+"\n"+minValue+"\n"+maxValue;
+    text(ss, 10, 11);
 
     // raw graph
     pushMatrix();
-    translate(0, dimension.y/4);
-    drawGraph(rawValues, (short)(rawValues.length), rawEnd, dimension.x/2, dimension.y/2);
-    popMatrix();
-
-    // avg graph
-    pushMatrix();
-    translate(dimension.x/2+10, dimension.y/4);
-    drawGraph(averageValues, (short)(averageValues.length), averageEnd, dimension.x*5/12-10, dimension.y/2);
-    popMatrix();
-
-    // info string
-    pushMatrix();
-    translate(0, dimension.y*3/4);
-    fill(255);
-    textSize(16);
-    String ss = "current: "+getRawValue()+" min: "+minValue+" max: "+maxValue;
-    text(ss, 0, 16);
+    translate(dimension.x/10f, 0);
+    drawGraph(rawValues, (short)(rawValues.length), rawEnd, dimension.x*9f/10f, dimension.y);
     popMatrix();
 
     popMatrix();  // translate
