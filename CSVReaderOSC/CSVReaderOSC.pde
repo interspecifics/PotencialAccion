@@ -2,12 +2,18 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import oscP5.*; 
 import netP5.*;
+import de.bezier.guido.*;
+
 
 OscP5 oscP5; 
 NetAddress direccionRemota;
 
 BufferedReader mBr;
 int lastFileRead;
+
+Listbox listbox;
+Object lastItemClicked;
+
 
 int puerto;
 String ip;
