@@ -208,11 +208,14 @@ public class Sensor {
   }
 
   void drawGraph(short values[], short sizeOfValues, short lastIndex, float gwidth, float gheight) {
+    // background rectangle
+    fill(90);
+    noStroke();
+    rect(0, 0, gwidth, gheight);
+
     // graph
-    PShape ps = createShape();
-    ps.beginShape();
-    ps.fill(255);
-    ps.vertex(0, gheight);
+    PVector lastP = new PVector(0,gheight/2);
+    stroke(255);
     for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth; ++x, ++i) {
       int yIndex = i;
       while (yIndex<0) {
@@ -220,17 +223,10 @@ public class Sensor {
       }
       yIndex = yIndex%sizeOfValues;
 
-      short y0 = (short)map(values[yIndex], 1023, 0, 0, gheight);
-      ps.vertex(x, y0);
+      short y0 = (short)map(values[yIndex], 8192, -8192, 0, gheight);
+      line(lastP.x,lastP.y,x,y0);
+      lastP.set(x,y0);
     }
-    ps.vertex(gwidth, gheight);
-    ps.endShape(CLOSE);
-
-    // background rectangle
-    fill(90);
-    noStroke();
-    rect(0, 0, gwidth, gheight);
-    shape(ps, 0, 0);
   }
 }
 
