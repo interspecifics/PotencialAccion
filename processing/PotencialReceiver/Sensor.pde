@@ -5,7 +5,7 @@ private static NetAddress oscOutAddress;
 private static OscMessage mMessage;
 
 public class Sensor {
-  private static final short AVGSIZE = 20;
+  private static final short AVGSIZE = 4;
   private static final short DISPLAYSIZE = 300;
   private static final short RAWSIZE = 30000;
 
