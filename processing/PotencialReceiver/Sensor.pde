@@ -133,8 +133,8 @@ public class Sensor {
     averageEnd = (short)((averageEnd+1)%(averageValues.length));
 
     // find min/max of current averages
-    short thisMinValue = 0;
-    short thisMaxValue = 0;
+    short thisMinValue = 9000;
+    short thisMaxValue = -9000;
     for (int i=0; i<(averageValues.length); ++i) {
       if (averageValues[i] > thisMaxValue) {
         thisMaxValue = averageValues[i];
