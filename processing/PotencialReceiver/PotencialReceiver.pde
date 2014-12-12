@@ -25,6 +25,14 @@ void setup() {
   lastOscMillis = millis();
   bRecordSensors = false;
   mOscP5 = new OscP5(this, OSC_IN_PORT);
+
+  mCp5.addToggle("writeCSV")
+    .setPosition(width-60, 10).setSize(40, 40)
+      .setColorBackground(0xff646464).setColorForeground(0xff8c0000).setColorActive(0xffcc1100)
+        .setCaptionLabel("Write CSV")
+          .setValue(bRecordSensors)
+            .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
+              .setSize(10).setColor(0xffcc1100);
 }
 
 // read input
@@ -76,37 +84,40 @@ void draw() {
 }
 
 public void controlEvent(ControlEvent theEvent) {
-  try{
-    mSensors.get(theEvent.getController().getName()).setRecording(theEvent.getController().getValue()>0.0);
+  try {
+    if (theEvent.getController().getName().equals("writeCSV")) {
+      bRecordSensors = (theEvent.getController().getValue()>0.0);
+      manageSensorWriter();
+    }
+    else {
+      mSensors.get(theEvent.getController().getName()).setRecording(theEvent.getController().getValue()>0.0);
+    }
   }
   // this catches some exceptions thrown during initialization,
   // due to Sensor objects not being in the HashMap when Toggle object is created
-  catch(Exception e){}
+  catch(Exception e) {
+  }
 }
 
-void keyPressed() {
-  if (key == ' ') {
-    bRecordSensors = !bRecordSensors;
-
-    if (!bRecordSensors) {
-      csvFile.flush();
-      csvFile.close();
+void manageSensorWriter() {
+  if (!bRecordSensors) {
+    csvFile.flush();
+    csvFile.close();
+  }
+  else {
+    String fname = year()+"";
+    fname += (month()<10)?"0"+month():month();
+    fname += (day()<10)?"0"+day():day();
+    fname += "_";
+    fname += (hour()<10)?"0"+hour():hour();
+    fname += (minute()<10)?"0"+minute():minute();
+    fname += (second()<10)?"0"+second():second();
+    csvFile = createWriter(fname+".csv");
+    csvFile.print("TIME");
+    for (String s:sNames) {
+      csvFile.print(","+s);
     }
-    else {
-      String fname = year()+"";
-      fname += (month()<10)?"0"+month():month();
-      fname += (day()<10)?"0"+day():day();
-      fname += "_";
-      fname += (hour()<10)?"0"+hour():hour();
-      fname += (minute()<10)?"0"+minute():minute();
-      fname += (second()<10)?"0"+second():second();
-      csvFile = createWriter(fname+".csv");
-      csvFile.print("TIME");
-      for (String s:sNames) {
-        csvFile.print(","+s);
-      }
-      csvFile.print("\n");
-    }
+    csvFile.print("\n");
   }
 }
 
