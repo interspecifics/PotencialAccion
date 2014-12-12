@@ -1,3 +1,4 @@
+///// librarys
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import oscP5.*; 
@@ -5,20 +6,15 @@ import netP5.*;
 import controlP5.*;
 
 ControlP5 cp5;
-
 Textlabel titulo;
 Textlabel logo;
-
+Chart barraAF3;
 Chart myChart;
-
 ControlTimer c;
 Textlabel t;
-
-String portValue = "";
-
-
 OscP5 oscP5; 
 NetAddress direccionRemota;
+String portValue = "";
 
 BufferedReader mBr = null;
 int lastFileRead;
@@ -26,11 +22,10 @@ String filename;
 
 int puerto;
 String ip;
-String[] direccionOsc = {
-  "/csv/AF3", "/csv/F7", "/csv/FC5", "/csv/T7", "/csv/O1", "/csv/T8", "/csv/FC6", "/csv/F8"
-};
-//String[] direccionOsc = {"/csv/AF3","/csv/F7","/csv/F3","/csv/FC5","/csv/T7","/csv/P7","/csv/O1","/csv/O2","/csv/P8","/csv/T8","/csv/FC6","/csv/F4","/csv/F8","/csv/AF4"};
-//Envia al archivo OSCrecibe.pd
+String[] direccionOsc = {"/csv/AF3","/csv/F7","/csv/F3","/csv/FC5","/csv/T7","/csv/P7","/csv/O1","/csv/O2","/csv/P8","/csv/T8","/csv/FC6","/csv/F4","/csv/F8","/csv/AF4"};
+//Array[] Chart = {bAF3, bF7, bF3, bFC5, bT7, bP7, bO1, bO2, bP8, bT8, bFC6, bF4, bF8, bAF4};
+
+/////Envia al archivo OSCrecibe.pd
 
 
 void setup() {
@@ -38,28 +33,34 @@ void setup() {
   background(0);
   frameRate(30);
 
+/////OCS Conf
   ip = "127.0.0.1"; //localhost
   puerto = 11113;
+  
 
+///// Initializers
   oscP5 = new OscP5(this, puerto);
   direccionRemota = new NetAddress(ip, puerto);
-
   cp5 = new ControlP5(this);
+  
+  
 
+///// Logo and title
   logo = cp5.addTextlabel("label2")
     .setText("POTENCIAL DE ACCION")
       .setFont(createFont("Roboto-Light", 20))
         .setPosition(98, 57)
-          .setColorValue(color( 255, 0, 0 ))
+          .setColorValue(color( 255, 255, 255 ))
             ;
-
-
   titulo = cp5.addTextlabel("label")
     .setText("EEG TO OSC FROM CSV/TSV FILE")
       .setPosition(98, 80)
         .setColorValue(color( 255, 0, 0 ))
           ;
+          
+          
 
+///// File selector 
   Button b1 = cp5.addButton("Select a file to process:")
     .setValue(0)
       .setPosition(100, 100)
@@ -71,6 +72,7 @@ void setup() {
                   .activateBy(ControlP5.PRESSED)
                     ;
 
+//Osc port conectors 
   Button b2 = cp5.addButton("* Conect to port: 1113:")
     .setValue(0)
       .setPosition(100, 120)
@@ -123,22 +125,41 @@ void setup() {
                 .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
                   ; 
 
+
+ //// Charts for signal visualization 
+ 
   cp5.printPublicMethodsFor(Chart.class);
   myChart = cp5.addChart("hello")
     .setPosition(100, 230)
-      .setSize(200, 200)
-        .setRange(-30, 40)
-          .setView(Chart.BAR_CENTERED) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
-            ;                
+      .setSize(200, 50)
+        .setRange(-20, 20)
+          .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
+            ;    
 
-  myChart.getColor().setBackground(color(26,26,26));
+ cp5.printPublicMethodsFor(Chart.class);
+  barraAF3 = cp5.addChart("hello1")
+    .setPosition(100, 280)
+      .setSize(200, 50)
+        .setRange(-20, 20)
+          .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
+            ;             
+  myChart.getColor().setBackground(color(0));
   myChart.addDataSet("world");
   myChart.setColors("world", color(255, 8, 53), color(144, 1, 28));
-  myChart.setData("world", new float[14]);
+  myChart.setData("world", new float[128]);
+  
+  barraAF3.getColor().setBackground(color(0));
+  barraAF3.addDataSet("world1");
+  barraAF3.setColors("world1", color(255, 8, 53), color(144, 1, 28));
+  barraAF3.setData("world1", new float[128]);
 
-  myChart.setStrokeWeight(2.5);
+  myChart.setStrokeWeight(1.5);
+    barraAF3.setStrokeWeight(1.5);
 
 
+
+
+// File selector callback
   b1.addCallback(new CallbackListener() {
     public void controlEvent(CallbackEvent theEvent) {
       switch(theEvent.getAction()) {
@@ -162,16 +183,23 @@ void setup() {
 
 
 
+
+
+
 void draw() {
+  
+// draw logos  
   titulo.draw(this); 
   logo.draw(this); 
-        myChart.unshift("world", (sin(frameCount*0.05)*30));
+ 
+// chart framecount  
+  myChart.unshift("world", (sin(frameCount*0.05)*4));
+    barraAF3.unshift("world1", (sin(frameCount*0.05)*4));
 
 
   if (mBr == null) return;
 
-
-  // leer a cada 5ms
+  // leer datos de las tablas a cada 5ms
   if (millis()-lastFileRead > 5) {
     try {
       String line = mBr.readLine();
@@ -204,6 +232,8 @@ void draw() {
   }
 }
 
+
+// dinamical OSC conector 
 public void clear() {
   cp5.get(Textfield.class, "portValue").clear();
 }
