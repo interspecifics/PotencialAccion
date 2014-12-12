@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import controlP5.*;
 import oscP5.*;
 import netP5.*;
 
@@ -7,6 +8,7 @@ final static String SENSOR_LIST = "AF3 F7 F3 FC5 T7 P7 O1 O2 P8 T8 FC6 F4 F8 AF4
 String sNames[];
 
 OscP5 mOscP5;
+ControlP5 mCp5;
 PrintWriter csvFile;
 boolean bRecordSensors;
 
@@ -15,6 +17,7 @@ long lastOscMillis;
 
 void setup() {
   size(700, 720, P2D);
+  mCp5 = new ControlP5(this);
   sNames = SENSOR_LIST.split(" ");
   for (int i=0; i<sNames.length; ++i) {
     mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-100)-20, height/14-5), sNames[i]));
@@ -61,8 +64,14 @@ void draw() {
     mSensors.get(k).draw();
   }
 
+  fill(255);
+  rect(16,10,50,16);
   fill(0);
-  text(frameRate, width-50, 20);
+  text(frameRate, 20, 20);
+}
+
+public void controlEvent(ControlEvent theEvent) {
+  mSensors.get(theEvent.getController().getName()).setRecording(theEvent.getController().getValue()>0.0);
 }
 
 void keyPressed() {

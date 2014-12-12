@@ -63,8 +63,17 @@ public class Sensor {
 
     currentQuality = 0;
     bRecordSensor = false;
-  }
 
+    // GUI
+    mCp5.addToggle(name)
+      .setPosition(location.x+dimension.x+2*GUI_OFFSET+QUALITY_WIDTH, location.y)
+        .setSize(QUALITY_WIDTH, (int)dimension.y/2)
+          .setColorBackground(0xff646464).setColorForeground(0xff8c0000).setColorActive(0xffcc1100)
+            .setCaptionLabel("REC").setColorCaptionLabel(0xff000000)
+              .setValue(true)
+                .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
+                    .setSize(10).setColor(0xffcc1100);
+  }
 
   public short getMin() {
     return minValue;
@@ -82,6 +91,9 @@ public class Sensor {
 
   public boolean isRecording() {
     return bRecordSensor;
+  }
+  public void setRecording(boolean b) {
+    bRecordSensor = b;
   }
 
   public short getRawValue() {
@@ -200,7 +212,7 @@ public class Sensor {
     pushMatrix();
     translate(dimension.x+GUI_OFFSET, 0);
     stroke(0);
-    fill(0,100,0);
+    fill(0, 100, 0);
     rect(0, 0, QUALITY_WIDTH, dimension.y);
     popMatrix();
 
@@ -214,7 +226,7 @@ public class Sensor {
     rect(0, 0, gwidth, gheight);
 
     // graph
-    PVector lastP = new PVector(0,gheight/2);
+    PVector lastP = new PVector(0, gheight/2);
     stroke(255);
     for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth; ++x, ++i) {
       int yIndex = i;
@@ -224,8 +236,8 @@ public class Sensor {
       yIndex = yIndex%sizeOfValues;
 
       short y0 = (short)map(values[yIndex], 8192, -8192, 0, gheight);
-      line(lastP.x,lastP.y,x,y0);
-      lastP.set(x,y0);
+      line(lastP.x, lastP.y, x, y0);
+      lastP.set(x, y0);
     }
   }
 }
