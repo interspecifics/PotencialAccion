@@ -72,7 +72,7 @@ public class Sensor {
       .setPosition(location.x+dimension.x+2*GUI_OFFSET+QUALITY_WIDTH, location.y)
         .setSize(QUALITY_WIDTH, (int)dimension.y/2)
           .setColorBackground(0xff646464).setColorForeground(0xff8c0000).setColorActive(0xffcc1100)
-            .setCaptionLabel("REC").setColorCaptionLabel(0xff000000)
+            .setCaptionLabel("REC")
               .setValue(true)
                 .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
                   .setSize(10).setColor(0xffcc1100);
