@@ -72,7 +72,7 @@ public class Sensor {
             .setCaptionLabel("REC").setColorCaptionLabel(0xff000000)
               .setValue(true)
                 .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
-                    .setSize(10).setColor(0xffcc1100);
+                  .setSize(10).setColor(0xffcc1100);
   }
 
   public short getMin() {
@@ -191,7 +191,14 @@ public class Sensor {
     pushMatrix();
     translate(location.x, location.y);
 
+    // sensor quality indicator
+    stroke(0);
+    fill(0, 100, 0);
+    ellipse(QUALITY_WIDTH/2, dimension.y/2, QUALITY_WIDTH/2, dimension.y/2);
+
     // background rectangle
+    pushMatrix();
+    translate(QUALITY_WIDTH+GUI_OFFSET, 0);
     fill(100);
     rect(0, 0, dimension.x, dimension.y);
 
@@ -208,15 +215,8 @@ public class Sensor {
     drawGraph(rawValues, (short)(rawValues.length), rawEnd, dimension.x*9f/10f, dimension.y);
     popMatrix();
 
-    // sensor quality indicator
-    pushMatrix();
-    translate(dimension.x+GUI_OFFSET, 0);
-    stroke(0);
-    fill(0, 100, 0);
-    rect(0, 0, QUALITY_WIDTH, dimension.y);
-    popMatrix();
-
-    popMatrix();  // translate
+    popMatrix(); // background rectangle
+    popMatrix(); // location
   }
 
   void drawGraph(short values[], short sizeOfValues, short lastIndex, float gwidth, float gheight) {
