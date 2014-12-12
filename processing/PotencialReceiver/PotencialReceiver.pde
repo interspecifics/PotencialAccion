@@ -16,11 +16,11 @@ HashMap<String, Sensor> mSensors = new HashMap<String, Sensor>();
 long lastOscMillis;
 
 void setup() {
-  size(700, 720, P2D);
+  size(750, 720, P2D);
   mCp5 = new ControlP5(this);
   sNames = SENSOR_LIST.split(" ");
   for (int i=0; i<sNames.length; ++i) {
-    mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-100)-20, height/14-5), sNames[i]));
+    mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-150)-20, height/14-5), sNames[i]));
   }
   lastOscMillis = millis();
   bRecordSensors = false;
@@ -76,7 +76,12 @@ void draw() {
 }
 
 public void controlEvent(ControlEvent theEvent) {
-  mSensors.get(theEvent.getController().getName()).setRecording(theEvent.getController().getValue()>0.0);
+  try{
+    mSensors.get(theEvent.getController().getName()).setRecording(theEvent.getController().getValue()>0.0);
+  }
+  // this catches some exceptions thrown during initialization,
+  // due to Sensor objects not being in the HashMap when Toggle object is created
+  catch(Exception e){}
 }
 
 void keyPressed() {
