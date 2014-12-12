@@ -9,6 +9,8 @@ ControlP5 cp5;
 Textlabel titulo;
 Textlabel logo;
 
+Chart myChart;
+
 ControlTimer c;
 Textlabel t;
 
@@ -32,7 +34,7 @@ String[] direccionOsc = {
 
 
 void setup() {
-  size(400, 600);
+  size(410, 500);
   background(0);
   frameRate(30);
 
@@ -119,8 +121,23 @@ void setup() {
             .setColorActive(color(142, 17, 17))
               .setColorLabel(color(0 ) )
                 .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
-                  ;    
-                  
+                  ; 
+
+  cp5.printPublicMethodsFor(Chart.class);
+  myChart = cp5.addChart("hello")
+    .setPosition(100, 230)
+      .setSize(200, 200)
+        .setRange(-30, 40)
+          .setView(Chart.BAR_CENTERED) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
+            ;                
+
+  myChart.getColor().setBackground(color(26,26,26));
+  myChart.addDataSet("world");
+  myChart.setColors("world", color(255, 8, 53), color(144, 1, 28));
+  myChart.setData("world", new float[14]);
+
+  myChart.setStrokeWeight(2.5);
+
 
   b1.addCallback(new CallbackListener() {
     public void controlEvent(CallbackEvent theEvent) {
@@ -138,9 +155,8 @@ void setup() {
     }
   }
   );
-  
-  lastFileRead = millis();
 
+  lastFileRead = millis();
 }
 
 
@@ -149,6 +165,7 @@ void setup() {
 void draw() {
   titulo.draw(this); 
   logo.draw(this); 
+        myChart.unshift("world", (sin(frameCount*0.05)*30));
 
 
   if (mBr == null) return;
@@ -174,18 +191,17 @@ void draw() {
         OscMessage mensaje = new OscMessage(direccionOsc[i]);
         mensaje.add(f); 
         oscP5.send(mensaje, direccionRemota);
- 
+
       }
- t.setValue(c.toString());
- t.draw(this);
- t.setPosition(210,205);
+      t.setValue(c.toString());
+      t.draw(this);
+      t.setPosition(210, 205);
     }
     catch(Exception e) {
     }
 
     lastFileRead = millis();
   }
-   
 }
 
 public void clear() {
