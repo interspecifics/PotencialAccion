@@ -11,7 +11,7 @@ if __name__ == "__main__":
     mOscClient.connect( (OSC_OUT_HOST,OSC_OUT_PORT) )
     mOscMessage = OSCMessage()
 
-    headset = Emotiv(serial_number="SN201405", vendor_id=0x21a1, product_id=0x0001)
+    headset = Emotiv(serial_number="SN20140407004415", vendor_id=4660, product_id=60674)
     gevent.spawn(headset.setup)
     gevent.sleep(0)
 
