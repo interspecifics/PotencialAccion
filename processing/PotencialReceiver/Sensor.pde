@@ -3,6 +3,9 @@ import netP5.*;
 
 private static NetAddress oscOutAddress;
 private static OscMessage mMessage;
+private final static int QUALITY_COLORS[] = {
+  #000000, #B22222, #EE8833, #FFCC11, #698B22
+};
 
 public class Sensor {
   private static final short AVGSIZE = 4;
@@ -26,7 +29,7 @@ public class Sensor {
   // begin/end indices for different things
   private short averageEnd, rawEnd;
   private short maxValue, minValue;
-  private short currentQuality;
+  private float currentQuality;
   private boolean bRecordSensor;
   private String name;
   private PVector location, dimension;
@@ -61,7 +64,7 @@ public class Sensor {
     averageSum = 0;
     averageIndex = 0;
 
-    currentQuality = 0;
+    currentQuality = 0.0f;
     bRecordSensor = false;
 
     // GUI
@@ -86,7 +89,7 @@ public class Sensor {
   }
 
   public void setQuality(float q) {
-    currentQuality = (short)(0.9f*currentQuality + 0.1f*q);
+    currentQuality = (0.9f*currentQuality + 0.1f*q);
   }
 
   public boolean isRecording() {
@@ -192,8 +195,14 @@ public class Sensor {
     translate(location.x, location.y);
 
     // sensor quality indicator
+    int qci = 0;
+    if (currentQuality < 2) qci = 0;
+    else if (currentQuality < 5) qci = 1;
+    else if (currentQuality < 8) qci = 2;
+    else if (currentQuality < 11) qci = 3;
+    else qci = 4;
     stroke(0);
-    fill(0, 100, 0);
+    fill(color(QUALITY_COLORS[qci]));
     ellipse(QUALITY_WIDTH/2, dimension.y/2, QUALITY_WIDTH/2, dimension.y/2);
 
     // background rectangle
