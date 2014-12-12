@@ -46,7 +46,12 @@ void draw() {
   if (bRecordSensors) {
     csvFile.print(millis());
     for (String s:sNames) {
-      csvFile.print(","+mSensors.get(s).getRawValue());
+      if (mSensors.get(s).isRecording()) {
+        csvFile.print(","+mSensors.get(s).getRawValue());
+      }
+      else {
+        csvFile.print(","+"");
+      }
     }
     csvFile.print("\n");
   }
@@ -65,7 +70,7 @@ void draw() {
   }
 
   fill(255);
-  rect(16,10,50,16);
+  rect(16, 10, 50, 16);
   fill(0);
   text(frameRate, 20, 20);
 }

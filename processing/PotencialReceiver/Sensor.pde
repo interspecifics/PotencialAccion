@@ -65,7 +65,7 @@ public class Sensor {
     averageIndex = 0;
 
     currentQuality = 0.0f;
-    bRecordSensor = false;
+    bRecordSensor = true;
 
     // GUI
     mCp5.addToggle(name)
