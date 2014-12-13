@@ -230,7 +230,7 @@ public class Sensor {
 
   void drawGraph(short values[], short sizeOfValues, short lastIndex, float gwidth, float gheight) {
     // background rectangle
-    fill(20);
+    fill(62,62,62);
     noStroke();
     rect(0, 0, gwidth/2, gheight);
 

@@ -36,18 +36,18 @@ void setup() {
   logo = mCp5.addTextlabel("label2")
     .setText("POTENCIAL DE ACCION")
       .setFont(createFont("Roboto-Light", 20))
-        .setPosition(520, 57)
+        .setPosition(560, 57)
           .setColorValue(color( 255, 255, 255 ))
             ;
   titulo = mCp5.addTextlabel("label")
     .setText("EEG TO OSC FROM EMOKIT")
      .setFont(createFont("Roboto-Light", 14))
-      .setPosition(520, 80)
+      .setPosition(560, 80)
         .setColorValue(color( 255, 0, 0 ))
           ;
 
   mCp5.addToggle("writeCSV")
-    .setPosition(525, 110).setSize(80, 20)
+    .setPosition(565, 110).setSize(80, 20)
       .setColorBackground(color( 255, 0, 0 )).setColorForeground(color(142, 17, 17)).setColorActive(color(142, 17, 17))
         .setCaptionLabel("REC-CSV")
           .setValue(bRecordSensors)
@@ -68,7 +68,7 @@ void oscEvent(OscMessage theOscMessage) {
 }
 
 void draw() {
-  background(62,62,62);
+  background(0);
 
   // write csv
   if (bRecordSensors) {
@@ -98,9 +98,9 @@ void draw() {
   }
 
   fill(255);
-  rect(610, 110, 70, 20);
+  rect(650, 110, 70, 19);
   fill(0);
-  text(frameRate, 620, 125);
+  text(frameRate, 660, 125);
 }
 
 public void controlEvent(ControlEvent theEvent) {
