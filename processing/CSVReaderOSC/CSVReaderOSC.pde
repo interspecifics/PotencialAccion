@@ -13,7 +13,7 @@ Chart myChart;
 ControlTimer c;
 Textlabel t;
 OscP5 oscP5; 
-NetAddress direccionRemota;
+NetAddress direccionRemota; 
 String portValue = "";
 
 BufferedReader mBr = null;
