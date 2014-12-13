@@ -9,15 +9,21 @@ String sNames[];
 
 OscP5 mOscP5;
 ControlP5 mCp5;
+ControlP5 cp5;
+
 PrintWriter csvFile;
 boolean bRecordSensors;
+
+Textlabel titulo;
+Textlabel logo;
 
 HashMap<String, Sensor> mSensors = new HashMap<String, Sensor>();
 long lastOscMillis;
 
 void setup() {
-  size(750, 720, P2D);
+  size(900, 720, P2D);
   mCp5 = new ControlP5(this);
+
   sNames = SENSOR_LIST.split(" ");
   for (int i=0; i<sNames.length; ++i) {
     mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-150)-20, height/14-5), sNames[i]));
@@ -25,14 +31,28 @@ void setup() {
   lastOscMillis = millis();
   bRecordSensors = false;
   mOscP5 = new OscP5(this, OSC_IN_PORT);
+  
+  ///// Logo and title
+  logo = mCp5.addTextlabel("label2")
+    .setText("POTENCIAL DE ACCION")
+      .setFont(createFont("Roboto-Light", 20))
+        .setPosition(520, 57)
+          .setColorValue(color( 255, 255, 255 ))
+            ;
+  titulo = mCp5.addTextlabel("label")
+    .setText("EEG TO OSC FROM EMOKIT")
+     .setFont(createFont("Roboto-Light", 14))
+      .setPosition(520, 80)
+        .setColorValue(color( 255, 0, 0 ))
+          ;
 
   mCp5.addToggle("writeCSV")
-    .setPosition(width-60, 10).setSize(40, 40)
-      .setColorBackground(0xff646464).setColorForeground(0xff8c0000).setColorActive(0xffcc1100)
-        .setCaptionLabel("Write CSV")
+    .setPosition(525, 110).setSize(80, 20)
+      .setColorBackground(color( 255, 0, 0 )).setColorForeground(color(142, 17, 17)).setColorActive(color(142, 17, 17))
+        .setCaptionLabel("REC-CSV")
           .setValue(bRecordSensors)
-            .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
-              .setSize(10).setColor(0xffcc1100);
+            .getCaptionLabel().align(CENTER,CENTER)
+              .setSize(10).setColor(0xff000000);
 }
 
 // read input
@@ -48,7 +68,7 @@ void oscEvent(OscMessage theOscMessage) {
 }
 
 void draw() {
-  background(200);
+  background(62,62,62);
 
   // write csv
   if (bRecordSensors) {
@@ -78,9 +98,9 @@ void draw() {
   }
 
   fill(255);
-  rect(16, 10, 50, 16);
+  rect(610, 110, 70, 20);
   fill(0);
-  text(frameRate, 20, 20);
+  text(frameRate, 620, 125);
 }
 
 public void controlEvent(ControlEvent theEvent) {

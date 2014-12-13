@@ -69,13 +69,13 @@ public class Sensor {
 
     // GUI
     mCp5.addToggle(name)
-      .setPosition(location.x+dimension.x+2*GUI_OFFSET+QUALITY_WIDTH, location.y)
-        .setSize(QUALITY_WIDTH, (int)dimension.y/2)
+      .setPosition(location.x+430, location.y)
+        .setSize(QUALITY_WIDTH, (int)dimension.y)
           .setColorBackground(0xff646464).setColorForeground(0xff8c0000).setColorActive(0xffcc1100)
             .setCaptionLabel("REC")
               .setValue(true)
-                .getCaptionLabel().align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
-                  .setSize(10).setColor(0xffcc1100);
+                .getCaptionLabel().align(CENTER, CENTER)
+                  .setSize(10).setColor(0);
   }
 
   public short getMin() {
@@ -201,15 +201,15 @@ public class Sensor {
     else if (currentQuality < 8) qci = 2;
     else if (currentQuality < 11) qci = 3;
     else qci = 4;
-    stroke(0);
+    noStroke();
     fill(color(QUALITY_COLORS[qci]));
-    ellipse(QUALITY_WIDTH/2, dimension.y/2, QUALITY_WIDTH/2, dimension.y/2);
+    rect(QUALITY_WIDTH/2, dimension.y/2, QUALITY_WIDTH/3, dimension.y/2);
 
     // background rectangle
     pushMatrix();
     translate(QUALITY_WIDTH+GUI_OFFSET, 0);
     fill(100);
-    rect(0, 0, dimension.x, dimension.y);
+    rect(0, 0, dimension.x/2, dimension.y);
 
     // sensor title, current, min and max
     fill(255);
@@ -230,14 +230,14 @@ public class Sensor {
 
   void drawGraph(short values[], short sizeOfValues, short lastIndex, float gwidth, float gheight) {
     // background rectangle
-    fill(90);
+    fill(20);
     noStroke();
-    rect(0, 0, gwidth, gheight);
+    rect(0, 0, gwidth/2, gheight);
 
     // graph
     PVector lastP = new PVector(0, gheight/2);
     stroke(255);
-    for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth; ++x, ++i) {
+    for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth/2; ++x, ++i) {
       int yIndex = i;
       while (yIndex<0) {
         yIndex += sizeOfValues;
