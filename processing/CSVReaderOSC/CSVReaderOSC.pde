@@ -46,13 +46,13 @@ void setup() {
   
 
 ///// Logo and title
-  logo = cp5.addTextlabel("label2")
+  logo = cp5.addTextlabel("logo")
     .setText("POTENCIAL DE ACCION")
-      .setFont(createFont("Roboto-Light", 20))
+      .setFont(createFont("Roboto", 20))
         .setPosition(98, 57)
-          .setColorValue(color( 255, 255, 255 ))
+          .setColorValue(color( 255, 0, 0 ))
             ;
-  titulo = cp5.addTextlabel("label")
+  titulo = cp5.addTextlabel("titulo")
     .setText("EEG TO OSC FROM CSV/TSV FILE")
       .setPosition(98, 80)
         .setColorValue(color( 255, 0, 0 ))
