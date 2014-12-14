@@ -22,11 +22,11 @@
 #X floatatom 705 -56 5 0 0 0 - - -;
 #X obj 705 -78 -;
 #X obj 705 -28 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -33289
--262144 -1 2900 1;
+-262144 -1 0 1;
 #X obj 810 -82 -;
 #X floatatom 836 -104 5 0 0 0 - - -;
 #X obj 808 -25 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -1 -262144
--1 2900 1;
+-1 0 1;
 #X floatatom 730 -101 5 0 0 0 - - -;
 #X floatatom 810 -58 5 0 0 0 - - -;
 #X obj 162 -17 s F7;
@@ -185,8 +185,8 @@
 #X floatatom 528 -17 5 0 0 0 - - -;
 #X obj 122 -115 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
 2 14 0 15 -1 -1 -191407 0 1;
-#X obj 705 11 s ctl;
-#X obj 808 11 s ctl1;
+#X obj 705 5 s ctl;
+#X obj 808 7 s ctl1;
 #X obj 665 446 r ctl;
 #X obj 711 447 r ctl1;
 #X connect 0 0 1 0;
