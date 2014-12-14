@@ -21,11 +21,11 @@
 #X obj 857 0 ctlout 2;
 #X floatatom 736 -22 5 0 0 0 - - -;
 #X obj 736 -44 -;
-#X obj 736 6 vsl 15 30 0 1023 0 0 empty empty empty 0 -9 0 10 -33289
+#X obj 736 6 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -33289
 -262144 -1 0 1;
 #X obj 841 -48 -;
 #X floatatom 867 -70 5 0 0 0 - - -;
-#X obj 832 4 vsl 15 30 0 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+#X obj 832 4 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -1 -262144
 -1 0 1;
 #X floatatom 761 -67 5 0 0 0 - - -;
 #X floatatom 841 -24 5 0 0 0 - - -;
@@ -185,12 +185,10 @@
 #X floatatom 559 17 5 0 0 0 - - -;
 #X obj 153 -81 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
 2 14 0 15 -1 -1 -191407 0 1;
-#X obj 734 48 s ctl;
+#X obj 737 52 s ctl;
 #X obj 832 46 s ctl1;
 #X obj 641 539 r ctl;
 #X obj 680 539 r ctl1;
-#X obj 862 23 / 127;
-#X obj 766 23 / 127;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 2 0 28 0;
@@ -214,10 +212,10 @@
 #X connect 18 0 16 0;
 #X connect 18 0 20 0;
 #X connect 19 0 18 0;
-#X connect 20 0 169 0;
+#X connect 20 0 164 0;
 #X connect 21 0 25 0;
 #X connect 22 0 21 1;
-#X connect 23 0 168 0;
+#X connect 23 0 165 0;
 #X connect 24 0 19 1;
 #X connect 25 0 23 0;
 #X connect 25 0 17 0;
@@ -366,5 +364,3 @@
 #X connect 162 0 159 0;
 #X connect 166 0 0 1;
 #X connect 167 0 0 2;
-#X connect 168 0 165 0;
-#X connect 169 0 164 0;
