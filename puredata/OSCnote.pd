@@ -1,22 +1,23 @@
-#N canvas 1 22 1264 752 10;
+#N canvas 24 28 1264 752 10;
 #X declare -lib mrpeach;
-#X obj 555 476 makenote 80 500;
-#X obj 557 509 noteout 4;
-#X floatatom 205 -39 5 0 0 0 - - -;
-#X floatatom 249 -38 5 0 0 0 - - -;
-#X floatatom 161 -39 5 0 0 0 - - -;
-#X obj 32 -56 unpackOSC;
-#X obj 3 -32 print unpacked;
-#X obj 4 -112 import mrpeach;
-#X text 4 -76 recibiendo datos;
-#X floatatom 117 -38 5 0 0 0 - - -;
-#X floatatom 381 -38 5 0 0 0 - - -;
-#X floatatom 426 -37 5 0 0 0 - - -;
-#X floatatom 337 -38 5 0 0 0 - - -;
-#X floatatom 293 -39 5 0 0 0 - - -;
-#X obj -4 -94 udpreceive 11112;
-#X obj 118 -77 routeOSC /csv/AF3 /csv/F7 /csv/FC5 /csv/F8 /csv/FC6
+#X obj 578 514 makenote 80 500;
+#X obj 578 539 noteout 4;
+#X floatatom 236 -5 5 0 0 0 - - -;
+#X floatatom 280 -4 5 0 0 0 - - -;
+#X floatatom 192 -5 5 0 0 0 - - -;
+#X obj 63 -22 unpackOSC;
+#X obj 34 2 print unpacked;
+#X obj 35 -78 import mrpeach;
+#X text 35 -42 recibiendo datos;
+#X floatatom 148 -4 5 0 0 0 - - -;
+#X floatatom 412 -4 5 0 0 0 - - -;
+#X floatatom 457 -3 5 0 0 0 - - -;
+#X floatatom 368 -4 5 0 0 0 - - -;
+#X floatatom 324 -5 5 0 0 0 - - -;
+#X obj 27 -60 udpreceive 11112;
+#X obj 149 -43 routeOSC /csv/AF3 /csv/F7 /csv/FC5 /csv/F8 /csv/FC6
 /csv/T7 /csv/T8 /csv/O1;
+<<<<<<< HEAD
 #X obj 730 -35 ctlout 1;
 #X obj 826 -34 ctlout 2;
 #X floatatom 705 -56 5 0 0 0 - - -;
@@ -34,161 +35,189 @@
 #X obj 204 -17 s FC5;
 #X floatatom 215 176 5 0 0 0 - - -;
 #X obj 174 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+=======
+#X obj 761 -1 ctlout 1;
+#X obj 857 0 ctlout 2;
+#X floatatom 736 -22 5 0 0 0 - - -;
+#X obj 736 -44 -;
+#X obj 736 6 vsl 15 30 0 1023 0 0 empty empty empty 0 -9 0 10 -33289
+-262144 -1 0 1;
+#X obj 841 -48 -;
+#X floatatom 867 -70 5 0 0 0 - - -;
+#X obj 832 4 vsl 15 30 0 1023 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 761 -67 5 0 0 0 - - -;
+#X floatatom 841 -24 5 0 0 0 - - -;
+#X obj 193 17 s F7;
+#X obj 148 18 s AF3;
+#X obj 235 17 s FC5;
+#X floatatom 246 210 5 0 0 0 - - -;
+#X obj 205 211 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+>>>>>>> FETCH_HEAD
 -1 -1;
-#X obj 174 198 t b;
-#X obj 174 152 moses;
-#X obj 174 104 average;
-#X floatatom 174 130 5 0 0 0 - - -;
-#X obj 216 200 / 127;
-#X floatatom 175 250 5 0 0 0 - - -;
-#X obj 174 80 r F7;
-#X obj 175 274 + 10;
-#X floatatom 358 172 5 0 0 0 - - -;
-#X obj 317 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 205 232 t b;
+#X obj 205 186 moses;
+#X obj 205 138 average;
+#X floatatom 205 164 5 0 0 0 - - -;
+#X obj 247 234 / 127;
+#X floatatom 206 284 5 0 0 0 - - -;
+#X obj 205 114 r F7;
+#X obj 206 308 + 10;
+#X floatatom 389 206 5 0 0 0 - - -;
+#X obj 348 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 317 194 t b;
-#X obj 317 148 moses;
-#X obj 317 100 average;
-#X floatatom 317 126 5 0 0 0 - - -;
-#X obj 359 196 / 127;
-#X floatatom 318 246 5 0 0 0 - - -;
-#X obj 317 76 r FC5;
-#X floatatom 499 173 5 0 0 0 - - -;
-#X obj 458 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 348 228 t b;
+#X obj 348 182 moses;
+#X obj 348 134 average;
+#X floatatom 348 160 5 0 0 0 - - -;
+#X obj 390 230 / 127;
+#X floatatom 349 280 5 0 0 0 - - -;
+#X obj 348 110 r FC5;
+#X floatatom 530 207 5 0 0 0 - - -;
+#X obj 489 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 458 195 t b;
-#X obj 458 149 moses;
-#X obj 458 101 average;
-#X floatatom 458 127 5 0 0 0 - - -;
-#X obj 500 197 / 127;
-#X floatatom 459 247 5 0 0 0 - - -;
-#X floatatom 649 170 5 0 0 0 - - -;
-#X obj 608 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 489 229 t b;
+#X obj 489 183 moses;
+#X obj 489 135 average;
+#X floatatom 489 161 5 0 0 0 - - -;
+#X obj 531 231 / 127;
+#X floatatom 490 281 5 0 0 0 - - -;
+#X floatatom 680 204 5 0 0 0 - - -;
+#X obj 639 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 608 192 t b;
-#X obj 608 146 moses;
-#X obj 608 98 average;
-#X floatatom 608 124 5 0 0 0 - - -;
-#X obj 650 194 / 127;
-#X floatatom 609 244 5 0 0 0 - - -;
-#X obj 318 270 + 15;
-#X obj 459 271 + 20;
-#X obj 609 268 + 25;
-#X floatatom 798 165 5 0 0 0 - - -;
-#X obj 757 166 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 639 226 t b;
+#X obj 639 180 moses;
+#X obj 639 132 average;
+#X floatatom 639 158 5 0 0 0 - - -;
+#X obj 681 228 / 127;
+#X floatatom 640 278 5 0 0 0 - - -;
+#X obj 349 304 + 15;
+#X obj 490 305 + 20;
+#X obj 640 302 + 25;
+#X floatatom 829 199 5 0 0 0 - - -;
+#X obj 788 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 757 187 t b;
-#X obj 757 141 moses;
-#X obj 757 93 average;
-#X floatatom 757 119 5 0 0 0 - - -;
-#X obj 799 189 / 127;
-#X floatatom 758 239 5 0 0 0 - - -;
-#X obj 758 263 + 30;
-#X obj 458 77 r F8;
-#X obj 757 69 r T7;
-#X floatatom 950 163 5 0 0 0 - - -;
-#X obj 909 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 788 221 t b;
+#X obj 788 175 moses;
+#X obj 788 127 average;
+#X floatatom 788 153 5 0 0 0 - - -;
+#X obj 830 223 / 127;
+#X floatatom 789 273 5 0 0 0 - - -;
+#X obj 789 297 + 30;
+#X obj 489 111 r F8;
+#X obj 788 103 r T7;
+#X floatatom 981 197 5 0 0 0 - - -;
+#X obj 940 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 909 185 t b;
-#X obj 909 139 moses;
-#X obj 909 91 average;
-#X floatatom 909 117 5 0 0 0 - - -;
-#X obj 951 187 / 127;
-#X floatatom 910 237 5 0 0 0 - - -;
-#X obj 910 261 + 35;
-#X obj 909 67 r T8;
-#X floatatom 1103 161 5 0 0 0 - - -;
-#X obj 1062 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 940 219 t b;
+#X obj 940 173 moses;
+#X obj 940 125 average;
+#X floatatom 940 151 5 0 0 0 - - -;
+#X obj 982 221 / 127;
+#X floatatom 941 271 5 0 0 0 - - -;
+#X obj 941 295 + 35;
+#X obj 940 101 r T8;
+#X floatatom 1134 195 5 0 0 0 - - -;
+#X obj 1093 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1062 183 t b;
-#X obj 1062 137 moses;
-#X obj 1062 89 average;
-#X floatatom 1062 115 5 0 0 0 - - -;
-#X obj 1104 185 / 127;
-#X floatatom 1063 235 5 0 0 0 - - -;
-#X obj 1062 65 r O1;
-#X floatatom -30 237 5 0 0 0 - - -;
-#X obj -30 213 counter;
-#X obj -1 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 1093 217 t b;
+#X obj 1093 171 moses;
+#X obj 1093 123 average;
+#X floatatom 1093 149 5 0 0 0 - - -;
+#X obj 1135 219 / 127;
+#X floatatom 1094 269 5 0 0 0 - - -;
+#X obj 1093 99 r O1;
+#X floatatom 1 271 5 0 0 0 - - -;
+#X obj 1 247 counter;
+#X obj 30 227 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X floatatom 67 176 5 0 0 0 - - -;
-#X obj 26 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X floatatom 98 210 5 0 0 0 - - -;
+#X obj 57 209 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 26 196 t b;
-#X obj 26 150 moses;
-#X obj 26 102 average;
-#X obj 26 78 r AF3;
-#X floatatom 26 128 5 0 0 0 - - -;
-#X obj 68 200 / 127;
-#X floatatom 27 248 5 0 0 0 - - -;
-#X obj 27 272 + 5;
-#X obj 250 -17 s F8;
-#X obj 293 -16 s FC6;
-#X obj 337 -16 s T7;
-#X obj 381 -16 s T8;
-#X obj 426 -16 s O1;
-#X obj 605 -83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 57 230 t b;
+#X obj 57 184 moses;
+#X obj 57 136 average;
+#X obj 57 112 r AF3;
+#X floatatom 57 162 5 0 0 0 - - -;
+#X obj 99 234 / 127;
+#X floatatom 58 282 5 0 0 0 - - -;
+#X obj 58 306 + 5;
+#X obj 281 17 s F8;
+#X obj 324 18 s FC6;
+#X obj 368 18 s T7;
+#X obj 412 18 s T8;
+#X obj 457 18 s O1;
+#X obj 636 -49 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 533 -64 reset time;
-#X obj 605 -63 s time;
-#X obj -24 170 r time;
-#X floatatom 120 239 5 0 0 0 - - -;
-#X obj 120 215 counter;
-#X obj 149 195 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 564 -30 reset time;
+#X obj 636 -29 s time;
+#X obj 7 204 r time;
+#X floatatom 151 273 5 0 0 0 - - -;
+#X obj 151 249 counter;
+#X obj 180 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 126 172 r time;
-#X floatatom 268 235 5 0 0 0 - - -;
-#X obj 268 211 counter;
-#X obj 297 191 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 157 206 r time;
+#X floatatom 299 269 5 0 0 0 - - -;
+#X obj 299 245 counter;
+#X obj 328 225 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 274 168 r time;
-#X floatatom 409 236 5 0 0 0 - - -;
-#X obj 409 212 counter;
-#X obj 438 192 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 305 202 r time;
+#X floatatom 440 270 5 0 0 0 - - -;
+#X obj 440 246 counter;
+#X obj 469 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 415 169 r time;
-#X floatatom 558 233 5 0 0 0 - - -;
-#X obj 558 209 counter;
-#X obj 587 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 446 203 r time;
+#X floatatom 589 267 5 0 0 0 - - -;
+#X obj 589 243 counter;
+#X obj 618 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 564 166 r time;
-#X floatatom 708 228 5 0 0 0 - - -;
-#X obj 708 204 counter;
-#X obj 737 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 595 200 r time;
+#X floatatom 739 262 5 0 0 0 - - -;
+#X obj 739 238 counter;
+#X obj 768 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 714 161 r time;
-#X floatatom 857 226 5 0 0 0 - - -;
-#X obj 857 202 counter;
-#X obj 886 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 745 195 r time;
+#X floatatom 888 260 5 0 0 0 - - -;
+#X obj 888 236 counter;
+#X obj 917 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 863 159 r time;
-#X floatatom 1013 224 5 0 0 0 - - -;
-#X obj 1013 200 counter;
-#X obj 1042 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 894 193 r time;
+#X floatatom 1044 258 5 0 0 0 - - -;
+#X obj 1044 234 counter;
+#X obj 1073 214 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1019 157 r time;
-#X obj 474 -17 average;
-#X floatatom 27 295 5 0 0 0 - - -;
-#X floatatom 175 298 5 0 0 0 - - -;
-#X floatatom 318 295 5 0 0 0 - - -;
-#X floatatom 459 296 5 0 0 0 - - -;
-#X floatatom 609 294 5 0 0 0 - - -;
-#X floatatom 758 291 5 0 0 0 - - -;
-#X floatatom 910 286 5 0 0 0 - - -;
-#X obj 1063 261 + 40;
-#X floatatom 1063 289 5 0 0 0 - - -;
-#X obj 608 74 r FC6;
-#X obj 474 -40 r AF3 F7 FC5 F8 FC6 T7 T8 O1;
-#X obj 567 -17 s avr;
-#X obj 687 -102 r avr;
-#X obj 793 -105 r avr;
-#X floatatom 528 -17 5 0 0 0 - - -;
-#X obj 122 -115 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
+#X obj 1050 191 r time;
+#X obj 505 17 average;
+#X floatatom 58 329 5 0 0 0 - - -;
+#X floatatom 206 332 5 0 0 0 - - -;
+#X floatatom 349 329 5 0 0 0 - - -;
+#X floatatom 490 330 5 0 0 0 - - -;
+#X floatatom 640 328 5 0 0 0 - - -;
+#X floatatom 789 325 5 0 0 0 - - -;
+#X floatatom 941 320 5 0 0 0 - - -;
+#X obj 1094 295 + 40;
+#X floatatom 1094 323 5 0 0 0 - - -;
+#X obj 639 108 r FC6;
+#X obj 505 -6 r AF3 F7 FC5 F8 FC6 T7 T8 O1;
+#X obj 598 17 s avr;
+#X obj 718 -68 r avr;
+#X obj 824 -71 r avr;
+#X floatatom 559 17 5 0 0 0 - - -;
+#X obj 153 -81 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
 2 14 0 15 -1 -1 -191407 0 1;
+<<<<<<< HEAD
 #X obj 705 5 s ctl;
 #X obj 808 7 s ctl1;
 #X obj 665 446 r ctl;
 #X obj 711 447 r ctl1;
+=======
+#X obj 734 48 s ctl;
+#X obj 832 46 s ctl1;
+#X obj 641 539 r ctl;
+#X obj 680 539 r ctl1;
+#X obj 862 23 / 127;
+#X obj 766 23 / 127;
+>>>>>>> FETCH_HEAD
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 2 0 28 0;
@@ -212,10 +241,10 @@
 #X connect 18 0 16 0;
 #X connect 18 0 20 0;
 #X connect 19 0 18 0;
-#X connect 20 0 164 0;
+#X connect 20 0 169 0;
 #X connect 21 0 25 0;
 #X connect 22 0 21 1;
-#X connect 23 0 165 0;
+#X connect 23 0 168 0;
 #X connect 24 0 19 1;
 #X connect 25 0 23 0;
 #X connect 25 0 17 0;
@@ -364,3 +393,5 @@
 #X connect 162 0 159 0;
 #X connect 166 0 0 1;
 #X connect 167 0 0 2;
+#X connect 168 0 165 0;
+#X connect 169 0 164 0;
