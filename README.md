@@ -12,7 +12,7 @@ Este proyecto incluye varios programas diseñados para la sonificación y visual
 de la diadema epoc. 
 
 
-emoserver
+emoOscServer
 =========
 
 Para correr el emoOscServer es nesesarios instalar Emokit, recomendamos el fork de Thiago Hersan para esto:
@@ -46,6 +46,16 @@ Librerias para OS X
   (desgarga y python setup-mac.py build / sudo python setup-mac.py install)
 
 • realpath: sudo port install realpath
+
+
+Tools
+=========
+
+- csvtoOsc 
+- potencialServer
+
+
+
 
 
 
