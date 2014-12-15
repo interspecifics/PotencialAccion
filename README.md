@@ -17,9 +17,9 @@ emoserver
 
 Para correr el emoOscServer es nesesarios instalar Emokit, recomendamos el fork de Thiago Hersan para esto:
 
-https://github.com/thiagohersan/emokit ( navega hasta la carpeta de python y desde la terminal: 
+https://github.com/thiagohersan/emokit navega hasta la carpeta de python y desde la terminal: 
 
-sudo python setup.py install)
+sudo python setup.py install
 
 
 Después es necesario instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En LA terminal: 
