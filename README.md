@@ -57,7 +57,7 @@ Esta herramienta te permite leer archivos csv, para esto solo tienes que correr 
 ________________________________________
 
 • PotencialServer
-El potenciar server corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo emoOscServer.py para ejecutarlo en la terminal:
+El potencialServer corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo emoOscServer.py para ejecutarlo en la terminal:
 
 python emoOscServer.py
 
