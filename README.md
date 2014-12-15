@@ -34,36 +34,41 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 Librerias para OS X
 ===================
 
-• pyOsc: sudo easy_install pyOsc
+- pyOsc: sudo easy_install pyOsc
 
-• hidapi: brew install hidapi 
+- hidapi: brew install hidapi 
 
-• pycrypto: sudo easy_install pycrypto 
+- pycrypto: sudo easy_install pycrypto 
 
-• gevent: sudo easy_install gevent 
+- gevent: sudo easy_install gevent 
 
-• cython-hidapi:  https://github.com/gbishop/cython-hidapi 
-  (desgarga y python setup-mac.py build / sudo python setup-mac.py install)
+- cython-hidapi:  https://github.com/gbishop/cython-hidapi 
+    (desgarga y python setup-mac.py build / sudo python setup-mac.py install)
 
-• realpath: sudo port install realpath
+- realpath: sudo port install realpath
 
 
 Tools
 =========
 
-- csvtoOsc 
+• csvtoOsc 
 Esta herramienta te permite leer archivos csv, para esto solo tienes que correr la aplicación y seleccionar el archivo que deseas transmitir en formato OSC. 
 
-- potencialServer
-El potenciar server corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo emoOscServer.py para ejecutarlo 
+________________________________________
+
+• PotencialServer
+El potenciar server corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo emoOscServer.py para ejecutarlo en la terminal:
 
 python emoOscServer.py
 
 NOTA: es importante que edite el archivo y lo actualices con los datos Serial Number: vendor id: y product id: que corresponden a tu kit epoc especifico. 
 
+________________________________________
+
+• OSCnote 
 
 
-
+________________________________________
 
 
 
