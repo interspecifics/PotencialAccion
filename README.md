@@ -22,7 +22,13 @@ https://github.com/thiagohersan/emokit ( navega hasta la carpeta de python y des
 sudo python setup.py install)
 
 
-Despúes es necesario instalar varías librerias para esto se recomienda instalar el setuptools, esto lo puedes hacer instalando brew, en terminal: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" una vez terminada la instalación: export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+Después es necesario instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En LA terminal: 
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+
+una vez terminada la instalación: 
+
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 
 Librerias para OS X
