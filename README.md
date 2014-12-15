@@ -15,14 +15,14 @@ de la diadema epoc.
 emoOscServer
 =========
 
-Para correr el emoOscServer es nesesarios instalar Emokit, recomendamos el fork de Thiago Hersan para esto:
+Para correr el emoOscServer es necesario instalar Emokit, recomendamos el fork de Thiago Hersan para esto:
 
 https://github.com/thiagohersan/emokit navega hasta la carpeta de python y desde la terminal: 
 
 sudo python setup.py install
 
 
-Después es necesario instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En la terminal: 
+Después vamos a instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En la terminal: 
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
 
