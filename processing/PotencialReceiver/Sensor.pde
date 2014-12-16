@@ -15,7 +15,7 @@ public class Sensor {
   private final static int OSC_OUT_PERIOD = 100;
   private final static int OSC_OUT_PORT = 8666;
   private final static String OSC_OUT_HOST = "localhost";
-  private final static String OSC_OUT_PATTERN = "/potencial-accion/";
+  private final static String OSC_OUT_PATTERN = "/potencial/";
 
   private final static short GUI_OFFSET = 5;
   private final static short QUALITY_WIDTH = 30;
