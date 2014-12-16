@@ -1,0 +1,1095 @@
+#N canvas 93 36 999 710 10;
+#X declare -lib mrpeach;
+#X obj 419 76 cnv 15 100 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#X obj 430 265 cnv 15 85 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#X obj 22 90 cnv 15 60 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#N canvas 146 163 525 433 serin 0;
+#X obj 180 61 cnv 15 15 15 empty \$0-number-canvas 3 4 8 0 14 -233017
+-1 0;
+#X obj 200 225 s \$0-number-canvas;
+#X obj 60 61 hradio 15 1 1 8 empty empty empty 0 -6 0 8 -225271 -1
+-1 3;
+#X obj 60 13 inlet;
+#X msg 200 202 label \$1;
+#X obj 200 180 makefilename %d;
+#X obj 59 108 int;
+#X msg 59 206 open \$1;
+#X obj 59 377 outlet;
+#X msg 201 306 set \$1 \$2;
+#X obj 59 266 trigger bang anything;
+#X obj 201 286 list;
+#X obj 383 383 outlet;
+#X obj 384 22 netreceive 34567;
+#X obj 477 43 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 384 41 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 187 24 delay 15000;
+#X text 345 379 close;
+#X text 209 4 for open/close automation in Makefile;
+#X obj 184 95 bang;
+#X obj 184 137 send ARDUINO_TEST_RESET;
+#X msg 184 116 set 0;
+#X connect 2 0 6 0;
+#X connect 2 0 19 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 10 1 11 0;
+#X connect 11 0 9 0;
+#X connect 13 0 15 0;
+#X connect 13 1 14 0;
+#X connect 15 0 16 0;
+#X connect 15 0 12 0;
+#X connect 16 0 2 0;
+#X connect 19 0 21 0;
+#X connect 21 0 20 0;
+#X coords 0 -1 1 1 136 17 1 60 60;
+#X restore 28 69 pd serin;
+#X text 25 51 serial port #;
+#X msg 88 92 close;
+#X obj 492 224 hsl 150 17 0 1 0 0 empty ARDUINO_TEST_RESET analog_output_(0-1)
+20 9 1 10 -225271 -1 -1 0 0;
+#X obj 438 186 hradio 15 1 0 14 empty empty empty 0 -6 0 8 -176124
+-1 -1 0;
+#X text 546 172 7;
+#X text 440 172 0;
+#X text 587 172 10;
+#X text 633 172 13;
+#X text 498 172 4;
+#X text 469 172 2;
+#X text 514 172 5;
+#X text 529 172 6;
+#X text 484 172 3;
+#X text 560 172 8;
+#X text 577 172 9;
+#X text 603 172 11;
+#X text 618 172 12;
+#X text 455 172 1;
+#X msg 121 132 info;
+#X msg 121 152 version;
+#N canvas 763 71 475 478 sending 0;
+#X obj 69 228 cnv 15 100 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#X obj 78 434 outlet;
+#X msg 78 231 digital 0 0;
+#X obj 127 148 tgl 15 0 empty ARDUINO_TEST_RESET 7 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 144 148 tgl 15 0 empty ARDUINO_TEST_RESET 8 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 161 148 tgl 15 0 empty ARDUINO_TEST_RESET 9 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 178 148 tgl 15 0 empty ARDUINO_TEST_RESET 10 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 195 148 tgl 15 0 empty ARDUINO_TEST_RESET 11 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 212 148 tgl 15 0 empty ARDUINO_TEST_RESET 12 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 229 148 tgl 15 0 empty ARDUINO_TEST_RESET 13 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 42 148 tgl 15 0 empty ARDUINO_TEST_RESET 2 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 59 148 tgl 15 0 empty ARDUINO_TEST_RESET 3 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 76 148 tgl 15 0 empty ARDUINO_TEST_RESET 4 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 93 148 tgl 15 0 empty ARDUINO_TEST_RESET 5 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 110 148 tgl 15 0 empty ARDUINO_TEST_RESET 6 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 418 123 tgl 25 0 empty ARDUINO_TEST_RESET ALL 2 12 0 12 -262144
+-1 -1 0 1;
+#X obj 388 72 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 16383
+;
+#X obj 388 92 metro 100;
+#X obj 301 9 inlet;
+#X obj 301 43 trigger 0 float;
+#X obj 301 64 select 0;
+#X msg 301 84 0;
+#X msg 405 389 port 1 0;
+#X msg 263 389 port 0 0;
+#X msg 189 389 port 0 255;
+#X msg 331 389 port 1 255;
+#X text 95 291 or send 8-bit ports in one message:;
+#X msg 159 338 port 1 \$1;
+#X msg 91 338 port 0 \$1;
+#X msg 230 338 port 2 \$1;
+#X obj 362 297 tgl 25 0 empty ARDUINO_TEST_RESET ALL 2 12 0 12 -262144
+-1 -1 0 1;
+#X obj 362 246 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+16383;
+#X obj 362 266 metro 100;
+#X floatatom 362 329 5 0 0 0 - - -;
+#X obj 246 148 tgl 15 0 empty ARDUINO_TEST_RESET 14 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 263 148 tgl 15 0 empty ARDUINO_TEST_RESET 15 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 280 148 tgl 15 0 empty ARDUINO_TEST_RESET 16 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 297 148 tgl 15 0 empty ARDUINO_TEST_RESET 17 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 314 148 tgl 15 0 empty ARDUINO_TEST_RESET 18 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 331 148 tgl 15 0 empty ARDUINO_TEST_RESET 19 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 348 148 tgl 15 0 empty ARDUINO_TEST_RESET 20 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 365 148 tgl 15 0 empty ARDUINO_TEST_RESET 21 0 -6 1 12 -233017
+-1 -1 0 1;
+#N canvas 314 233 1035 340 generate 0;
+#X obj 12 24 inlet;
+#X obj 52 24 inlet;
+#X obj 91 24 inlet;
+#X obj 131 24 inlet;
+#X obj 171 24 inlet;
+#X obj 211 24 inlet;
+#X obj 250 24 inlet;
+#X obj 290 24 inlet;
+#X obj 331 23 inlet;
+#X obj 371 23 inlet;
+#X obj 410 23 inlet;
+#X obj 450 23 inlet;
+#X obj 490 23 inlet;
+#X msg 12 66 digital 0 \$1;
+#X msg 52 88 digital 1 \$1;
+#X msg 91 110 digital 2 \$1;
+#X msg 131 130 digital 3 \$1;
+#X msg 171 62 digital 4 \$1;
+#X msg 211 84 digital 5 \$1;
+#X msg 250 106 digital 6 \$1;
+#X msg 290 126 digital 7 \$1;
+#X msg 331 58 digital 8 \$1;
+#X msg 371 80 digital 9 \$1;
+#X msg 410 102 digital 10 \$1;
+#X msg 450 122 digital 11 \$1;
+#X msg 490 50 digital 12 \$1;
+#X obj 529 23 inlet;
+#X msg 529 70 digital 13 \$1;
+#X obj 513 302 outlet;
+#X obj 513 263 trigger bang anything;
+#X obj 513 214 list prepend set;
+#X obj 513 238 list trim;
+#X obj 570 23 inlet;
+#X obj 610 23 inlet;
+#X obj 650 23 inlet;
+#X obj 689 23 inlet;
+#X msg 570 102 digital 14 \$1;
+#X msg 610 122 digital 15 \$1;
+#X msg 650 50 digital 16 \$1;
+#X msg 689 70 digital 17 \$1;
+#X obj 730 23 inlet;
+#X obj 770 23 inlet;
+#X obj 810 23 inlet;
+#X obj 849 23 inlet;
+#X msg 730 102 digital 18 \$1;
+#X msg 770 122 digital 19 \$1;
+#X msg 810 50 digital 20 \$1;
+#X msg 849 70 digital 21 \$1;
+#X obj 890 23 inlet;
+#X obj 930 23 inlet;
+#X msg 890 102 digital 22 \$1;
+#X msg 930 122 digital 23 \$1;
+#X connect 0 0 13 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 19 0;
+#X connect 7 0 20 0;
+#X connect 8 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 11 0 24 0;
+#X connect 12 0 25 0;
+#X connect 13 0 30 0;
+#X connect 14 0 30 0;
+#X connect 15 0 30 0;
+#X connect 16 0 30 0;
+#X connect 17 0 30 0;
+#X connect 18 0 30 0;
+#X connect 19 0 30 0;
+#X connect 20 0 30 0;
+#X connect 21 0 30 0;
+#X connect 22 0 30 0;
+#X connect 23 0 30 0;
+#X connect 24 0 30 0;
+#X connect 25 0 30 0;
+#X connect 26 0 27 0;
+#X connect 27 0 30 0;
+#X connect 29 0 28 0;
+#X connect 29 1 28 0;
+#X connect 30 0 31 0;
+#X connect 31 0 29 0;
+#X connect 32 0 36 0;
+#X connect 33 0 37 0;
+#X connect 34 0 38 0;
+#X connect 35 0 39 0;
+#X connect 36 0 30 0;
+#X connect 37 0 30 0;
+#X connect 38 0 30 0;
+#X connect 39 0 30 0;
+#X connect 40 0 44 0;
+#X connect 41 0 45 0;
+#X connect 42 0 46 0;
+#X connect 43 0 47 0;
+#X connect 44 0 30 0;
+#X connect 45 0 30 0;
+#X connect 46 0 30 0;
+#X connect 47 0 30 0;
+#X connect 48 0 50 0;
+#X connect 49 0 51 0;
+#X connect 50 0 30 0;
+#X connect 51 0 30 0;
+#X restore 78 201 pd generate digital out messages ------------------
+;
+#X obj 382 148 tgl 15 0 empty ARDUINO_TEST_RESET 22 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 399 148 tgl 15 0 empty ARDUINO_TEST_RESET 23 0 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 8 148 tgl 15 0 empty ARDUINO_TEST_RESET 0 4 -6 1 12 -233017
+-1 -1 0 1;
+#X obj 25 148 tgl 15 0 empty ARDUINO_TEST_RESET 1 4 -6 1 12 -233017
+-1 -1 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 42 7;
+#X connect 4 0 42 8;
+#X connect 5 0 42 9;
+#X connect 6 0 42 10;
+#X connect 7 0 42 11;
+#X connect 8 0 42 12;
+#X connect 9 0 42 13;
+#X connect 10 0 42 2;
+#X connect 11 0 42 3;
+#X connect 12 0 42 4;
+#X connect 13 0 42 5;
+#X connect 14 0 42 6;
+#X connect 15 0 9 0;
+#X connect 15 0 8 0;
+#X connect 15 0 7 0;
+#X connect 15 0 6 0;
+#X connect 15 0 5 0;
+#X connect 15 0 4 0;
+#X connect 15 0 3 0;
+#X connect 15 0 14 0;
+#X connect 15 0 13 0;
+#X connect 15 0 12 0;
+#X connect 15 0 11 0;
+#X connect 15 0 10 0;
+#X connect 15 0 39 0;
+#X connect 15 0 40 0;
+#X connect 15 0 41 0;
+#X connect 15 0 38 0;
+#X connect 15 0 37 0;
+#X connect 15 0 36 0;
+#X connect 15 0 35 0;
+#X connect 15 0 34 0;
+#X connect 15 0 44 0;
+#X connect 15 0 43 0;
+#X connect 15 0 46 0;
+#X connect 15 0 45 0;
+#X connect 16 0 17 0;
+#X connect 17 0 15 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 19 1 16 0;
+#X connect 20 0 21 0;
+#X connect 21 0 15 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 33 0;
+#X connect 30 0 29 0;
+#X connect 30 0 27 0;
+#X connect 30 0 28 0;
+#X connect 31 0 32 0;
+#X connect 32 0 30 0;
+#X connect 34 0 42 14;
+#X connect 35 0 42 15;
+#X connect 36 0 42 16;
+#X connect 37 0 42 17;
+#X connect 38 0 42 18;
+#X connect 39 0 42 19;
+#X connect 40 0 42 20;
+#X connect 41 0 42 21;
+#X connect 42 0 2 0;
+#X connect 43 0 42 22;
+#X connect 44 0 42 23;
+#X connect 45 0 42 0;
+#X connect 46 0 42 1;
+#X restore 443 139 pd sending digital outs;
+#X obj 443 120 tgl 15 0 empty ARDUINO_TEST_RESET empty 0 -6 0 8 -225271
+-1 -1 0 16383;
+#X obj 112 501 route 0 1 2 3 4 5 6 7 8 9 10 11 12 13;
+#X obj 143 523 tgl 15 0 empty ARDUINO_TEST_RESET 2 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 160 523 tgl 15 0 empty ARDUINO_TEST_RESET 3 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 177 523 tgl 15 0 empty ARDUINO_TEST_RESET 4 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 194 523 tgl 15 0 empty ARDUINO_TEST_RESET 5 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 211 523 tgl 15 0 empty ARDUINO_TEST_RESET 6 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 228 523 tgl 15 0 empty ARDUINO_TEST_RESET 7 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 245 523 tgl 15 0 empty ARDUINO_TEST_RESET 8 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 262 523 tgl 15 0 empty ARDUINO_TEST_RESET 9 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 279 523 tgl 15 0 empty ARDUINO_TEST_RESET 10 0 23 1 12 -232448
+-1 -1 0 1;
+#X obj 296 523 tgl 15 0 empty ARDUINO_TEST_RESET 11 0 23 1 12 -232448
+-1 -1 0 1;
+#X obj 313 523 tgl 15 0 empty ARDUINO_TEST_RESET 12 0 23 1 12 -232448
+-1 -1 0 1;
+#X obj 330 523 tgl 15 0 empty ARDUINO_TEST_RESET 13 0 23 1 12 -232448
+-1 -1 0 1;
+#N canvas 3 48 451 224 ver 0;
+#X obj 23 7 inlet;
+#X obj 250 100 cnv 15 145 17 empty \$0-version_cnv empty 4 10 0 12
+-203904 -1 0;
+#X obj 23 157 send \$0-version_cnv;
+#X msg 23 132 label \$1;
+#X obj 48 103 symbol;
+#X obj 38 77 loadbang;
+#X msg 96 78 bang;
+#X obj 309 163 outlet;
+#X obj 23 52 zexy/makesymbol Firmata-%s.%s;
+#X obj 23 29 route version bang;
+#X connect 0 0 9 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 0;
+#X connect 9 1 7 0;
+#X connect 9 1 6 0;
+#X connect 9 2 7 0;
+#X coords 0 -1 1 1 145 17 1 250 100;
+#X restore 173 67 pd ver;
+#X obj 121 292 arduino 1;
+#N canvas 649 518 411 212 firmware 0;
+#X obj 123 2 inlet;
+#X obj 250 100 cnv 15 145 17 empty \$0-firmware_cnv empty 4 10 0 12
+-232576 -66577 0;
+#X msg 123 156 label \$1;
+#X obj 148 127 symbol;
+#X obj 138 101 loadbang;
+#X msg 196 102 bang;
+#X obj 123 181 send \$0-firmware_cnv;
+#X obj 123 24 route firmware;
+#X obj 18 181 print Firmware;
+#X obj 123 49 list;
+#X obj 123 80 zexy/makesymbol %s-%s.%s;
+#X obj 18 151 list trim;
+#X obj 204 45 route bang;
+#X connect 0 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 7 0 9 0;
+#X connect 7 1 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 2 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X connect 12 0 5 0;
+#X coords 0 -1 1 1 145 17 1 250 100;
+#X restore 173 87 pd firmware;
+#X msg 121 192 devices;
+#X msg 121 172 firmware;
+#N canvas 0 22 450 300 STRING 0;
+#X obj 48 13 inlet;
+#X obj 51 93 moocow/string2any 32 -1;
+#X obj 51 154 print STRING;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 221 478 pd STRING;
+#N canvas 205 22 593 390 strings 0;
+#X obj -178 287 outlet;
+#X obj -142 101 moocow/any2string;
+#X symbolatom -92 48 10 0 0 0 - - -;
+#X obj -119 179 pddp/print;
+#X obj -92 68 list trim;
+#X msg -175 39 test;
+#X msg -139 40 TEST;
+#X obj -142 130 cyclone/prepend string;
+#X obj -313 102 moocow/any2string;
+#X symbolatom -263 49 10 0 0 0 - - -;
+#X obj -314 202 pddp/print;
+#X obj -263 69 list trim;
+#X msg -346 40 test;
+#X msg -310 41 TEST;
+#X obj -313 153 cyclone/prepend sysex;
+#X obj -313 131 cyclone/prepend 40;
+#X msg 66 117 samplingInterval \$1;
+#X obj 69 93 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 27 117 5 0 0 0 - - -;
+#X connect 1 0 7 0;
+#X connect 2 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 7 0 0 0;
+#X connect 8 0 15 0;
+#X connect 9 0 11 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 14 0 0 0;
+#X connect 14 0 10 0;
+#X connect 15 0 14 0;
+#X connect 16 0 0 0;
+#X connect 17 0 16 0;
+#X connect 17 0 18 0;
+#X restore -95 528 pd strings and special messages;
+#X text 112 551 released under the GNU GPL v2 or later;
+#N canvas 626 98 404 287 device 0;
+#X obj 35 60 inlet;
+#X obj 35 118 route open port ports;
+#X obj 35 169 tgl 15 0 empty empty open -3 20 0 10 -262144 -1 -1 0
+1;
+#X floatatom 76 170 5 0 0 3 port - -;
+#X obj 117 170 print comport_ports;
+#X obj 252 170 outlet;
+#X obj 235 74 receive ARDUINO_TEST_RESET;
+#X obj 235 97 bang;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X connect 1 3 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X restore 173 45 pd device info;
+#N canvas 0 22 450 300 sysex 0;
+#X obj 139 19 inlet;
+#X obj 127 109 moocow/string2any 32 -1;
+#X obj 127 170 print STRING;
+#X obj 97 55 list split 1;
+#X obj 40 109 print COMMAND;
+#X obj 210 54 print sysex;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 3 1 1 0;
+#X restore 284 479 pd sysex;
+#X text 265 45 <- open to see info;
+#N canvas 660 200 446 317 pinMode 0;
+#X obj 94 267 outlet;
+#X obj 122 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+2 2 -8 0 10 -261682 -1 -1 0;
+#X obj 132 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+3 2 -8 0 10 -261682 -1 -1 0;
+#X obj 142 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+4 2 -8 0 10 -261682 -1 -1 0;
+#X obj 152 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+5 2 -8 0 10 -261682 -1 -1 0;
+#X obj 162 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+6 2 -8 0 10 -261682 -1 -1 0;
+#X obj 172 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+7 2 -8 0 10 -261682 -1 -1 0;
+#X obj 182 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+8 2 -8 0 10 -261682 -1 -1 0;
+#X obj 192 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+9 2 -8 0 10 -261682 -1 -1 0;
+#X obj 202 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+10 0 -8 0 8 -261682 -1 -1 0;
+#X obj 212 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+11 0 -8 0 8 -261682 -1 -1 0;
+#X obj 222 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+12 0 -8 0 8 -261682 -1 -1 0;
+#X obj 232 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+13 0 -8 0 8 -261682 -1 -1 0;
+#X obj 242 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+14 0 -8 0 8 -261682 -1 -1 0;
+#X obj 252 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+15 0 -8 0 8 -261682 -1 -1 0;
+#X obj 262 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+16 0 -8 0 8 -261682 -1 -1 0;
+#X obj 272 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+17 0 -8 0 8 -261682 -1 -1 0;
+#X obj 282 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+18 0 -8 0 8 -261682 -1 -1 0;
+#X obj 292 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+19 0 -8 0 8 -261682 -1 -1 0;
+#X obj 302 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+20 0 -8 0 8 -261682 -1 -1 0;
+#X obj 312 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+21 0 -8 0 8 -261682 -1 -1 0;
+#N canvas 116 265 1069 446 send-to-arduino---------------------- 0
+;
+#X obj 49 14 inlet;
+#X obj 89 14 inlet;
+#X obj 128 14 inlet;
+#X obj 168 14 inlet;
+#X obj 208 14 inlet;
+#X obj 248 14 inlet;
+#X obj 287 14 inlet;
+#X obj 327 14 inlet;
+#X obj 368 13 inlet;
+#X obj 408 13 inlet;
+#X obj 447 13 inlet;
+#X obj 487 13 inlet;
+#X obj 527 13 inlet;
+#X msg 49 56 pinMode 0 \$1;
+#X msg 89 78 pinMode 1 \$1;
+#X msg 128 100 pinMode 2 \$1;
+#X msg 168 120 pinMode 3 \$1;
+#X msg 208 52 pinMode 4 \$1;
+#X msg 248 74 pinMode 5 \$1;
+#X msg 287 96 pinMode 6 \$1;
+#X msg 327 116 pinMode 7 \$1;
+#X msg 368 48 pinMode 8 \$1;
+#X msg 408 70 pinMode 9 \$1;
+#X msg 447 92 pinMode 10 \$1;
+#X msg 487 112 pinMode 11 \$1;
+#X msg 527 40 pinMode 12 \$1;
+#X obj 566 13 inlet;
+#X msg 566 60 pinMode 13 \$1;
+#X obj 607 13 inlet;
+#X obj 647 13 inlet;
+#X obj 687 13 inlet;
+#X obj 726 13 inlet;
+#X obj 767 13 inlet;
+#X obj 807 13 inlet;
+#X obj 847 13 inlet;
+#X obj 886 13 inlet;
+#X msg 607 92 pinMode 14 \$1;
+#X msg 647 112 pinMode 15 \$1;
+#X msg 687 40 pinMode 16 \$1;
+#X msg 726 60 pinMode 17 \$1;
+#X msg 767 92 pinMode 18 \$1;
+#X msg 807 112 pinMode 19 \$1;
+#X msg 847 40 pinMode 20 \$1;
+#X msg 886 60 pinMode 21 \$1;
+#X obj 927 13 inlet;
+#X obj 967 13 inlet;
+#X msg 927 92 pinMode 22 \$1;
+#X msg 967 112 pinMode 23 \$1;
+#X obj 521 427 outlet;
+#X obj 481 403 trigger bang anything;
+#X obj 481 358 list prepend set;
+#X obj 481 380 list trim;
+#X obj 481 199 list;
+#X obj 481 221 unpack symbol float float;
+#X obj 481 331 pack symbol float symbol;
+#X obj 622 311 symbol;
+#X msg 659 284 analog;
+#X msg 707 284 pwm;
+#X msg 737 284 servo;
+#X obj 739 364 list trim;
+#X obj 739 341 list prepend WARNING Unsupported pin mode:;
+#X obj 739 386 print [arduino];
+#X msg 568 284 input;
+#X msg 609 284 output;
+#X obj 628 240 - 1;
+#X obj 628 259 select 0 1 2 3 4 -1;
+#X text 757 258 (-1 == NONE);
+#X connect 0 0 13 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 19 0;
+#X connect 7 0 20 0;
+#X connect 8 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 11 0 24 0;
+#X connect 12 0 25 0;
+#X connect 13 0 52 0;
+#X connect 14 0 52 0;
+#X connect 15 0 52 0;
+#X connect 16 0 52 0;
+#X connect 17 0 52 0;
+#X connect 18 0 52 0;
+#X connect 19 0 52 0;
+#X connect 20 0 52 0;
+#X connect 21 0 52 0;
+#X connect 22 0 52 0;
+#X connect 23 0 52 0;
+#X connect 24 0 52 0;
+#X connect 25 0 52 0;
+#X connect 26 0 27 0;
+#X connect 27 0 52 0;
+#X connect 28 0 36 0;
+#X connect 29 0 37 0;
+#X connect 30 0 38 0;
+#X connect 31 0 39 0;
+#X connect 32 0 40 0;
+#X connect 33 0 41 0;
+#X connect 34 0 42 0;
+#X connect 35 0 43 0;
+#X connect 36 0 52 0;
+#X connect 37 0 52 0;
+#X connect 38 0 52 0;
+#X connect 39 0 52 0;
+#X connect 40 0 52 0;
+#X connect 41 0 52 0;
+#X connect 42 0 52 0;
+#X connect 43 0 52 0;
+#X connect 44 0 46 0;
+#X connect 45 0 47 0;
+#X connect 46 0 52 0;
+#X connect 47 0 52 0;
+#X connect 49 0 48 0;
+#X connect 49 1 48 0;
+#X connect 50 0 51 0;
+#X connect 51 0 49 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 0;
+#X connect 53 1 54 1;
+#X connect 53 2 64 0;
+#X connect 54 0 50 0;
+#X connect 55 0 54 2;
+#X connect 56 0 55 0;
+#X connect 57 0 55 0;
+#X connect 58 0 55 0;
+#X connect 59 0 61 0;
+#X connect 60 0 59 0;
+#X connect 62 0 55 0;
+#X connect 63 0 55 0;
+#X connect 64 0 65 0;
+#X connect 65 0 62 0;
+#X connect 65 1 63 0;
+#X connect 65 2 56 0;
+#X connect 65 3 57 0;
+#X connect 65 4 58 0;
+#X connect 65 6 60 0;
+#X restore 94 189 pd send-to-arduino----------------------;
+#X obj 322 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+22 0 -8 0 8 -261682 -1 -1 0;
+#X obj 332 100 vradio 10 1 0 6 THIS_HIDES_THE_OUTLET ARDUINO_TEST_RESET
+23 0 -8 0 8 -261682 -1 -1 0;
+#X obj 100 100 cnv 10 10 60 empty empty Rx 0 23 0 8 -191407 -86277
+0;
+#X obj 111 100 cnv 10 10 60 empty empty Tx 0 23 0 8 -191407 -13381
+0;
+#X connect 1 0 21 2;
+#X connect 2 0 21 3;
+#X connect 3 0 21 4;
+#X connect 4 0 21 5;
+#X connect 5 0 21 6;
+#X connect 6 0 21 7;
+#X connect 7 0 21 8;
+#X connect 8 0 21 9;
+#X connect 9 0 21 10;
+#X connect 10 0 21 11;
+#X connect 11 0 21 12;
+#X connect 12 0 21 13;
+#X connect 13 0 21 14;
+#X connect 14 0 21 15;
+#X connect 15 0 21 16;
+#X connect 16 0 21 17;
+#X connect 17 0 21 18;
+#X connect 18 0 21 19;
+#X connect 19 0 21 20;
+#X connect 20 0 21 21;
+#X connect 21 0 0 0;
+#X connect 22 0 21 22;
+#X connect 23 0 21 23;
+#X coords 0 -1 1 1 242 60 2 100 100;
+#X restore 425 14 pd pinMode;
+#X text 672 59 servo;
+#X text 672 49 pwm;
+#X text 672 21 input;
+#X text 672 30 output;
+#X text 672 40 analog;
+#N canvas 72 104 423 503 analog 0;
+#X obj 38 10 inlet;
+#X obj 131 10 inlet;
+#X obj 38 259 pack float float;
+#X obj 192 113 route float symbol;
+#X obj 188 259 pack float symbol;
+#X text 78 11 pin#;
+#X text 179 10 PWM value or "off";
+#X obj 39 217 cyclone/gate 2;
+#X msg 191 153 1;
+#X msg 252 153 2;
+#X obj 131 34 list;
+#X obj 131 113 float;
+#X obj 131 67 trigger bang anything;
+#X obj 37 427 outlet;
+#X obj 37 356 trigger bang anything;
+#X obj 179 376 list;
+#X msg 179 396 set \$1 \$2 \$3;
+#X msg 37 308 analog \$1 \$2;
+#X connect 0 0 11 0;
+#X connect 1 0 10 0;
+#X connect 2 0 17 0;
+#X connect 3 0 8 0;
+#X connect 3 0 2 1;
+#X connect 3 1 9 0;
+#X connect 3 1 4 1;
+#X connect 4 0 17 0;
+#X connect 7 0 2 0;
+#X connect 7 1 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 7 1;
+#X connect 12 0 11 0;
+#X connect 12 1 3 0;
+#X connect 14 0 13 0;
+#X connect 14 1 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X restore 438 245 pd analog;
+#X obj 109 523 tgl 15 0 empty ARDUINO_TEST_RESET 0 4 23 1 12 -232448
+-1 -1 0 1;
+#X obj 126 523 tgl 15 0 empty ARDUINO_TEST_RESET 1 4 23 1 12 -232448
+-1 -1 0 1;
+#N canvas 0 22 450 300 old 0;
+#X msg 95 138 digitalIns 0 0;
+#X msg 88 77 analogIns 0 0;
+#N canvas 162 133 610 460 serin 0;
+#X obj 59 337 outlet;
+#X obj 59 266 trigger bang anything;
+#X obj 201 286 list;
+#X obj 60 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 0 5 9 1
+12 -262130 -1 -1 0 1;
+#X obj 75 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 1 5 9 1
+12 -262130 -1 -1 0 1;
+#X obj 90 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 2 5 9 1
+12 -262130 -1 -1 0 1;
+#X obj 105 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 3 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 120 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 4 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 135 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 5 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 150 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 6 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 165 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 7 5 9
+1 12 -262130 -1 -1 0 1;
+#X msg 59 210 analogIns \$1 \$2;
+#X msg 35 106 0 \$1;
+#X msg 70 106 1 \$1;
+#X msg 105 106 2 \$1;
+#X msg 140 106 3 \$1;
+#X msg 175 106 4 \$1;
+#X msg 210 106 5 \$1;
+#X msg 245 106 6 \$1;
+#X msg 280 106 7 \$1;
+#X msg 202 307 set \$1 \$2 \$3;
+#X connect 1 0 0 0;
+#X connect 1 1 2 0;
+#X connect 2 0 20 0;
+#X connect 3 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 7 0 16 0;
+#X connect 8 0 17 0;
+#X connect 9 0 18 0;
+#X connect 10 0 19 0;
+#X connect 11 0 1 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
+#X connect 19 0 11 0;
+#X connect 20 0 0 0;
+#X coords 0 -1 1 1 120 16 1 60 60;
+#X restore 88 55 pd serin;
+#X text 87 38 which analogIns to enable:;
+#X text 94 101 which digital ports to enable:;
+#N canvas 162 133 610 460 seri 0;
+#X obj 59 337 outlet;
+#X obj 59 266 trigger bang anything;
+#X obj 201 286 list;
+#X obj 60 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 0 5 9 1
+12 -260736 -1 -1 0 1;
+#X obj 75 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 1 5 9 1
+12 -260736 -1 -1 0 1;
+#X obj 90 61 tgl 15 0 junk_to_hide_inlet ARDUINO_TEST_RESET 2 5 9 1
+12 -260736 -1 -1 0 1;
+#X msg 35 106 0 \$1;
+#X msg 70 106 1 \$1;
+#X msg 105 106 2 \$1;
+#X msg 202 307 set \$1 \$2 \$3;
+#X msg 59 210 digitalIns \$1 \$2;
+#X connect 1 0 0 0;
+#X connect 1 1 2 0;
+#X connect 2 0 9 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 1 0;
+#X coords 0 -1 1 1 45 16 1 60 60;
+#X restore 95 118 pd seri;
+#X obj 42 179 outlet;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 0;
+#X connect 5 0 0 0;
+#X restore -95 505 pd old analog/digital controls;
+#X text 185 150 <-- get protocol version;
+#X text 185 170 <-- get firmware name and version;
+#X text 185 131 <-- get connection info;
+#X text 181 291 <-- argument sets port #;
+#X text 514 -109 The [arduino] object works with the Firmata firmware.
+;
+#X text 445 -15 configure mode for each pin:;
+#X text 185 190 <-- list available serial devices;
+#X text 461 119 <-- pulse all outputs;
+#X text 672 10 NONE;
+#X obj 121 324 route analog digital string sysex;
+#X msg 28 92 open 3;
+#X text 443 204 switch pin to 'pwm' or 'servo' first;
+#X msg 438 267 analog 11 0.499799;
+#X msg 425 78 pinMode 10 servo;
+#X obj 140 -74 vsl 30 40 0 1 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 139 -27 5 0 0 0 - - -;
+#X obj 190 -73 vsl 30 40 0 1 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X obj 241 -73 vsl 30 40 0 1 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 241 -27 5 0 0 0 - - -;
+#X obj 292 -73 vsl 30 40 0 1 0 0 empty empty empty 0 -9 0 10 -1 -262144
+-1 0 1;
+#X floatatom 292 -27 5 0 0 0 - - -;
+#X obj 338 -73 vsl 30 40 0 1023 0 0 empty empty empty 0 -9 0 10 -1
+-262144 -1 0 1;
+#X floatatom 338 -26 5 0 0 0 - - -;
+#X floatatom 190 -27 5 0 0 0 - - -;
+#X obj 61 -58 unpackOSC;
+#X obj 33 -114 import mrpeach;
+#X text 25 -97 recibiendo datos;
+#X text 40 -42 Imprime datos;
+#X obj 387 -74 vsl 30 40 0 1023 0 0 empty empty empty 0 -9 0 10 -1
+-262144 -1 0 1;
+#X floatatom 387 -27 5 0 0 0 - - -;
+#X obj 26 -80 udpreceive 7400;
+#X obj 32 -28 print unpacked;
+#X obj 431 409 cnv 15 85 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#X obj 493 368 hsl 150 17 0 1 0 0 empty ARDUINO_TEST_RESET analog_output_(0-1)
+20 9 1 10 -225271 -1 -1 0 0;
+#X obj 439 330 hradio 15 1 0 14 empty empty empty 0 -6 0 8 -176124
+-1 -1 0;
+#X text 547 316 7;
+#X text 441 316 0;
+#X text 588 316 10;
+#X text 634 316 13;
+#X text 499 316 4;
+#X text 470 316 2;
+#X text 515 316 5;
+#X text 530 316 6;
+#X text 485 316 3;
+#X text 561 316 8;
+#X text 578 316 9;
+#X text 604 316 11;
+#X text 619 316 12;
+#X text 456 316 1;
+#N canvas 72 104 423 503 analog 0;
+#X obj 38 10 inlet;
+#X obj 131 10 inlet;
+#X obj 38 259 pack float float;
+#X obj 192 113 route float symbol;
+#X obj 188 259 pack float symbol;
+#X text 78 11 pin#;
+#X text 179 10 PWM value or "off";
+#X obj 39 217 cyclone/gate 2;
+#X msg 191 153 1;
+#X msg 252 153 2;
+#X obj 131 34 list;
+#X obj 131 113 float;
+#X obj 131 67 trigger bang anything;
+#X obj 37 427 outlet;
+#X obj 37 356 trigger bang anything;
+#X obj 179 376 list;
+#X msg 179 396 set \$1 \$2 \$3;
+#X msg 37 308 analog \$1 \$2;
+#X connect 0 0 11 0;
+#X connect 1 0 10 0;
+#X connect 2 0 17 0;
+#X connect 3 0 8 0;
+#X connect 3 0 2 1;
+#X connect 3 1 9 0;
+#X connect 3 1 4 1;
+#X connect 4 0 17 0;
+#X connect 7 0 2 0;
+#X connect 7 1 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 7 1;
+#X connect 12 0 11 0;
+#X connect 12 1 3 0;
+#X connect 14 0 13 0;
+#X connect 14 1 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X restore 439 389 pd analog;
+#X text 444 348 switch pin to 'pwm' or 'servo' first;
+#X msg 439 411 analog 10 0.54047;
+#X obj 429 548 cnv 15 85 22 empty empty empty 20 12 0 14 -253938 -66577
+0;
+#X obj 491 507 hsl 150 17 0 1 0 0 empty ARDUINO_TEST_RESET analog_output_(0-1)
+20 9 1 10 -225271 -1 -1 0 0;
+#X obj 437 469 hradio 15 1 0 14 empty empty empty 0 -6 0 8 -176124
+-1 -1 0;
+#X text 545 455 7;
+#X text 439 455 0;
+#X text 586 455 10;
+#X text 497 455 4;
+#X text 468 455 2;
+#X text 513 455 5;
+#X text 528 455 6;
+#X text 483 455 3;
+#X text 559 455 8;
+#X text 576 455 9;
+#X text 602 455 11;
+#X text 454 455 1;
+#N canvas 72 104 423 503 analog 0;
+#X obj 38 10 inlet;
+#X obj 131 10 inlet;
+#X obj 38 259 pack float float;
+#X obj 192 113 route float symbol;
+#X obj 188 259 pack float symbol;
+#X text 78 11 pin#;
+#X text 179 10 PWM value or "off";
+#X obj 39 217 cyclone/gate 2;
+#X msg 191 153 1;
+#X msg 252 153 2;
+#X obj 131 34 list;
+#X obj 131 113 float;
+#X obj 131 67 trigger bang anything;
+#X obj 37 427 outlet;
+#X obj 37 356 trigger bang anything;
+#X obj 179 376 list;
+#X msg 179 396 set \$1 \$2 \$3;
+#X msg 37 308 analog \$1 \$2;
+#X connect 0 0 11 0;
+#X connect 1 0 10 0;
+#X connect 2 0 17 0;
+#X connect 3 0 8 0;
+#X connect 3 0 2 1;
+#X connect 3 1 9 0;
+#X connect 3 1 4 1;
+#X connect 4 0 17 0;
+#X connect 7 0 2 0;
+#X connect 7 1 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 7 1;
+#X connect 12 0 11 0;
+#X connect 12 1 3 0;
+#X connect 14 0 13 0;
+#X connect 14 1 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X restore 437 528 pd analog;
+#X text 442 487 switch pin to 'pwm' or 'servo' first;
+#X msg 437 550 analog 9 0.496242;
+#X obj 140 -116 routeOSC /AFF/Excitement /AFF/Meditation /AFF/Engagement
+;
+#X obj 140 -99 r d1;
+#X obj 190 -98 r d2;
+#X obj 243 -98 r d3;
+#X obj 664 469 r v3;
+#X floatatom 664 208 5 0 0 0 - - -;
+#X floatatom 670 352 5 0 0 0 - - -;
+#X floatatom 664 490 5 0 0 0 - - -;
+#X obj 664 149 average;
+#X obj 670 330 r v2;
+#X obj 664 189 r v;
+#X connect 3 0 70 0;
+#X connect 3 1 5 0;
+#X connect 5 0 40 0;
+#X connect 6 0 56 1;
+#X connect 7 0 56 0;
+#X connect 22 0 40 0;
+#X connect 23 0 40 0;
+#X connect 24 0 40 0;
+#X connect 25 0 24 0;
+#X connect 26 0 57 0;
+#X connect 26 1 58 0;
+#X connect 26 2 27 0;
+#X connect 26 3 28 0;
+#X connect 26 4 29 0;
+#X connect 26 5 30 0;
+#X connect 26 6 31 0;
+#X connect 26 7 32 0;
+#X connect 26 8 33 0;
+#X connect 26 9 34 0;
+#X connect 26 10 35 0;
+#X connect 26 11 36 0;
+#X connect 26 12 37 0;
+#X connect 26 13 38 0;
+#X connect 39 0 41 0;
+#X connect 40 0 69 0;
+#X connect 40 1 47 0;
+#X connect 42 0 40 0;
+#X connect 43 0 40 0;
+#X connect 45 0 40 0;
+#X connect 47 0 39 0;
+#X connect 50 0 73 0;
+#X connect 56 0 72 0;
+#X connect 59 0 40 0;
+#X connect 69 1 26 0;
+#X connect 69 2 44 0;
+#X connect 69 3 48 0;
+#X connect 70 0 40 0;
+#X connect 72 0 40 0;
+#X connect 73 0 40 0;
+#X connect 74 0 75 0;
+#X connect 76 0 83 0;
+#X connect 77 0 78 0;
+#X connect 79 0 80 0;
+#X connect 81 0 82 0;
+#X connect 84 0 130 0;
+#X connect 88 0 89 0;
+#X connect 90 0 84 0;
+#X connect 93 0 109 1;
+#X connect 94 0 109 0;
+#X connect 109 0 111 0;
+#X connect 111 0 40 0;
+#X connect 113 0 127 1;
+#X connect 114 0 127 0;
+#X connect 127 0 129 0;
+#X connect 129 0 40 0;
+#X connect 130 2 77 0;
+#X connect 130 3 79 0;
+#X connect 131 0 74 0;
+#X connect 132 0 76 0;
+#X connect 133 0 77 0;
+#X connect 134 0 137 0;
+#X connect 135 0 6 0;
+#X connect 136 0 93 0;
+#X connect 137 0 113 0;
+#X connect 139 0 136 0;
+#X connect 140 0 135 0;
