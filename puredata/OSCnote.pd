@@ -1,37 +1,37 @@
-#N canvas -20 22 1264 752 10;
+#N canvas 6 22 1264 752 10;
 #X declare -lib mrpeach;
-#X obj 627 535 makenote 80 500;
-#X obj 627 560 noteout 4;
-#X floatatom 285 16 5 0 0 0 - - -;
-#X floatatom 329 17 5 0 0 0 - - -;
-#X floatatom 241 16 5 0 0 0 - - -;
-#X obj 112 -1 unpackOSC;
-#X obj 83 23 print unpacked;
-#X obj 84 -57 import mrpeach;
-#X text 84 -21 recibiendo datos;
-#X floatatom 197 17 5 0 0 0 - - -;
-#X floatatom 461 17 5 0 0 0 - - -;
-#X floatatom 506 18 5 0 0 0 - - -;
-#X floatatom 417 17 5 0 0 0 - - -;
-#X floatatom 373 16 5 0 0 0 - - -;
-#X obj 76 -39 udpreceive 11112;
-#X obj 198 -22 routeOSC /csv/AF3 /csv/F7 /csv/FC5 /csv/F8 /csv/FC6
+#X obj 624 432 makenote 80 500;
+#X obj 624 457 noteout 4;
+#X floatatom 252 20 5 0 0 0 - - -;
+#X floatatom 296 21 5 0 0 0 - - -;
+#X floatatom 208 20 5 0 0 0 - - -;
+#X obj 79 3 unpackOSC;
+#X obj 50 27 print unpacked;
+#X obj 51 -55 import mrpeach;
+#X text 51 -17 recibiendo datos;
+#X floatatom 164 21 5 0 0 0 - - -;
+#X floatatom 428 21 5 0 0 0 - - -;
+#X floatatom 473 22 5 0 0 0 - - -;
+#X floatatom 384 21 5 0 0 0 - - -;
+#X floatatom 340 20 5 0 0 0 - - -;
+#X obj 43 -35 udpreceive 11112;
+#X obj 165 -18 routeOSC /csv/AF3 /csv/F7 /csv/FC5 /csv/F8 /csv/FC6
 /csv/T7 /csv/T8 /csv/O1;
-#X obj 810 20 ctlout 1;
-#X obj 906 21 ctlout 2;
-#X floatatom 785 -1 5 0 0 0 - - -;
-#X obj 785 -23 -;
-#X obj 785 27 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -33289
+#X obj 764 39 ctlout 1;
+#X obj 860 40 ctlout 2;
+#X floatatom 739 18 5 0 0 0 - - -;
+#X obj 739 -4 -;
+#X obj 739 46 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -33289
 -262144 -1 0 1;
-#X obj 890 -27 -;
-#X floatatom 916 -49 5 0 0 0 - - -;
-#X obj 881 25 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -1 -262144
+#X obj 844 -8 -;
+#X floatatom 870 -30 5 0 0 0 - - -;
+#X obj 835 44 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -1 -262144
 -1 0 1;
-#X floatatom 810 -46 5 0 0 0 - - -;
-#X floatatom 890 -3 5 0 0 0 - - -;
-#X obj 242 38 s F7;
-#X obj 197 39 s AF3;
-#X obj 284 38 s FC5;
+#X floatatom 764 -27 5 0 0 0 - - -;
+#X floatatom 844 16 5 0 0 0 - - -;
+#X obj 209 42 s F7;
+#X obj 164 43 s AF3;
+#X obj 251 42 s FC5;
 #X floatatom 295 231 5 0 0 0 - - -;
 #X obj 254 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -122,15 +122,15 @@
 #X obj 148 255 / 127;
 #X floatatom 107 303 5 0 0 0 - - -;
 #X obj 107 327 + 5;
-#X obj 330 38 s F8;
-#X obj 373 39 s FC6;
-#X obj 417 39 s T7;
-#X obj 461 39 s T8;
-#X obj 506 39 s O1;
-#X obj 685 -28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 297 42 s F8;
+#X obj 340 43 s FC6;
+#X obj 384 43 s T7;
+#X obj 428 43 s T8;
+#X obj 473 43 s O1;
+#X obj 659 -25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 613 -9 reset time;
-#X obj 685 -8 s time;
+#X msg 587 -6 reset time;
+#X obj 659 -5 s time;
 #X obj 56 225 r time;
 #X floatatom 200 294 5 0 0 0 - - -;
 #X obj 200 270 counter;
@@ -167,7 +167,7 @@
 #X obj 1122 235 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1099 212 r time;
-#X obj 554 38 average;
+#X obj 528 41 average;
 #X floatatom 107 350 5 0 0 0 - - -;
 #X floatatom 255 353 5 0 0 0 - - -;
 #X floatatom 398 350 5 0 0 0 - - -;
@@ -178,17 +178,17 @@
 #X obj 1143 316 + 40;
 #X floatatom 1143 344 5 0 0 0 - - -;
 #X obj 688 129 r FC6;
-#X obj 554 15 r AF3 F7 FC5 F8 FC6 T7 T8 O1;
-#X obj 647 38 s avr;
-#X obj 767 -47 r avr;
-#X obj 873 -50 r avr;
-#X floatatom 608 38 5 0 0 0 - - -;
-#X obj 202 -60 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
+#X obj 528 18 r AF3 F7 FC5 F8 FC6 T7 T8 O1;
+#X obj 621 41 s avr;
+#X obj 721 -28 r avr;
+#X obj 827 -31 r avr;
+#X floatatom 582 41 5 0 0 0 - - -;
+#X obj 169 -56 hsl 250 30 0 127 0 0 empty empty EEG_Frequency_to_midi_notes
 2 14 0 15 -1 -1 -191407 0 1;
-#X obj 786 73 s ctl;
-#X obj 881 67 s ctl1;
-#X obj 690 560 r ctl;
-#X obj 729 560 r ctl1;
+#X obj 740 92 s ctl;
+#X obj 835 86 s ctl1;
+#X obj 687 457 r ctl;
+#X obj 726 457 r ctl1;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 2 0 28 0;
