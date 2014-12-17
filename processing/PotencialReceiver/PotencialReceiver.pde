@@ -16,6 +16,8 @@ boolean bRecordSensors;
 
 Textlabel titulo;
 Textlabel logo;
+Textlabel instructions;
+
 
 HashMap<String, Sensor> mSensors = new HashMap<String, Sensor>();
 long lastOscMillis;
@@ -45,6 +47,23 @@ void setup() {
       .setPosition(560, 80)
         .setColorValue(color( 255, 0, 0 ))
           ;
+          
+   instructions = mCp5.addTextlabel("label3")
+    .setText("1- Check emoOscServer.py for serial number, and id product")
+      .setPosition(560, 250)
+        .setColorValue(color( 255, 255, 255 ))
+          ;   
+     instructions = mCp5.addTextlabel("label4")
+    .setText("2- In terminal: find PotencialAccion/python/emoOscServer")
+      .setPosition(560, 260)
+        .setColorValue(color(255, 255, 255 ))
+          ;
+          
+    instructions = mCp5.addTextlabel("label5")
+    .setText("3- In terminal run: python emoOscServer.py")
+      .setPosition(560, 270)
+        .setColorValue(color( 255, 255, 255 ))
+          ;
 
   mCp5.addToggle("writeCSV")
     .setPosition(565, 110).setSize(80, 20)
@@ -53,6 +72,8 @@ void setup() {
           .setValue(bRecordSensors)
             .getCaptionLabel().align(CENTER,CENTER)
               .setSize(10).setColor(0xff000000);
+              
+              
 }
 
 // read input
