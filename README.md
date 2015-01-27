@@ -34,7 +34,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 Librerias para OS X
 ===================
 
-- pyOsc: sudo easy_install pyOsc
+- pyOsc: sudo easy_install pyOsc ( descargar manualmente, navegar a la carpeta e instalar como: sudo ./setup.py install
 
 - hidapi: brew install hidapi 
 
