@@ -46,7 +46,7 @@ Librerias para OS X
     (desgarga y python setup-mac.py build / sudo python setup-mac.py install)
 
 - realpath: sudo port install realpath 
-using brew: (brew tap ivene/mocha) (brew install realpath)
+using brew: (brew tap iveney/mocha) (brew install realpath)
 
 
 Tools
