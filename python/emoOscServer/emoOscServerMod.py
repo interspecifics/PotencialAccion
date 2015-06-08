@@ -1,3 +1,7 @@
+#Code actualization during the Hack the brain at Waag Society Amsterdam
+#Team: David Goedicke, Leslie Garcia, Paloma Lopez (need the other team names)
+#June 2015 
+
 import numpy as np
 import math
 import scipy.fftpack
