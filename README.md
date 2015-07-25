@@ -36,17 +36,17 @@ Librerias para OS X
 
 - pyOsc: sudo easy_install pyOsc ( descargar manualmente, navegar a la carpeta e instalar como: sudo ./setup.py install
 
-- hidapi: brew install hidapi 
+- hidapi: ```brew install hidapi ```
 
-- pycrypto: sudo easy_install pycrypto 
+- pycrypto: ```sudo easy_install pycrypto ```
 
-- gevent: sudo easy_install gevent 
+- gevent:  ```sudo easy_install gevent ```
 
 - cython-hidapi:  https://github.com/gbishop/cython-hidapi 
-    (desgarga y python setup-mac.py build / sudo python setup-mac.py install)
+  desgarga y   ```python setup-mac.py build ``` /  ```sudo python setup-mac.py install ```
 
-- realpath: sudo port install realpath 
-using brew: (brew tap iveney/mocha) (brew install realpath)
+- realpath:  ```sudo port install realpath ``` 
+using brew: ( ```brew tap iveney/mocha ```) ( ```brew install realpath ```)
 
 
 Tools
