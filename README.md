@@ -19,31 +19,31 @@ Para correr el emoOscServer es necesario instalar Emokit, recomendamos el fork d
 
 https://github.com/thiagohersan/emokit navega hasta la carpeta de python y desde la terminal: 
 
-sudo python setup.py install
+```sudo python setup.py install```
 
 
 Después vamos a instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En la terminal: 
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"``` 
 
 una vez terminada la instalación: 
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+```export PATH=/usr/local/bin:/usr/local/sbin:$PATH```
 
 
 Librerias para OS X
 ===================
 
-- pyOsc: sudo easy_install pyOsc ( descargar manualmente, navegar a la carpeta e instalar como: sudo ./setup.py install
+- pyOsc:```sudo easy_install pyOsc ``` ( descargar manualmente, navegar a la carpeta e instalar como: sudo ./setup.py install
 
-- hidapi: ```brew install hidapi ```
+- hidapi:```brew install hidapi ```
 
-- pycrypto: ```sudo easy_install pycrypto ```
+- pycrypto:```sudo easy_install pycrypto ```
 
-- gevent:  ```sudo easy_install gevent ```
+- gevent:```sudo easy_install gevent ```
 
 - cython-hidapi:  https://github.com/gbishop/cython-hidapi 
-  desgarga y   ```python setup-mac.py build ``` /  ```sudo python setup-mac.py install ```
+  desgarga y```python setup-mac.py build ``` /```sudo python setup-mac.py install ```
 
 - realpath:  ```sudo port install realpath ``` 
 using brew: ( ```brew tap iveney/mocha ```) ( ```brew install realpath ```)
