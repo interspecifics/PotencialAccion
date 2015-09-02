@@ -1,4 +1,4 @@
-#N canvas 10 25 1218 749 10;
+#N canvas 19 22 1218 749 10;
 #X declare -lib mrpeach;
 #X obj 429 259 makenote 80 500;
 #X obj 963 400 ctlout 1;
@@ -14,24 +14,24 @@
 #X floatatom 963 334 5 0 0 0 - - -;
 #X floatatom 1045 383 5 0 0 0 - - -;
 #X floatatom 289 123 5 0 0 0 - - -;
-#X obj 248 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 248 124 bng 15 250 50 0 AF3 empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 248 145 t b;
 #X obj 248 99 moses;
 #X obj 248 51 average;
 #X floatatom 248 77 5 0 0 0 - - -;
 #X floatatom 249 197 5 0 0 0 - - -;
 #X floatatom 432 119 5 0 0 0 - - -;
-#X obj 391 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 391 120 bng 15 250 50 0 empty F7 empty 17 7 0 10 -262144 -1
+-1;
 #X obj 391 141 t b;
 #X obj 391 95 moses;
 #X obj 391 47 average;
 #X floatatom 391 73 5 0 0 0 - - -;
 #X floatatom 392 193 5 0 0 0 - - -;
 #X floatatom 573 120 5 0 0 0 - - -;
-#X obj 532 121 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 532 121 bng 15 250 50 0 F4 empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 532 142 t b;
 #X obj 532 96 moses;
 #X obj 532 48 average;
@@ -39,8 +39,8 @@
 #X obj 574 144 / 127;
 #X floatatom 533 194 5 0 0 0 - - -;
 #X floatatom 723 117 5 0 0 0 - - -;
-#X obj 682 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 682 118 bng 15 250 50 0 F3 empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 682 139 t b;
 #X obj 682 93 moses;
 #X obj 682 45 average;
@@ -61,8 +61,8 @@
 #X obj 73 140 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 141 123 5 0 0 0 - - -;
-#X obj 100 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 100 122 bng 15 250 50 0 AF3 empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 100 143 t b;
 #X obj 100 97 moses;
 #X obj 100 49 average;
@@ -134,18 +134,18 @@
 #X obj 142 147 + 1;
 #X obj 290 147 + 1;
 #X obj 433 143 + 1;
-#N canvas 98 503 1044 581 OSC 1;
+#N canvas 80 353 1044 581 OSC 0;
 #X obj 53 -4 unpackOSC;
 #X text 62 -20 recibiendo datos;
 #X obj 54 -57 import mrpeach;
 #X obj 51 19 print unpacked;
 #X obj 53 -34 udpreceive 8666;
-#X obj 180 36 outlet;
-#X obj 227 60 outlet;
-#X obj 266 82 outlet;
-#X obj 311 108 outlet;
-#X obj 354 131 outlet;
-#X obj 388 142 outlet;
+#X obj 193 292 outlet;
+#X obj 243 253 outlet;
+#X obj 300 212 outlet;
+#X obj 358 177 outlet;
+#X obj 417 149 outlet;
+#X obj 478 113 outlet;
 #X obj 566 64 outlet;
 #X obj 588 87 outlet;
 #X obj 614 109 outlet;
@@ -254,20 +254,17 @@
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 99 -1 100 140 1 0 0;
 #X restore 793 342 graph;
-#X obj 981 -28 bng 15 250 50 0 empty empty AF3 17 7 0 10 -4034 -1 -1
+#X obj 981 -28 bng 15 250 50 0 empty AF3 AF3 17 7 0 10 -4034 -1 -1
 ;
-#X obj 1126 -30 bng 15 250 50 0 empty empty AF4 17 7 0 10 -4034 -1
--1;
+#X obj 1126 -30 bng 15 250 50 0 empty AF4 AF4 17 7 0 10 -4034 -1 -1
+;
 #X obj 969 74 bng 15 250 50 0 empty empty FC5 17 7 0 10 -4034 -1 -1
 ;
-#X obj 1089 11 bng 15 250 50 0 empty empty F4 17 7 0 10 -4034 -1 -1
-;
-#X obj 934 39 bng 15 250 50 0 empty empty F7 17 7 0 10 -4034 -1 -1
-;
+#X obj 1089 11 bng 15 250 50 0 empty F4 F4 17 7 0 10 -4034 -1 -1;
+#X obj 934 39 bng 15 250 50 0 empty F7 F7 17 7 0 10 -4034 -1 -1;
 #X obj 1153 35 bng 15 250 50 0 empty empty F8 17 7 0 10 -4034 -1 -1
 ;
-#X obj 1012 13 bng 15 250 50 0 empty empty F3 17 7 0 10 -4034 -1 -1
-;
+#X obj 1012 13 bng 15 250 50 0 empty F3 F3 17 7 0 10 -4034 -1 -1;
 #X obj 1110 73 bng 15 250 50 0 empty empty FC6 17 7 0 10 -4034 -1 -1
 ;
 #X obj 930 114 bng 15 250 50 0 empty empty T7 17 7 0 10 -4034 -1 -1
@@ -298,7 +295,7 @@
 #X obj 76 -56 s AF4;
 #X obj 120 -56 s F3;
 #X obj 164 -56 s F4;
-#X obj 208 -57 s F7;
+#X obj 208 -56 s F7;
 #X obj 252 -56 s F8;
 #X obj 69 288 tabwrite~ AF3;
 #X obj 68 242 osc~;
@@ -316,11 +313,12 @@
 #X obj 309 242 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 211 285 tabwrite~ AF4;
-#X obj 99 23 r AF4;
-#X obj 248 21 r F7;
+#X obj 249 24 r AF4;
+#X obj 391 19 r F7;
 #X obj 533 218 + 1;
 #X obj 532 24 r F4;
-#X obj 688 12 r F3;
+#X obj 682 23 r F3;
+#X obj 101 19 r AF3;
 #X connect 0 0 110 0;
 #X connect 0 1 110 1;
 #X connect 3 0 1 0;
@@ -452,6 +450,7 @@
 #X connect 118 2 100 0;
 #X connect 118 4 101 0;
 #X connect 118 5 105 0;
+#X connect 118 7 104 0;
 #X connect 150 0 149 0;
 #X connect 152 0 153 0;
 #X connect 153 0 151 0;
@@ -460,8 +459,9 @@
 #X connect 157 0 160 0;
 #X connect 158 0 155 0;
 #X connect 159 0 156 0;
-#X connect 161 0 56 0;
-#X connect 162 0 15 0;
+#X connect 161 0 15 0;
+#X connect 162 0 22 0;
 #X connect 163 0 87 0;
 #X connect 164 0 29 0;
 #X connect 165 0 37 0;
+#X connect 166 0 56 0;
