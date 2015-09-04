@@ -262,7 +262,7 @@ public class Sensor {
     // graph
     int qfi = 0;
     PVector lastP = new PVector(0, gheight/2);
-    if (delta < 0.5) qfi = 0;
+    if (delta < 3) qfi = 0;
     else if (theta < 6) qfi = 1;
     else if (alpha < 10) qfi = 2;
     else if (SMRbeta < 13) qfi = 3;
