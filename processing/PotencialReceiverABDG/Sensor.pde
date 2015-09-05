@@ -240,7 +240,7 @@ public class Sensor {
     fill(255);
     textSize(9);
     textLeading(10);
-    String ss = name+"\n"+getRawValue()+"\n"+alpha+"\n"+SMRbeta+"\n"+gamma;
+    String ss = name+"\n"+getRawValue()+"\n"+SMRbeta+"\n"+gamma;
     text(ss, 9, 9);
 
     // raw graph
@@ -262,13 +262,13 @@ public class Sensor {
     // graph
     int qfi = 0;
     PVector lastP = new PVector(0, gheight/2);
-    if (delta < 3) qfi = 0;
-    else if (theta < 6) qfi = 1;
-    else if (alpha < 10) qfi = 2;
-    else if (SMRbeta < 13) qfi = 3;
-    else if (Midbeta < 16) qfi = 4;
-    else if (Highbeta < 28) qfi = 5;
-    else if (gamma < 38) qfi = 6;
+    if ((delta <= 0.5) || (delta >= 3)) qfi = 0;
+    else if ((theta <= 4) || (theta >= 7)) qfi = 1;
+    else if ((alpha <= 8) || (alpha >= 12)) qfi = 2;
+    else if ((SMRbeta <= 12.5) || (SMRbeta >= 15)) qfi = 3;
+    else if ((Midbeta <= 16) || (Midbeta >= 18)) qfi = 4;
+    else if ((Highbeta <= 28) || (Highbeta >= 30)) qfi = 5;
+    else if ((gamma <= 35) || (gamma >= 60)) qfi = 6;
     else qfi = 7;
     stroke(color(FREQ_COLORS[qfi]));
     for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth/2; ++x, ++i) {
