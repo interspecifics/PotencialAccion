@@ -54,60 +54,58 @@ if __name__ == "__main__":
                             norm[0]+=1
                             output[0]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("0")
-                            mOscMessage.append(output[0]/norm[0])
+                            mOscMessage.append(0)
+                            #mOscMessage.append(output[0]/norm[0])
                             mOscClient.send(mOscMessage)
                         # theta 4 - 7 hz
                         elif round(freq[j])>4 and round(freq[j])<7 :
                             norm[1]+=1
                             output[1]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("1")
-                            mOscMessage.append(output[1]/norm[1])
+                            mOscMessage.append(1)
+                            #mOscMessage.append(output[1]/norm[1])
                             mOscClient.send(mOscMessage)
                         # alpha 8 - 12 hz
                         elif round(freq[j])>8 and round(freq[j])<12 :
                             norm[2]+=1
                             output[2]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("2")
-                            mOscMessage.append(output[2]/norm[2])
+                            mOscMessage.append(2)
+                            #mOscMessage.append(output[2]/norm[2])
                             mOscClient.send(mOscMessage)
                         # SMR beta 12.5 - 15 hz
                         elif round(freq[j])>12.5 and round(freq[j])<15 :
                             norm[3]+=1
                             output[3]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("3")
-                            mOscMessage.append(output[3]/norm[3])
+                            mOscMessage.append(3)
+                            #mOscMessage.append(output[3]/norm[3])
                             mOscClient.send(mOscMessage)
                         # Mid beta 15.5 - 18 hz
                         elif round(freq[j])>15.5 and round(freq[j])<18 :
                             norm[4]+=1
                             output[4]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("4")
-                            mOscMessage.append(output[4]/norm[4])
+                            mOscMessage.append(4)
+                            #mOscMessage.append(output[4]/norm[4])
                             mOscClient.send(mOscMessage)
                         # High beta 22 - 35 hz
                         elif round(freq[j])>22 and round(freq[j])<35 :
                             norm[5]+=1
                             output[5]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("5")
-                            mOscMessage.append(output[5]/norm[5])
+                            mOscMessage.append(5)
+                            #mOscMessage.append(output[5]/norm[5])
                             mOscClient.send(mOscMessage)
                         # Gama 35 - 80 hz
                         elif round(freq[j])>35 and round(freq[j])<80 :
                             norm[6]+=1
                             output[6]+=yf[j]
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
-                            #mOscMessage.append("6")
-                            mOscMessage.append(output[6]/norm[6])
+                            mOscMessage.append(6)
+                            #mOscMessage.append(output[6]/norm[6])
                             mOscClient.send(mOscMessage)
                         j = j+1
-
-
                             #Here we create and send an oscMessage
                            # print str(output[0]/norm[0])+"\t"+str(output[1]/norm[1])+"\t"+str(output[2]/norm[2])+"\t"+str(output[3]/norm[3])
                 count=0 #After the analysis we recet our counter
