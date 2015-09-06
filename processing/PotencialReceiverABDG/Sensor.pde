@@ -4,9 +4,11 @@ import netP5.*;
 private static NetAddress oscOutAddress;
 private static OscMessage mMessage;
 private final static int QUALITY_COLORS[] = {
-  #000000, #B22222, #EE8833, #FFCC11, #698B22};
+  #000000, #B22222, #EE8833, #FFCC11, #698B22
+};
 private final static int FREQ_COLORS[] = {
-  #9C3EDB, #8A57DE, #FC9800, #2C88F5, #2567AF, #0079FF, #FC0000, #000000};
+  #9C3EDB, #8A57DE, #FC9800, #2C88F5, #2567AF, #0079FF, #FC0000, #000000
+};
 
 public class Sensor {
   private static final short AVGSIZE = 4;
@@ -34,7 +36,7 @@ public class Sensor {
   private boolean bRecordSensor;
   private String name;
   private PVector location, dimension;
-  
+
   private short delta, theta, alpha, SMRbeta, Midbeta, Highbeta, gamma;
 
   public Sensor(PVector _location, PVector _dimension, String _name) {
@@ -52,13 +54,13 @@ public class Sensor {
     averageEnd = (short)((averageValues.length)-1);
 
     // init values
-    for (int i=0; i<(rawValues.length); ++i) {
+    for (int i=0; i< (rawValues.length); ++i) {
       rawValues[i] = 0;
     }
-     for (int i=0; i<(averageValues.length); ++i) {
-       averageValues[i] = 0;
+    for (int i=0; i< (averageValues.length); ++i) {
+      averageValues[i] = 0;
     }
-    for (int i=0; i<(currentRunningAverage.length); ++i) {
+    for (int i=0; i< (currentRunningAverage.length); ++i) {
       currentRunningAverage[i] = 0;
     }
 
@@ -67,8 +69,8 @@ public class Sensor {
     currentQuality = 0.0f;
     currentFreq = 0;
     bRecordSensor = true;
-   
-   //Basic Freqeuncy analysis of 7 different ranges 
+
+    //Basic Freqeuncy analysis of 7 different ranges 
     delta = 0;
     theta = 0;
     alpha = 0;
@@ -96,10 +98,12 @@ public class Sensor {
   public void setQuality(float q) {
     currentQuality = (0.9f*currentQuality + 0.1f*q);
   }
-  
+
+  /*
   public void setFrequency(float q) {
-    currentFreq = (0*currentFreq + 0.1f*q);
-  }
+   currentFreq = (0*currentFreq + 0.1f*q);
+   }
+   */
 
   public boolean isRecording() {
     return bRecordSensor;
@@ -122,7 +126,7 @@ public class Sensor {
     int getFromIndex = (averageEnd > 0)?(averageEnd-1):((averageValues.length)-1);
     return averageValues[getFromIndex];
   }
- 
+
   public void setFrequency (short d, short t, short a, short sb, short mb, short hb, short g) {
     delta = d;
     theta = t;
@@ -130,7 +134,7 @@ public class Sensor {
     SMRbeta = sb;
     Midbeta = mb;
     Highbeta = hb;
-    gamma = g;   
+    gamma = g;
   }
 
   public void addValue(short val) {
@@ -151,7 +155,7 @@ public class Sensor {
     // find min/max of current averages
     short thisMinValue = 9000;
     short thisMaxValue = -9000;
-    for (int i=0; i<(averageValues.length); ++i) {
+    for (int i=0; i< (averageValues.length); ++i) {
       if (averageValues[i] > thisMaxValue) {
         thisMaxValue = averageValues[i];
       }
@@ -176,43 +180,42 @@ public class Sensor {
     mMessage.setAddrPattern(mAddrPatt+"d");
     mMessage.add(delta);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     // THETA
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"t");
     mMessage.add(theta);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     //ALPHA
-     mMessage.clear();
+    mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"a");
     mMessage.add(alpha);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     //SMRBETA
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"sb");
     mMessage.add(SMRbeta);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     //MIDBETA
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"mb");
     mMessage.add(Midbeta);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     //HIGHBETA
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"hb");
     mMessage.add(Highbeta);
     OscP5.flush(mMessage, oscOutAddress);
-    
+
     //GAMMA
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"g");
     mMessage.add(gamma);
-    OscP5.flush(mMessage, oscOutAddress);   
-   
+    OscP5.flush(mMessage, oscOutAddress);
   }
 
   public void draw() {
@@ -255,23 +258,23 @@ public class Sensor {
 
   void drawGraph(short values[], short sizeOfValues, short lastIndex, float gwidth, float gheight) {
     // background rectangle
-    fill(62,62,62);
+    fill(62, 62, 62);
     noStroke();
     rect(0, 0, gwidth/2, gheight);
 
     // graph
     int qfi = 0;
-    PVector lastP = new PVector(0, gheight/2);
-    if ((delta <= 0.5) || (delta >= 3)) qfi = 0;
-    else if ((theta <= 4) || (theta >= 7)) qfi = 1;
-    else if ((alpha <= 8) || (alpha >= 12)) qfi = 2;
-    else if ((SMRbeta <= 12.5) || (SMRbeta >= 15)) qfi = 3;
-    else if ((Midbeta <= 16) || (Midbeta >= 18)) qfi = 4;
-    else if ((Highbeta <= 28) || (Highbeta >= 30)) qfi = 5;
-    else if ((gamma <= 35) || (gamma >= 60)) qfi = 6;
+    PVector lastP = new PVector(0, gheight*0.3);
+    if (delta < 3)  qfi = 0;
+    else if (theta > 4) qfi = 1;
+    else if (alpha < 8) qfi = 2;
+    else if (SMRbeta > 12.5) qfi = 3;
+    else if (Midbeta < 16)  qfi = 4;
+    else if (Highbeta > 28)  qfi = 5;
+    else if (gamma < 35) qfi = 6;
     else qfi = 7;
     stroke(color(FREQ_COLORS[qfi]));
-    for (int x=1, i=(int)(lastIndex-gwidth); x<gwidth/2; ++x, ++i) {
+    for (int x=1, i= (int)(lastIndex-gwidth); x<gwidth/2; ++x, ++i) {
       int yIndex = i;
       while (yIndex<0) {
         yIndex += sizeOfValues;
