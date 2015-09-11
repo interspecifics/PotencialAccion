@@ -32,7 +32,10 @@
 #X obj -60 28 inlet;
 #X obj 128 54 outlet;
 #X floatatom 93 7 5 0 0 0 - - -;
+#X floatatom 70 92 5 0 0 0 - - -;
+#X obj 71 115 s AF3D;
 #X connect 2 0 10 0;
+#X connect 3 0 19 0;
 #X connect 5 0 7 0;
 #X connect 6 0 3 0;
 #X connect 6 0 11 0;
@@ -51,6 +54,7 @@
 #X connect 13 4 14 0;
 #X connect 13 5 15 0;
 #X connect 16 0 2 0;
+#X connect 19 0 20 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 23 -28 graph;
 #X obj 23 -48 r AF3d;
@@ -319,7 +323,10 @@
 #X obj -106 -154 inlet;
 #X obj 111 54 outlet;
 #X floatatom 79 9 5 0 0 0 - - -;
+#X floatatom 33 61 5 0 0 0 - - -;
+#X obj 34 84 s AF3T;
 #X connect 3 0 12 0;
+#X connect 4 0 18 0;
 #X connect 6 0 8 0;
 #X connect 7 0 9 0;
 #X connect 7 0 4 0;
@@ -337,6 +344,7 @@
 #X connect 13 4 2 0;
 #X connect 14 0 6 0;
 #X connect 15 0 3 0;
+#X connect 18 0 19 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 23 68 graph;
 #X obj 23 48 r AF3t;
@@ -597,7 +605,10 @@
 #X floatatom 91 9 5 0 0 0 - - -;
 #X obj -160 -30 inlet;
 #X obj 127 70 outlet;
+#X floatatom 49 96 5 0 0 0 - - -;
+#X obj 50 119 s AF3A;
 #X connect 3 0 14 0;
+#X connect 4 0 19 0;
 #X connect 7 0 9 0;
 #X connect 8 0 4 0;
 #X connect 8 0 12 0;
@@ -616,6 +627,7 @@
 #X connect 15 4 2 0;
 #X connect 15 5 5 0;
 #X connect 17 0 3 0;
+#X connect 19 0 20 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 24 164 graph;
 #X obj 24 144 r AF3a;
@@ -884,7 +896,10 @@
 #X floatatom 79 9 5 0 0 0 - - -;
 #X obj -205 -20 inlet;
 #X obj 114 58 outlet;
+#X floatatom 18 73 5 0 0 0 - - -;
+#X obj 19 96 s AF3SB;
 #X connect 0 0 8 0;
+#X connect 1 0 18 0;
 #X connect 3 0 5 0;
 #X connect 4 0 1 0;
 #X connect 4 0 9 0;
@@ -902,6 +917,7 @@
 #X connect 10 0 3 0;
 #X connect 11 0 3 1;
 #X connect 16 0 0 0;
+#X connect 18 0 19 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 21 261 graph;
 #X obj 183 143 r F7a;
@@ -1167,7 +1183,10 @@
 #X floatatom 90 10 5 0 0 0 - - -;
 #X obj -109 24 inlet;
 #X obj 126 59 outlet;
+#X floatatom 110 132 5 0 0 0 - - -;
+#X obj 111 155 s AF3MB;
 #X connect 3 0 11 0;
+#X connect 4 0 19 0;
 #X connect 6 0 8 0;
 #X connect 7 0 4 0;
 #X connect 7 0 12 0;
@@ -1185,6 +1204,7 @@
 #X connect 15 4 2 0;
 #X connect 15 5 14 0;
 #X connect 17 0 3 0;
+#X connect 19 0 20 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 21 357 graph;
 #N canvas 346 345 555 363 (subpatch) 0;
@@ -1543,9 +1563,9 @@
 #X obj 101 101 cnv 10 95 41 \$0-A \$0-B empty 20 12 0 14 -1 -1 1.04858e+06
 ;
 #X obj 101 109 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuPeak CPUPeak
-45 7 1 11 -228856 -1 -228856 10 256;
+45 7 1 11 -228856 -1 -228856 8 256;
 #X obj 101 122 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuMean CPUMean
-45 7 1 11 -228856 -1 -228856 8.33 256;
+45 7 1 11 -228856 -1 -228856 8.09 256;
 #X obj 145 -55 cputime;
 #X obj 145 -76 t b b;
 #X text 188 24 (c) musil@iem.kug.ac.at;
@@ -1605,7 +1625,7 @@
 #X connect 17 0 2 0;
 #X connect 18 0 14 0;
 #X coords 0 -1 1 1 97 43 1 100 100;
-#X restore 824 531 pd ARGO;
+#X restore 840 531 pd ARGO;
 #X obj 14 -26 vsl 8 45 0 127 0 0 empty empty empty 0 -9 0 10 -159808
 -159808 -159808 0 1;
 #N canvas 162 59 450 300 noteTeta1 0;
@@ -1996,8 +2016,11 @@
 #X obj 100 14 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -19198
 -1;
 #X obj 6 -23 sel 22 23 24 25 26 27 28 29 30;
+#X floatatom 51 84 5 0 0 0 - - -;
+#X obj 52 107 s AFHB;
 #X connect 0 0 5 0;
 #X connect 5 0 15 0;
+#X connect 6 0 20 0;
 #X connect 10 0 12 0;
 #X connect 11 0 6 0;
 #X connect 11 0 16 0;
@@ -2016,6 +2039,7 @@
 #X connect 19 5 7 0;
 #X connect 19 6 9 0;
 #X connect 19 7 18 0;
+#X connect 20 0 21 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 19 452 graph;
 #X obj 981 -62 hsl 250 40 0 127 0 0 empty empty DIMENSIONS 20 20 0
@@ -2501,7 +2525,10 @@
 -1;
 #X obj 209 9 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -258113
 -1;
+#X floatatom 130 152 5 0 0 0 - - -;
+#X obj 131 175 s AF3G;
 #X connect 3 0 14 0;
+#X connect 4 0 24 0;
 #X connect 8 0 10 0;
 #X connect 9 0 4 0;
 #X connect 9 0 15 0;
@@ -2525,6 +2552,7 @@
 #X connect 15 13 23 0;
 #X connect 16 0 8 0;
 #X connect 17 0 8 1;
+#X connect 24 0 25 0;
 #X coords 0 1 100 -1 150 50 1 0 0;
 #X restore 18 546 graph;
 #X obj 11 548 vsl 8 45 0 127 0 0 empty empty empty 0 -9 0 10 -258113
@@ -2544,10 +2572,10 @@
 #X connect 5 0 1 0;
 #X restore 18 599 pd notehbeta1;
 #X obj 821 -47 r AF4d;
-#X obj 894 635 s vel;
-#X obj 935 635 s dur;
-#X floatatom 894 616 5 0 0 0 - - -;
-#X floatatom 934 616 5 0 0 0 - - -;
+#X obj 678 590 s vel;
+#X obj 719 590 s dur;
+#X floatatom 678 571 5 0 0 0 - - -;
+#X floatatom 718 571 5 0 0 0 - - -;
 #X obj 980 215 r~ avr3;
 #X obj 1183 213 r~ avr4;
 #N canvas 445 136 541 449 ARGO 0;
@@ -2827,10 +2855,10 @@
 #X obj 662 434 r F8hb;
 #X obj 822 433 r AF4hb;
 #X obj 18 527 r AF3g;
-#X obj 826 603 tgl 30 0 startOsc empty empty 17 7 0 10 -262144 -1 -1
+#X obj 842 582 tgl 30 0 startOsc empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 826 636 s startOSC;
-#N canvas 59 23 1280 752 GetOSC 0;
+#X obj 842 615 s startOSC;
+#N canvas 64 22 1280 752 GetOSC 0;
 #X floatatom -36 209 5 0 0 0 - - -;
 #X floatatom 1 208 5 0 0 0 - - -;
 #X floatatom -74 209 5 0 0 0 - - -;
@@ -3248,27 +3276,39 @@
 #X connect 203 0 194 0;
 #X connect 204 0 205 0;
 #X connect 205 0 193 0;
-#X restore 824 580 pd GetOSC;
-#N canvas 632 224 590 426 SendOSC 1;
-#X obj 103 21 import mrpeach;
-#X obj 100 256 packOSC;
-#X obj 48 290 udpsend;
-#X msg 46 66 connect localhost 9005;
-#X obj 16 18 r sendOSC;
-#X obj 16 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 15 64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X restore 843 636 pd GetOSC;
+#N canvas 61 25 885 706 SendOSC 0;
+#X obj -53 -91 import mrpeach;
+#X obj 102 269 packOSC;
+#X obj 46 358 udpsend;
+#X msg 1 -38 connect localhost 9005;
+#X obj -50 -62 r sendOSC;
+#X obj -50 -38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -30 -38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 25 6 disconnect;
+#X obj -8 1 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
-#X msg 61 95 disconnect;
-#X obj 14 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
-;
-#X obj -32 65 r stop;
-#X msg 103 213 send /potencial/AF3/d /potencial/AF3/t /potencial/AF3/a
-;
+#X obj -55 1 r stop;
 #X obj 127 179 pack 0 0 0 0 0 0 0;
 #X floatatom 127 138 5 0 0 0 - - -;
 #X floatatom 143 119 5 0 0 0 - - -;
-#X floatatom 152 99 5 0 0 0 - - -;
+#X floatatom 159 99 5 0 0 0 - - -;
+#X floatatom 172 80 5 0 0 0 - - -;
+#X floatatom 188 60 5 0 0 0 - - -;
+#X floatatom 200 40 5 0 0 0 - - -;
+#X floatatom 222 16 5 0 0 0 - - -;
+#X msg 103 213 send /potencial/AF3/d /potencial/AF3/t /potencial/AF3/a
+/potencial/AF3/sb /potencial/AF3/mb /potencial/AF3/hb /potencial/AF3/g
+\$1 \$2 \$3 \$4 \$5 \$6 \$7;
+#X obj 77 110 r AF3D;
+#X obj 96 86 r AF3D;
+#X obj 114 62 r AF3D;
+#X obj 124 39 r AF3D;
+#X obj 148 16 r AF3D;
+#X obj 172 -4 r AF3D;
+#X obj 210 -25 r AF3D;
 #X connect 1 0 2 0;
 #X connect 3 0 2 0;
 #X connect 4 0 5 0;
@@ -3277,11 +3317,23 @@
 #X connect 7 0 2 0;
 #X connect 8 0 7 0;
 #X connect 9 0 8 0;
-#X connect 10 0 1 0;
+#X connect 10 0 18 0;
 #X connect 11 0 10 0;
-#X connect 12 0 11 0;
-#X connect 13 0 11 1;
-#X restore 888 579 pd SendOSC;
+#X connect 12 0 10 1;
+#X connect 13 0 10 2;
+#X connect 14 0 10 3;
+#X connect 15 0 10 4;
+#X connect 16 0 10 5;
+#X connect 17 0 10 6;
+#X connect 18 0 1 0;
+#X connect 19 0 11 0;
+#X connect 20 0 12 0;
+#X connect 21 0 13 0;
+#X connect 22 0 14 0;
+#X connect 23 0 15 0;
+#X connect 24 0 16 0;
+#X connect 25 0 17 0;
+#X restore 910 636 pd SendOSC;
 #N canvas 120 22 725 452 correlations 0;
 #X obj 76 134 correlation 20;
 #X floatatom 72 157 5 0 0 0 - - -;
@@ -3340,7 +3392,7 @@
 #X connect 25 0 23 0;
 #X connect 26 0 25 0;
 #X connect 27 0 4 0;
-#X restore 664 615 pd correlations electodes;
+#X restore 678 614 pd correlations electodes;
 #N canvas 120 22 725 452 correlations 0;
 #X obj 76 134 correlation 20;
 #X floatatom 72 157 5 0 0 0 - - -;
@@ -3399,7 +3451,10 @@
 #X connect 25 0 23 0;
 #X connect 26 0 25 0;
 #X connect 27 0 4 0;
-#X restore 664 635 pd correlations frequency;
+#X restore 678 634 pd correlations frequency;
+#X obj 908 582 tgl 30 0 startOsc empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 910 614 s sendOSC;
 #X connect 0 0 6 0;
 #X connect 1 0 7 0;
 #X connect 2 0 8 0;
@@ -3481,3 +3536,4 @@
 #X connect 136 0 112 0;
 #X connect 137 0 114 0;
 #X connect 139 0 140 0;
+#X connect 145 0 146 0;
