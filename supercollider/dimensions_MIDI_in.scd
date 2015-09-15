@@ -52,6 +52,8 @@ MIDIdef.freeAll;
 
 
 
+~frecuenciasEEG = Array.newClear(128);
+
 ///CHANNEL 1
 
 (
