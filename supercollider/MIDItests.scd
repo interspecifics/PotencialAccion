@@ -1,3 +1,56 @@
+s.reboot;
+//if server gets stuck
+Server.killAll;
+
+MIDIClient.init; // connnection with OS
+MIDIClient.sources; //availables source devices
+MIDIIn.connect(0)// para conectar solo uno en el paréntesis el index
+MIDIIn.connectAll; //conectarlos todos
+MIDIIn.release; // end connection
+
+(
+    MIDIIn.noteOff = { arg src, chan, num, vel;
+	[chan,num,vel / 127].postln; };
+
+    MIDIIn.noteOn = { arg src, chan, num, vel;
+	[chan,num,vel,src / 127].postln; };
+
+    MIDIIn.polytouch = { arg src, chan, num, vel;
+	[chan,num,vel / 127].postln; };
+
+	MIDIIn.control = { arg src, chan, num, val;
+	[chan,num,val].postln; };
+
+	MIDIIn.program = { arg src, chan, prog;
+	[chan,prog].postln; };
+
+	MIDIIn.touch = { arg src, chan, pressure;
+	[chan,pressure].postln; };
+
+	MIDIIn.bend = { arg src, chan, bend;
+	[chan,bend - 8192].postln; };
+
+	MIDIIn.sysex = { arg src, sysex;
+	sysex.postln; };
+
+	MIDIIn.sysrt = { arg src, chan, val;
+	[chan,val].postln; };
+
+	MIDIIn.smpte = { arg src, chan, val;
+	[chan,val].postln; };
+)
+
+// PARA MIDIdefs
+//Prueba note On
+MIDIdef.noteOn(\Pd, {"recibiendo".postln});
+// able or disable
+MIDIdef(\Pd).disable;
+// free one
+MIDIdef(\Pd).free;
+//freeAll
+MIDIdef.freeAll;
+
+
 
 
 ~frecuenciasEEG = Array.newClear(128);
@@ -12,11 +65,10 @@ MIDIdef.noteOn(\OnChan2, {
 		\trial2,
 		[
 			\freq, nn.midicps,
-			\amp, vel.linexp(1, 127, 0.01, 0.3),
 	        \gate, 1,
 	]
 	);
-	}, chan:1);
+	}, chan:0);
 
 MIDIdef.noteOff(\OffChan2, {
 arg vel, nn, chan;
@@ -34,6 +86,9 @@ SynthDef.new(\trial2, {
 	    Out.ar(0, sig);
 }).add;
 )
+
+
+
 
 
 
@@ -77,3 +132,35 @@ SynthDef(\esm, {|freq=440, mix=0.5, glide=0, cutoff=20000, rq=1, fdec=0, fint=1,
 }).add;
 
 )
+
+
+
+
+
+MIDIClient.stop;
+
+(
+var notes, on, off;
+MIDIClient.init;
+
+MIDIIn.connectAll;
+
+notes = Array.newClear(128);
+
+on = MIDIFunc.noteOn({|vel, num, chan, src|
+	notes[num] = Synth(\default, [\freq, num.midicps, \amp, vel * 0.00315]);
+});
+
+off = MIDIFunc.noteOff ({|vel, num, chan, src|
+	notes[num].release;
+});
+
+q = {on.free; off.free;};
+)
+
+Synth.new(\default);
+
+q.value
+
+
+
