@@ -1,7 +1,21 @@
 //hacer synthdefs
-{LFPar.ar(Impulse.kr([640, 600], 0.5, 50) ,0, 1,0) * 2}.play;
-
 { Resonz.ar(SinOsc.ar(SinOsc.kr([440, 400], 20, 100, 100), 0, 25),2,1,1)}.play
+
+(
+SynthDef.new(\low, {
+	arg mul, gate;
+	var freq, sig, amp, env;
+	freq = Impulse.kr([600, 600], 0.7, mul);
+	amp = 30;
+	env = EnvGen.ar(Env.adsr(0.01, 0.01, 1, 0.5), gate, doneAction:2);
+	sig = LFPar.ar(freq) * amp * env;
+	Out.ar(0, sig);
+}).add;
+)
+x=Synth.new(\low, [\mul, 30, \gate, 1]);
+x.set(\mul, 50)
+x.free;
+
 
 (SynthDef.new(\EEG1, {
 	arg ampHz=3, fund=30, maxPartial=3,width=0.5;
@@ -23,24 +37,20 @@ y.set(\fund, 40);
 y.free;
 
 
-
-
 (
 SynthDef(\alpha,
 	{
 var drumosc, filterenv, drumoutput, volenv;
 		filterenv = {Line.ar(1, 0, 0.2)};
-		volenv = {Line.ar(1, 0, 0.6)};
-
+		volenv = {Line.ar(1, 0, 0.6, doneAction:2)};
 		drumosc = {SinOsc.ar(100)};
 		drumoutput = {LPF.ar(drumosc,(filterenv *1000) +1000)};
-
 		Out.ar(0, Pan2.ar(drumoutput * volenv, 0))
 }).add;
 )
 
 t = Synth(\alpha);
-t.release;
+
 
 
 
