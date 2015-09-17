@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>166CBA39-F40E-452D-BE1A-F96B37C9ED67</string>
+	<key>IDESourceControlProjectName</key>
+	<string>oculus_test</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>082F152AF780A30C54B180FE8215453DA2D068BD</key>
+		<string>https://github.com/obviousjim/ofxOculusDK2.git</string>
+		<key>E068B5130748B8B45220364D050FFE995677D392</key>
+		<string>https://github.com/danoli3/ofxOSXBoost.git</string>
+		<key>E35E746B813607845BDFE58D9340B39CEB003289</key>
+		<string>https://github.com/clmens/oculus_test.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>oculus_test.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>082F152AF780A30C54B180FE8215453DA2D068BD</key>
+		<string>../../../addons/ofxOculusDK2</string>
+		<key>E068B5130748B8B45220364D050FFE995677D392</key>
+		<string>../../../addons/ofxOSXBoost</string>
+		<key>E35E746B813607845BDFE58D9340B39CEB003289</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/clmens/oculus_test.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E35E746B813607845BDFE58D9340B39CEB003289</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E35E746B813607845BDFE58D9340B39CEB003289</string>
+			<key>IDESourceControlWCCName</key>
+			<string>oculus_test</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>082F152AF780A30C54B180FE8215453DA2D068BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxOculusDK2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E068B5130748B8B45220364D050FFE995677D392</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxOSXBoost</string>
+		</dict>
+	</array>
+</dict>
+</plist>
