@@ -9,83 +9,86 @@ MIDIdef.freeAll;
 
 ///CHANNEL 1
 
-~delta = Array.newClear(128);
 (
-MIDIdef.noteOn(\OnChan1, {
+var notes1, on, off;
+
+notes1 = Array.newClear(128);
+
+on = MIDIdef.noteOn(\OnChan1, {
 	arg  vel, nn, chan;
 	[vel, nn, chan].postln;
-	~delta[nn] = Synth.new(
-		\trial1,
-		[
-			\freq, nn.midicps,
-			\amp, 0.5,
-			\gate, 1,
-		]
-	);
+	~delta[nn] = Synth(
+		\delta,
+		[\freq, nn.midicps,\gate, 1]);
 }, chan:0);
-)
 
-(
-MIDIdef.noteOff(\OffChan1, {
+off = MIDIdef.noteOff(\OffChan1, {
 arg vel, nn, chan;
 	[vel, nn, chan].postln;
-	~delta[nn].set(\gate, 0);
-	~delta[nn] = nil;
+	notes1[nn].set(\gate, 0);
+	notes1[nn] = nil;
 }, chan:0);
-)
 
-SynthDef.new(\trial1, {
-	arg freq=700, amp=0.5, gate=0;
+
+SynthDef(\delta,{
+	arg freq = 400, gate=0;
 	var sig, env;
-		sig = SinOsc.ar(freq)!2;
-		env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-		sig = sig * env * amp;
-	    Out.ar(0, sig);
+	env = EnvGen.kr(Env.new([0, 1, 0, 0],[0.3, 0.3],[3, -3, 1]),gate,
+	    doneAction:2);
+	sig = Pulse.ar(freq)!2;
+	sig = sig * env;
+		Out.ar(0,sig);
 }).add;
-
+)
 
 
 
 //CHANNEL 2
 
-~theta = Array.newClear(128);
+(
+var notes2, on, off;
 
+notes2 = Array.newClear(128);
 
-MIDIdef.noteOn(\OnChan2, {
+on = MIDIdef.noteOn(\OnChan2, {
 	arg  vel, nn, chan;
 	[vel, nn, chan].postln;
 	~theta[nn] = Synth.new(
-		\trial2,
-		[
-			\freq, nn.midicps,
-			\amp, vel.linexp(1, 127, 0.01, 0.3),
-	        \gate, 1,
-	]
-	);
+		\theta,[\freq, nn.midicps,\gate, 1]);
 	}, chan:1);
 
-MIDIdef.noteOff(\OffChan2, {
+off = MIDIdef.noteOff(\OffChan2, {
 arg vel, nn, chan;
 	[vel, nn, chan].postln;
 	~theta[nn].set(\gate, 0);
 	~theta[nn] = nil;
 },chan:1);
 
-SynthDef.new(\trial2, {
-	arg freq=700, amp=0.5, gate=0;
-	var sig, env;
-		sig = SinOsc.ar(freq)!2;
-		env = EnvGen.kr(Env.adsr, gate, doneAction:2);
-		sig = sig * env * amp;
-	    Out.ar(0, sig);
+SynthDef(\theta, {
+	arg freq=40, gate=0;
+	var temp, sum, env;
+	sum = 0;
+	env = EnvGen.kr(
+		Env.new([0, 1, 0, 0],[0.3, 0.3],[3, -3, 1]),gate,
+	    doneAction:2);
+	10.do {
+	temp = VarSaw.ar(
+			freq,
+			{Rand(0.0, 1.0)}!2,
+			{ExpRand(0.005, 0.05)}!2,
+	);
+	sum = sum + temp;
+	};
+	sum = sum * 0.3 * env;
+	Out.ar(0, sum);
 }).add;
 )
 
 
-
 ///CHANNEL 3
 
-~alpha = Array.newClear(128);
+(
+n = Array.newClear(128);
 
 (
 MIDIdef.noteOn(\OnChan3, {
