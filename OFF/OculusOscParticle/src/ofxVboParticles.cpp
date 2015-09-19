@@ -23,6 +23,9 @@ ofxVboParticles::ofxVboParticles(int _maxParticles, float _pointSize){
     glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, distance);
     glPointSize(pointSize);
     
+    ofDisableArbTex();
+    texture.load("Full64.png");
+    
     billboards.setUsage(GL_DYNAMIC_DRAW);
     billboards.setMode(OF_PRIMITIVE_POINTS);
     billboards.disableTextures();
@@ -49,11 +52,13 @@ void ofxVboParticles::update(){
 
 void ofxVboParticles::draw(){
     ofPushStyle();
+    //glEnable(GL_BLEND);
     ofEnableDepthTest();
-    //glDepthFunc(GL_NEVER);
     ofEnablePointSprites();
+    texture.getTexture().bind();
     billboards.draw();
     ofDisablePointSprites();
+    //glDisable(GL_BLEND);
     ofPopStyle();
 }
 

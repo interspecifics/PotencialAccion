@@ -57,10 +57,12 @@ public:
     ofVec3f cursorGaze;
     
     //sensor
+    float readingMin;
+    float readingMax;
     vector<string> sensorList;
     vector<float> sensorReading;
-    vector<ofColor> colorStart;
-    vector<ofColor> colorEnd;
+    ofColor colorStart;
+    ofColor colorEnd;
     
     //particle
     ofxVboParticles *vboParticles;
