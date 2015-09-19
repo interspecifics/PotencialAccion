@@ -129,7 +129,7 @@ SynthDef(\esm, {|freq=440, mix=0.5, glide=0, cutoff=20000, rq=1, fdec=0, fint=1,
 	Out.ar(out,
 		Pan2.ar(sig, pan);
 	)
-}).add;
+}).play;
 
 )
 
