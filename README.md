@@ -1,4 +1,87 @@
-PotencialAccion
+Dimensions
+=========
+
+Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible power, phase, or trigger correlations. 
+
+**Relation of parameters:**
+
+**1. Space:** every electrode analyzed have their own distinctive note
+**2. Time:** one bang is create every time a specific dominate frequency appears
+**3. Frequency:** every frequency response to and specific sonic processor
+
+If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
+
+![values](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/rangos.png?raw=true )
+
+Those bangs are converter into specify note and channels depending on the electrode and the frequency:
+
+![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/noteandchannel.png?raw=true ) ![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/notechannel2.png?raw=true)
+
+**Distribution of elements:** 
+
+- Frencuency =  channel
+- Electrode = note 
+- Time =  time (number of times a note is play )
+
+**Number of frequencies: 6**
+1. delta
+2. theta
+3. alpha
+4. smBeta
+5. midBeta
+6. HighBeta
+
+**Electrodes to notes:** (static version)
+AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
+
+**Number of Instruments: 6**
+General description of the instruments
+
+![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
+
+**Displacement of forces over time:**
+This system enables the user to be aware of the displacement of energies moving on the brain. One can notice correlation such as symmetry on electrodes of the same order, same frequency domains in all electrodes, or asymmetrical correlation on left and right side of the brain.
+
+**Scenarios:**
+
+1. all electrodes playing the same channel:
+When all the electrodes are playing the same channel, we are listening to the same interment bing interpreted by 6 possible notes. This means that all the electrodes are correlating the same frequency domain
+
+2. every electrode plays a channel:
+This scenario shows that all de frequencies are in different states in all the electrodes
+
+3. groups of electrodes plays specific channels:
+Every electrode have 6 different possibilities for play a channel over time, this represents the level of energy or the frequency domain that is detected by the system.
+
+Our patch is design to trigger one bang every time one of the possible levels of frequencies are meet.
+
+The rows represents the electrodes, every row has six different levels of frequency  responding form 0.5 HZ to 30 Hz.
+
+Cartesian distribution of elements:
+
+     X = electrodes
+     Y =  frequencies (High - Low)
+
+The following images show some of the possible arrangements for the electrodes to play over time on different frequency levels
+
+![all alpha](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/allAlpha.png?raw=true)
+
+![beta curve](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/betaCurve.png?raw=true)
+
+![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/diagonalfromDeltatoBeta.png?raw=true)
+
+
+**OSC data manager**
+
+the data manager receives messages from our custom osc processing server and distributes them into electrodes and frequencies. a simple low pass filter is apply for every data set.
+![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/OSCreceiver.png?raw=true)
+
+
+
+
+
+
+PotencialAccion SDK
 ===============
 
 Proyecto de sonificación y visualización de actividad neuro-estética 
@@ -62,58 +145,4 @@ python emoOscServer.py
 
 NOTA: es importante que edite el archivo y lo actualices con los datos Serial Number: vendor id: y product id: que corresponden a tu kit epoc especifico. 
 
-Dimensions
-=========
-
-Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible power, phase, or trigger correlations. 
-
-**Relation of parameters:**
-
-**1. Space:** every electrode analyzed have their own distinctive note
-**2. Time:** one bang is create every time a specific dominate frequency appears
-**3. Frequency:** every frequency response to and specific sonic processor
-
-If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
-
-![values](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/rangos.png?raw=true )
-
-Those bangs are converter into specify note and channels depending on the electrode and the frequency:
-
-![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/noteandchannel.png?raw=true ) ![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/notechannel2.png?raw=true)
-
-**Distribution of elements:** 
-
-- Frencuency =  channel
-- Electrode = note 
-- Time =  time (number of times a note is play )
-
-**Number of frequencies: 6**
-1. delta
-2. theta
-3. alpha
-4. smBeta
-5. midBeta
-6. HighBeta
-
-**Electrodes to notes:** (static version)
-AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
-
-**Number of Instruments: 6**
-General description of the instruments
-
-![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
-
-**Displacement of forces over time:**
-This system enables the user to be aware of the displacement of energies moving on the brain. One can notice correlation such as symmetry on electrodes of the same order, same frequency domains in all electrodes, or asymmetrical correlation on left and right side of the brain.
-
-**Scenarios:**
-
-1. all electrodes playing the same channel:
-When all the electrodes are playing the same channel, we are listening to the same interment bing interpreted by 6 possible notes. This means that all the electrodes are correlating the same frequency domain
-
-2. every electrode plays a channel:
-This scenario shows that all de frequencies are in different states in all the electrodes
-
-3. groups of electrodes plays specific channels:
-Every electrode have 6 different possibilities for play a channel over time, this represents the level of energy or the frequency domain that is detected by the system.
 
