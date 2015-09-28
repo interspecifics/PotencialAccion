@@ -81,11 +81,11 @@ Those bangs are converter into specify note and channels depending on the electr
 
 ![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/noteandchannel.png?raw=true ) ![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/notechannel2.png?raw=true)
 
-Distribution of elements 
+**Distribution of elements:** 
 
-**Frencuency =  channel**
-**Electrode = note **
-**Time =  time** (number of times a note is play )
+- Frencuency =  channel
+- Electrode = note 
+- Time =  time (number of times a note is play )
 
 **Number of frequencies: 6**
 1. delta
@@ -102,4 +102,18 @@ AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
 General description of the instruments
 
 ![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
+
+**Displacement of forces over time:**
+This system enables the user to be aware of the displacement of energies moving on the brain. One can notice correlation such as symmetry on electrodes of the same order, same frequency domains in all electrodes, or asymmetrical correlation on left and right side of the brain.
+
+**Scenarios:**
+
+1. all electrodes playing the same channel:
+When all the electrodes are playing the same channel, we are listening to the same interment bing interpreted by 6 possible notes. This means that all the electrodes are correlating the same frequency domain
+
+2. every electrode plays a channel:
+This scenario shows that all de frequencies are in different states in all the electrodes
+
+3. groups of electrodes plays specific channels:
+Every electrode have 6 different possibilities for play a channel over time, this represents the level of energy or the frequency domain that is detected by the system.
 
