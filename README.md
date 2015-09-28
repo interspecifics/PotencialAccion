@@ -3,7 +3,7 @@ Dimensions
 
 Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible power, phase, or trigger correlations. 
 
-**Relation of parameters:**
+#Relation of parameters:
 
      1. Space: every electrode analyzed have their own distinctive note
 
@@ -41,7 +41,7 @@ General description of the instruments
 
 ![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
 
-**Displacement of forces over time:**
+#Displacement of forces over time
 This system enables the user to be aware of the displacement of energies moving on the brain. One can notice correlation such as symmetry on electrodes of the same order, same frequency domains in all electrodes, or asymmetrical correlation on left and right side of the brain.
 
 **Scenarios:**
@@ -75,14 +75,13 @@ A curve from SMR beta to Hight beta
 ![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/diagonalfromDeltatoBeta.png?raw=true)
 A diagonal movement from left to right 
 
-
 **OSC data manager**
 
 the data manager receives messages from our custom osc processing server and distributes them into electrodes and frequencies. a simple low pass filter is apply for every data set.
 ![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/OSCreceiver.png?raw=true)
 
-
 **Correlations**
+
 This part is in charge of the data analysis for the every electrode, If two electrodes meet the same level of frequency over time, and special especial event is trigger over OSC and midi.
 
 ![correlations](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/Correlations.png?raw=true)
