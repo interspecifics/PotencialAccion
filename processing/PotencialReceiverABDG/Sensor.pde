@@ -37,7 +37,7 @@ public class Sensor {
   private String name;
   private PVector location, dimension;
 
-  private short delta, theta, alpha, SMRbeta, Midbeta, Highbeta, gamma;
+  private short delta, theta, alpha, SMRbeta, Midbeta, Highbeta, gamma, craw;
 
   public Sensor(PVector _location, PVector _dimension, String _name) {
     oscOutAddress = new NetAddress(OSC_OUT_HOST, OSC_OUT_PORT);
@@ -78,6 +78,7 @@ public class Sensor {
     Midbeta = 0;
     Highbeta = 0;
     gamma = 0;
+    craw = 0;
 
 
     // GUI for recording channels
@@ -127,7 +128,7 @@ public class Sensor {
     return averageValues[getFromIndex];
   }
 
-  public void setFrequency (short d, short t, short a, short sb, short mb, short hb, short g) {
+  public void setFrequency (short d, short t, short a, short sb, short mb, short hb, short g, short c) {
     delta = d;
     theta = t;
     alpha = a;
@@ -135,6 +136,7 @@ public class Sensor {
     Midbeta = mb;
     Highbeta = hb;
     gamma = g;
+    craw = c;
   }
 
   public void addValue(short val) {
@@ -215,6 +217,12 @@ public class Sensor {
     mMessage.clear();
     mMessage.setAddrPattern(mAddrPatt+"g");
     mMessage.add(gamma);
+    OscP5.flush(mMessage, oscOutAddress);
+    
+    //CRAW
+    mMessage.clear();
+    mMessage.setAddrPattern(mAddrPatt+"c");
+    mMessage.add(craw);
     OscP5.flush(mMessage, oscOutAddress);
   }
 

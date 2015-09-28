@@ -96,7 +96,8 @@ void oscEvent(OscMessage theOscMessage) {
     (short)theOscMessage.get(3).floatValue(),
     (short)theOscMessage.get(4).floatValue(),
     (short)theOscMessage.get(5).floatValue(),
-    (short)theOscMessage.get(6).floatValue());   
+    (short)theOscMessage.get(6).floatValue(),
+    (short)theOscMessage.get(7).floatValue());   
  //println( (short)theOscMessage.get(0).floatValue());   
   }
 }
