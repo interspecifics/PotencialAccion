@@ -62,12 +62,18 @@ python emoOscServer.py
 
 NOTA: es importante que edite el archivo y lo actualices con los datos Serial Number: vendor id: y product id: que corresponden a tu kit epoc especifico. 
 
-________________________________________
+Dimensions
+=========
 
-• OSCnote 
+Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible, power, phase, or trigger correlations. 
 
+**Relation of parameters:**
 
-________________________________________
+1. Space: every electrode analyzed have their own distinctive note
+2. Time: one bang is create every time a specific dominate frequency appears
+3. Frequency: every frequency response to and specific sonic processor
 
+If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
 
+![values](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/rangos.png?raw=true )
 
