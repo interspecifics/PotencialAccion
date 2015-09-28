@@ -5,11 +5,11 @@ Dimensions is a sonification and visualisation system of brain waves activity, u
 
 **Relation of parameters:**
 
-     **1. Space:** every electrode analyzed have their own distinctive note
+     1. Space: every electrode analyzed have their own distinctive note
 
-     **2. Time:** one bang is create every time a specific dominate frequency appears
+     2. Time: one bang is create every time a specific dominate frequency appears
 
-     **3. Frequency:** every frequency response to and specific sonic processor
+     3. Frequency:** every frequency response to and specific sonic processor
 
 If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
 
