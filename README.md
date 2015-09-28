@@ -5,11 +5,11 @@ Dimensions is a sonification and visualisation system of brain waves activity, u
 
 **Relation of parameters:**
 
-**1. Space:** every electrode analyzed have their own distinctive note
+     **1. Space:** every electrode analyzed have their own distinctive note
 
-**2. Time:** one bang is create every time a specific dominate frequency appears
+     **2. Time:** one bang is create every time a specific dominate frequency appears
 
-**3. Frequency:** every frequency response to and specific sonic processor
+     **3. Frequency:** every frequency response to and specific sonic processor
 
 If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
 
@@ -21,20 +21,20 @@ Those bangs are converter into specify note and channels depending on the electr
 
 **Distribution of elements:** 
 
-- Frencuency =  channel
-- Electrode = note 
-- Time =  time (number of times a note is play )
+     - Frencuency =  channel
+     - Electrode = note 
+     - Time =  time (number of times a note is play )
 
 **Number of frequencies: 6**
-1. delta
-2. theta
-3. alpha
-4. smBeta
-5. midBeta
-6. HighBeta
+     1. delta
+     2. theta
+     3. alpha
+     4. smBeta
+     5. midBeta
+     6. HighBeta
 
 **Electrodes to notes:** (static version)
-AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
+     AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
 
 **Number of Instruments: 6**
 General description of the instruments
@@ -67,10 +67,13 @@ Cartesian distribution of elements:
 The following images show some of the possible arrangements for the electrodes to play over time on different frequency levels
 
 ![all alpha](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/allAlpha.png?raw=true)
+All electrodes in alpha energy
 
 ![beta curve](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/betaCurve.png?raw=true)
+A curve from SMR beta to Hight beta
 
 ![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/diagonalfromDeltatoBeta.png?raw=true)
+A diagonal movement from left to right 
 
 
 **OSC data manager**
@@ -79,7 +82,10 @@ the data manager receives messages from our custom osc processing server and dis
 ![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/OSCreceiver.png?raw=true)
 
 
+**Correlations**
+This part is in charge of the data analysis for the every electrode, If two electrodes meet the same level of frequency over time, and special especial event is trigger over OSC and midi.
 
+![correlations](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/Correlations.png?raw=true)
 
 
 
