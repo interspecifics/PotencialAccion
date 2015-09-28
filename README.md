@@ -65,15 +65,41 @@ NOTA: es importante que edite el archivo y lo actualices con los datos Serial Nu
 Dimensions
 =========
 
-Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible, power, phase, or trigger correlations. 
+Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible power, phase, or trigger correlations. 
 
 **Relation of parameters:**
 
-1. Space: every electrode analyzed have their own distinctive note
-2. Time: one bang is create every time a specific dominate frequency appears
-3. Frequency: every frequency response to and specific sonic processor
+**1. Space:** every electrode analyzed have their own distinctive note
+**2. Time:** one bang is create every time a specific dominate frequency appears
+**3. Frequency:** every frequency response to and specific sonic processor
 
 If a frequency meets over the six possible analysis levels we receive a true message that sends a bang. Here and examples using beta values for analysis modules, every frequency have their own maximum (positive) and minimum (negative) thresholds and the phases in in between.
 
 ![values](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/rangos.png?raw=true )
+
+Those bangs are converter into specify note and channels depending on the electrode and the frequency:
+
+![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/noteandchannel.png?raw=true ) ![notes](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/notechannel2.png?raw=true)
+
+Distribution of elements 
+
+**Frencuency =  channel**
+**Electrode = note **
+**Time =  time** (number of times a note is play )
+
+**Number of frequencies: 6**
+1. delta
+2. theta
+3. alpha
+4. smBeta
+5. midBeta
+6. HighBeta
+
+**Electrodes to notes:** (static version)
+AF3 = 70,  F7 = 60,  F4 = 50,  F3 = 55, F8 = 65, AF4 = 75
+
+**Number of Instruments: 6**
+General description of the instruments
+
+![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
 
