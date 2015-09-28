@@ -41,8 +41,8 @@ if __name__ == "__main__":
             count += 1
             if count >=N:
                 for i in range(0,len(chanHist)):
-                    output=[1 for x in range(7)]
-                    norm=[1 for x in range(7)]
+                    output=[1 for x in range(8)]
+                    norm=[1 for x in range(8)]
                     yf = np.abs(scipy.fftpack.fft(chanHist[i]))
                     n = len(chanHist[i])
                     freq = np.fft.fftfreq(n, T)
@@ -77,8 +77,12 @@ if __name__ == "__main__":
                         elif round(freq[j])>35 and round(freq[j])<80 :
                             norm[6]+=1
                             output[6]+=yf[j]
+                        # RAW 0.5 - 80 hz
+                        elif round(freq[j])>0.5 and round(freq[j])<80 :
+                            norm[7]+=1
+                            output[7]+=yf[j]
                         j = j+1
-                        if norm[0]!=0 and norm[1]!=0 and norm[2]!=0 and norm[3]!=0 and norm[4]!=0 and norm[5]!=0 and norm[6]!=0:
+                        if norm[0]!=0 and norm[1]!=0 and norm[2]!=0 and norm[3]!=0 and norm[4]!=0 and norm[5]!=0 and norm[6]!=0 and norm[7]!=0:
                             mOscMessage.clear("/brainWaves/"+SENSOR_LIST.split(' ')[i]+"/")
                             mOscMessage.append(output[0]/norm[0])
                             mOscMessage.append(output[1]/norm[1])
@@ -87,6 +91,7 @@ if __name__ == "__main__":
                             mOscMessage.append(output[4]/norm[4])
                             mOscMessage.append(output[5]/norm[5])
                             mOscMessage.append(output[6]/norm[6])
+                            mOscMessage.append(output[7]/norm[7])
                             mOscClient.send(mOscMessage)
                             #Here we create and send an oscMessage
                            # print str(output[0]/norm[0])+"\t"+str(output[1]/norm[1])+"\t"+str(output[2]/norm[2])+"\t"+str(output[3]/norm[3])
