@@ -1664,7 +1664,7 @@
 #X obj 101 109 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuPeak CPUPeak
 45 7 1 11 -228856 -1 -228856 10 256;
 #X obj 101 122 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuMean CPUMean
-45 7 1 11 -228856 -1 -228856 9 256;
+45 7 1 11 -228856 -1 -228856 8.29 256;
 #X obj 145 -55 cputime;
 #X obj 145 -76 t b b;
 #X text 188 24 (c) musil@iem.kug.ac.at;
@@ -2995,7 +2995,7 @@
 #X obj 842 582 tgl 30 0 startOsc empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 842 615 s startOSC;
-#N canvas 45 22 1280 752 GetOSC 0;
+#N canvas 75 22 1280 752 GetOSC 0;
 #X floatatom -46 193 5 0 0 0 - - -;
 #X floatatom -9 193 5 0 0 0 - - -;
 #X floatatom -84 193 5 0 0 0 - - -;
@@ -3115,11 +3115,11 @@
 #X obj 4 548 s F4mb;
 #X obj 51 548 s F8mb;
 #X obj 101 548 s AF4mb;
-#X obj 217 139 unpackOSC;
-#X text 314 97 recibiendo datos;
-#X obj 218 96 import mrpeach;
-#X obj 281 140 print unpacked;
-#X obj 217 115 udpreceive 8666;
+#X obj 224 51 unpackOSC;
+#X text 321 9 recibiendo datos;
+#X obj 225 8 import mrpeach;
+#X obj 288 52 print unpacked;
+#X obj 224 27 udpreceive 8666;
 #X obj -141 156 routeOSC /potencial/AF3/d /potencial/F7/d /potencial/F3/d
 /potencial/F4/d /potencial/F8/d /potencial/AF4/d;
 #X obj 221 158 routeOSC /potencial/AF3/t /potencial/F7/t /potencial/F3/t
@@ -3197,6 +3197,9 @@
 #X obj 700 364 * 0.2;
 #X obj 700 342 average;
 #X obj 700 406 s F3C;
+#X obj 224 93 resample 20;
+#X floatatom 301 93 5 0 0 0 - - -;
+#X obj 301 73 r speed;
 #X connect 0 0 45 0;
 #X connect 1 0 47 0;
 #X connect 2 0 43 0;
@@ -3287,14 +3290,7 @@
 #X connect 110 0 117 0;
 #X connect 111 0 112 0;
 #X connect 112 0 118 0;
-#X connect 119 0 124 0;
-#X connect 119 0 126 0;
-#X connect 119 0 125 0;
-#X connect 119 0 132 0;
-#X connect 119 0 173 0;
-#X connect 119 0 127 0;
-#X connect 119 0 128 0;
-#X connect 119 0 183 0;
+#X connect 119 0 193 0;
 #X connect 123 0 119 0;
 #X connect 124 0 3 0;
 #X connect 124 1 2 0;
@@ -3386,6 +3382,16 @@
 #X connect 189 0 192 0;
 #X connect 190 0 189 0;
 #X connect 191 0 190 0;
+#X connect 193 0 124 0;
+#X connect 193 0 125 0;
+#X connect 193 0 132 0;
+#X connect 193 0 126 0;
+#X connect 193 0 127 0;
+#X connect 193 0 183 0;
+#X connect 193 0 173 0;
+#X connect 193 0 128 0;
+#X connect 194 0 193 1;
+#X connect 195 0 194 0;
 #X restore 843 636 pd GetOSC;
 #N canvas 149 26 708 752 SendOSC 1;
 #X floatatom 55 134 5 0 0 0 - - -;
@@ -3412,7 +3418,7 @@
 #X floatatom 304 247 5 50 10000 0 - - -;
 #X text 13 -179 send a message to sclang;
 #X obj 279 134 vsl 15 128 50 2000 0 0 empty empty freq_for_SC 0 -9
-0 10 -262144 -1 -1 2644 1;
+0 10 -262144 -1 -1 0 1;
 #X obj 334 189 random 1000;
 #X obj 334 211 + 50;
 #X obj 336 144 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -3759,6 +3765,8 @@
 -1 -1;
 #X obj 818 634 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X floatatom 761 569 5 0 0 0 - - -;
+#X obj 761 589 s speed;
 #X connect 0 0 6 0;
 #X connect 1 0 7 0;
 #X connect 2 0 8 0;
@@ -3844,3 +3852,4 @@
 #X connect 144 0 125 1;
 #X connect 145 0 126 0;
 #X connect 146 0 126 1;
+#X connect 150 0 151 0;
