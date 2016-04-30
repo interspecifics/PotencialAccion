@@ -28,7 +28,7 @@ void setup() {
 
   sNames = SENSOR_LIST.split(" ");
   for (int i=0; i<sNames.length; ++i) {
-    mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/14), new PVector((width-150)-20, height/14-5), sNames[i]));
+    mSensors.put(sNames[i], new Sensor(new PVector(20, i*height/5), new PVector((width-150)-20, height/7-5), sNames[i]));
   }
   lastOscMillis = millis();
   bRecordSensors = false;
