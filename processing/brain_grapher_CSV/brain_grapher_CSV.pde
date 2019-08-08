@@ -1,5 +1,4 @@
 import controlP5.*;        //se crea un comando para importar las librerias necesarias
-import org.json.*; 
 import processing.net.*;
 import oscP5.*;
 import netP5.*;
@@ -151,11 +150,11 @@ void clientEvent(Client  myClient) {
 
     String data = myClient.readString();
     try {
-      JSONObject json = new JSONObject(data);
+      org.json.JSONObject json = new org.json.JSONObject(data);
 
       channels[0].addDataPoint(Integer.parseInt(json.getString("poorSignalLevel")));
 
-      JSONObject esense = json.getJSONObject("eSense");
+      org.json.JSONObject esense = json.getJSONObject("eSense");
       //AQUI!!
       if (esense != null) {
         int valorAtencion = Integer.parseInt(esense.getString("attention"));
@@ -181,7 +180,7 @@ void clientEvent(Client  myClient) {
         println("Meditacion"+ Integer.parseInt(esense.getString("meditation")));
       }
 
-      JSONObject eegPower = json.getJSONObject("eegPower");
+      org.json.JSONObject eegPower = json.getJSONObject("eegPower");
       if (eegPower != null) {
         channels[3].addDataPoint(Integer.parseInt(eegPower.getString("delta")));
         myOscMessage = new OscMessage("/delta");
