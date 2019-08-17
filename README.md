@@ -3,7 +3,7 @@ Dimensions
 
 Dimensions is a sonification and visualisation system of brain waves activity, using topographic values from energy pointers. The main technique is to map every electro and represent the dominant frequencies, looking for possible power, phase, or trigger correlations. 
 
-#Relation of parameters:
+# Relation of parameters:
 
      1. Space: every electrode analyzed have their own distinctive note
 
@@ -41,7 +41,7 @@ General description of the instruments
 
 ![sc instruments](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/supercolliderchannels.png?raw=true)
 
-#Displacement of forces over time
+# Displacement of forces over time
 This system enables the user to be aware of the displacement of energies moving on the brain. One can notice correlation such as symmetry on electrodes of the same order, same frequency domains in all electrodes, or asymmetrical correlation on left and right side of the brain.
 
 **Scenarios:**
@@ -77,7 +77,7 @@ A diagonal movement from left to right
 
 **OSC data manager**
 
-the data manager receives messages from our custom osc processing server and distributes them into electrodes and frequencies. a simple low pass filter is apply for every data set.
+The data manager receives messages from our custom osc processing server and distributes them into electrodes and frequencies. A simple low pass filter is apply for every data set.
 ![diagonal](https://github.com/Lessnullvoid/PotencialAccion/blob/master/img/OSCreceiver.png?raw=true)
 
 **Correlations**
@@ -91,12 +91,12 @@ This part is in charge of the data analysis for the every electrode, If two elec
 Install Potencial Accion SDK
 ===============
 
-Is a series of open source tools for brain wave data analiis and interpretation 
+Is a series of open source tools for brain wave data analysis and interpretation 
 
-Librerias para OS X
+Librerías para OS X
 ===================
 
-- pyOsc:```sudo easy_install pyOsc ``` ( descargar manualmente, navegar a la carpeta e instalar como: ```sudo ./setup.py install```
+- pyOsc:```sudo easy_install pyOsc ``` (descargar manualmente, navegar a la carpeta e instalar como:: ```sudo ./setup.py install```
 
 - hidapi:```brew install hidapi ```
 
@@ -105,7 +105,7 @@ Librerias para OS X
 - gevent:```sudo easy_install gevent ```
 
 - cython-hidapi:  https://github.com/gbishop/cython-hidapi 
-  desgarga y```python setup-mac.py build ``` /```sudo python setup-mac.py install ```
+  download and ```python setup-mac.py build ``` /```sudo python setup-mac.py install ```
 
 - realpath:  ```sudo port install realpath ``` 
 using brew: ( ```brew tap iveney/mocha ```) ( ```brew install realpath ```)
@@ -120,7 +120,7 @@ https://github.com/thiagohersan/emokit navega hasta la carpeta de python y desde
 ```sudo python setup.py install```
 
 
-Después vamos a instalar varías librerias, para esto se recomienda configurar setuptools, esto lo puedes hacer instalando brew. En la terminal: 
+Después vamos a instalar varias librerías, para esto se recomienda configurar `setuptools`, esto lo puedes hacer instalando brew. En la terminal: 
 
 ```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"``` 
 
@@ -138,10 +138,10 @@ Esta herramienta te permite leer archivos csv, para esto solo tienes que correr 
 ________________________________________
 
 • PotencialServer
-El potencialServer corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo emoOscServer.py para ejecutarlo en la terminal:
+El potencialServer corre en conjunto con el emoOscServer, primero te recomendamos correr el programa en processing, depués en la terminal navegar hasta el archivo `emoOscServer.py` para ejecutarlo en la terminal:
 
 python emoOscServer.py
 
-NOTA: es importante que edite el archivo y lo actualices con los datos Serial Number: vendor id: y product id: que corresponden a tu kit epoc especifico. 
+NOTA: es importante que edite el archivo y lo actualices con los datos Serial Number: vendor id: y product id: que corresponden a tu kit epoc específico. 
 
 
